@@ -1,0 +1,967 @@
+<!doctype html>
+<html lang="el"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Práctica de español</title>
+<meta name="description" content="Εξάσκηση στα ισπανικά A1–A2: λέξεις, ρήματα, γραμματική, ακρόαση και επανάληψη.">
+<meta name="theme-color" content="#F4F6FB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1422" media="(prefers-color-scheme: dark)">
+<meta name="robots" content="noindex">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;600;700&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap">
+<style>:root{color-scheme:light;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+<style>
+/* Layout: one phone-width column; tab bar pinned to the bottom, lesson route as a vertical line of stops */
+:root{
+  --bg:#F4F6FB; --surface:#FFFFFF; --ink:#15203A; --muted:#5A6580; --line:#DCE2EE;
+  --accent:#1E5DBF; --accent-ink:#FFFFFF; --accent-soft:#E3ECFA; --sun:#D9911A; --sun-soft:#FCF1DA;
+  --ok:#1B8656; --ok-soft:#E1F3EA; --bad:#C2413A; --bad-soft:#FBE6E4;
+  --f-display:"Literata", Georgia, "Times New Roman", serif;
+  --f-body:"Commissioner", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0E1422; --surface:#161F33; --ink:#E7ECF7; --muted:#9BA7C3; --line:#28324B;
+  --accent:#6FA2FF; --accent-ink:#0B1222; --accent-soft:#1D2B4A; --sun:#F2BE57; --sun-soft:#33291A;
+  --ok:#4CC38A; --ok-soft:#14301F; --bad:#F27A6F; --bad-soft:#3A1C1A; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0E1422; --surface:#161F33; --ink:#E7ECF7; --muted:#9BA7C3; --line:#28324B;
+  --accent:#6FA2FF; --accent-ink:#0B1222; --accent-soft:#1D2B4A; --sun:#F2BE57; --sun-soft:#33291A;
+  --ok:#4CC38A; --ok-soft:#14301F; --bad:#F27A6F; --bad-soft:#3A1C1A; color-scheme:dark}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.45;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible,input:focus-visible,summary:focus-visible,#card:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+svg{width:1em;height:1em;display:block}
+.es,.es2{font-weight:600;color:var(--accent)}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 170px}
+.wrap.quiz{padding-block:0 120px}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:14px 10px;display:flex;align-items:center;gap:12px}
+h1{font-family:var(--f-display);font-weight:700;font-size:1.6rem;line-height:1.1;margin:0;text-wrap:balance;min-width:0}
+h1 small{display:block;font-family:var(--f-body);font-size:.8rem;font-weight:500;color:var(--muted);letter-spacing:.02em;margin-top:4px}
+h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:600;margin:22px 0 10px}
+.sub{color:var(--muted);font-size:.95rem}
+.note{font-size:.82rem;color:var(--muted);margin:8px 0 0}
+/* home */
+.stats{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:8px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;display:flex;flex-direction:column;gap:1px;min-width:0}
+.stat b{font-family:var(--f-display);font-size:1.4rem;font-variant-numeric:tabular-nums;line-height:1.15}
+.stat span{font-size:.76rem;color:var(--muted);line-height:1.25}
+.ic{display:inline-flex;font-size:1.05rem}.ic.sun{color:var(--sun)}.ic.acc{color:var(--accent)}
+.stat.goal{flex-direction:row;align-items:center;gap:10px}
+.ring{--p:0;width:52px;height:52px;flex:none;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ok) calc(var(--p)*1%),var(--line) 0)}
+.ring b{width:40px;height:40px;border-radius:50%;background:var(--surface);display:grid;place-items:center;font-family:var(--f-body);font-size:.72rem;font-weight:700}
+.cont{display:flex;flex-direction:column;gap:2px;text-align:left;width:100%;margin-top:10px;border:0;border-radius:18px;padding:16px 18px;background:var(--accent);color:var(--accent-ink)}
+.cont .k{font-size:.74rem;text-transform:uppercase;letter-spacing:.09em;font-weight:600;opacity:.85}
+.cont .n{font-family:var(--f-display);font-size:1.35rem;font-weight:700;line-height:1.2}
+.cont .s{font-size:.86rem;opacity:.9;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cont:disabled{background:var(--surface);color:var(--muted);border:1px dashed var(--line);cursor:default}
+.units{display:flex;flex-direction:column;gap:6px}
+.unit{display:block;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:10px 12px;width:100%}
+.unit .in{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;align-items:center}
+.unit .num{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:1.05rem;background:var(--bg);border:1px solid var(--line)}
+.unit .num.full{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.unit .t{min-width:0}
+.unit .es{font-weight:600;font-size:.98rem;display:block;color:var(--ink)}
+.unit .gr{font-size:.8rem;color:var(--muted);display:block}
+.unit .bar{display:block;height:4px;border-radius:4px;background:var(--line);margin-top:6px;overflow:hidden}
+.unit .bar i{display:block;height:100%;background:var(--ok);border-radius:4px}
+.unit .pct{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right}
+/* unit route */
+.guidebtn{display:flex;align-items:center;gap:12px;width:100%;text-align:left;border:1.5px solid var(--sun);background:var(--sun-soft);border-radius:var(--r);padding:11px 14px;margin:4px 0 14px;font-size:1.3rem}
+.guidebtn span{display:flex;flex-direction:column;font-size:.95rem;min-width:0}
+.guidebtn small{color:var(--muted);font-size:.8rem}
+.route{display:flex;flex-direction:column;position:relative}
+.route::before{content:"";position:absolute;left:19px;top:22px;bottom:22px;width:2px;background:var(--line)}
+.les{position:relative;display:grid;grid-template-columns:40px minmax(0,1fr) auto;gap:12px;align-items:center;text-align:left;background:none;border:0;padding:8px 0;width:100%}
+.les .dot{width:40px;height:40px;border-radius:50%;background:var(--surface);border:2px solid var(--line);display:grid;place-items:center;font-size:1.1rem;color:var(--muted);z-index:1}
+.les.done .dot{background:var(--ok);border-color:var(--ok);color:var(--surface)}
+.les.cur .dot{border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.les .lt{display:flex;flex-direction:column;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 12px}
+.les.cur .lt{border-color:var(--accent)}
+.les .lt small{color:var(--muted);font-size:.8rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.stars{display:flex;gap:1px;font-size:.95rem;color:var(--line);min-width:48px;justify-content:flex-end}
+.stars i.on{color:var(--sun)}
+.stars em{font-style:normal;font-size:.78rem;font-weight:700;color:var(--accent)}
+/* intro */
+.words{display:flex;flex-direction:column;gap:6px;margin-top:10px}
+.word{display:flex;justify-content:space-between;align-items:center;gap:12px;text-align:left;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px;width:100%}
+.word span{display:flex;flex-direction:column;min-width:0}
+.word i{font-size:.82rem;color:var(--sun)}
+.word .g{text-align:right;font-size:.92rem;color:var(--muted)}
+.rules{padding-left:20px;margin:10px 0 16px}.rules li{margin:5px 0}
+.vt{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-top:10px;overflow:hidden}
+.vh{display:flex;align-items:center;gap:8px;padding:9px 12px;background:var(--accent-soft);flex-wrap:wrap}
+.vh span{font-size:.82rem;color:var(--muted);flex:1;min-width:0}
+.vt table{width:100%;border-collapse:collapse}
+.vt td{padding:6px 12px;border-top:1px solid var(--line);font-size:.95rem}
+.vt td:first-child{color:var(--muted);width:48%}
+/* free practice */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;font-size:.88rem;font-weight:500}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ugrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px}
+.ub{aspect-ratio:1;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;font-family:var(--f-display);font-weight:700;font-size:1.05rem}
+.ub[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.toggles{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.tog{display:flex;align-items:center;gap:10px;border:1.5px solid var(--line);background:var(--surface);border-radius:12px;padding:10px 12px;text-align:left;font-size:.9rem;font-weight:500}
+.tog::before{content:"";width:18px;height:18px;border-radius:5px;border:2px solid var(--line);flex:none}
+.tog[aria-pressed="true"]{border-color:var(--accent)}
+.tog[aria-pressed="true"]::before{background:var(--accent);border-color:var(--accent);box-shadow:inset 0 0 0 3px var(--surface)}
+.seg{display:flex;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:3px;gap:3px}
+.seg button{flex:1;border:0;background:transparent;border-radius:9px;padding:9px 6px;font-size:.9rem;font-weight:500;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600}
+/* docks & nav */
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:6;background:linear-gradient(to top,var(--bg) 72%,transparent);padding-top:18px;padding-bottom:max(14px,env(safe-area-inset-bottom,0px))}
+.dock.up{bottom:calc(62px + env(safe-area-inset-bottom,0px));padding-bottom:10px}
+.dock .in,.nav .in{max-width:560px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.dock .in{display:flex;flex-direction:column;gap:8px}
+.row{display:flex;gap:8px}
+.btn{border:0;border-radius:14px;padding:14px 16px;font-weight:600;font-size:1rem;background:var(--accent);color:var(--accent-ink);width:100%}
+.btn.sec{background:var(--surface);color:var(--ink);border:1.5px solid var(--line)}
+.btn.ok{background:var(--ok);color:var(--surface)}.btn.bad{background:var(--bad);color:var(--surface)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn .n{display:inline-block;min-width:22px;padding:0 6px;border-radius:999px;background:var(--bad);color:#fff;font-size:.78rem;margin-left:6px}
+.nav{position:fixed;left:0;right:0;bottom:0;z-index:7;background:var(--surface);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.nav .in{display:grid;grid-template-columns:repeat(4,1fr)}
+.nav button{position:relative;border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:3px;padding:9px 2px 8px;font-size:.72rem;font-weight:600;color:var(--muted)}
+.nav button svg{font-size:1.35rem}
+.nav button[aria-current="true"]{color:var(--accent)}
+.nav i{position:absolute;top:5px;left:calc(50% + 6px);font-style:normal;background:var(--bad);color:#fff;border-radius:999px;font-size:.66rem;min-width:17px;padding:0 4px;line-height:17px;text-align:center}
+/* quiz */
+.qtop{display:flex;align-items:center;gap:12px;width:100%}
+.x{border:1px solid var(--line);background:var(--surface);border-radius:10px;width:38px;height:38px;flex:none;font-size:1.1rem;display:grid;place-items:center}
+.prog{flex:1;height:8px;background:var(--line);border-radius:8px;overflow:hidden}
+.prog i{display:block;height:100%;background:var(--ok);transition:width .25s}
+.cnt{font-size:.85rem;color:var(--muted);font-variant-numeric:tabular-nums;min-width:44px;text-align:right}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:18px 16px;margin-top:6px}
+.card.center{text-align:center}
+.lbl{display:inline-flex;gap:6px;align-items:center;font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.lbl em{font-style:normal;background:var(--sun-soft);color:var(--ink);border-radius:6px;padding:2px 7px;letter-spacing:.04em}
+.lbl em.re{background:var(--bad-soft)}
+.prompt{font-family:var(--f-display);font-size:1.55rem;line-height:1.25;margin:12px 0 4px;overflow-wrap:anywhere;text-wrap:balance}
+.prompt.big{font-size:2.6rem;font-variant-numeric:tabular-nums}.prompt.sm{font-size:1.35rem}
+.blank{display:inline-block;min-width:56px;border-bottom:3px solid var(--sun);margin:0 2px}
+.pron{color:var(--sun);font-style:italic;font-size:.95rem}
+.say{border:1px solid var(--line);background:var(--bg);border-radius:999px;padding:6px 12px;font-size:.85rem;font-weight:600;display:inline-flex;align-items:center;gap:6px;margin-top:10px}
+.say.sm{margin:0;padding:6px 9px}
+.audio{display:flex;align-items:center;gap:12px;margin:14px 0 4px}
+.play{width:72px;height:72px;border-radius:50%;border:0;background:var(--accent);color:var(--accent-ink);font-size:2rem;display:grid;place-items:center}
+.audio .say{margin:0}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.opts.two{flex-direction:row}.opts.two .opt{flex:1;text-align:center;font-family:var(--f-display);font-size:1.4rem;font-weight:700}
+.opt{text-align:left;border:1.5px solid var(--line);background:var(--surface);border-radius:14px;padding:13px 14px;font-size:1.02rem;min-height:50px}
+.opt.ok{border-color:var(--ok);background:var(--ok-soft)}.opt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.opt:disabled{cursor:default}
+.inp{width:100%;font:inherit;font-size:1.15rem;padding:13px 14px;border-radius:14px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink);margin-top:14px}
+.keys{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.key{border:1px solid var(--line);background:var(--surface);border-radius:9px;min-width:40px;height:40px;font-size:1.05rem;font-weight:600}
+.skip{background:none;border:0;color:var(--muted);text-decoration:underline;font-size:.88rem;padding:8px 0;margin-top:4px;display:block}
+.built{min-height:58px;border-bottom:2px solid var(--line);display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 0;margin-top:12px}
+.built.ok{border-color:var(--ok)}.built.bad{border-color:var(--bad)}
+.built .ph{color:var(--muted);font-size:.9rem}
+.tiles{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.tile{border:1.5px solid var(--line);border-bottom-width:3px;background:var(--surface);border-radius:11px;padding:8px 12px;font-size:1.02rem;min-height:42px}
+.tile.used{color:transparent;background:var(--line);border-color:var(--line)}
+.match{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px}
+.match>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.mt{border:1.5px solid var(--line);border-bottom-width:3px;background:var(--surface);border-radius:12px;padding:9px 8px;min-height:56px;font-size:.92rem;overflow-wrap:anywhere}
+.mt.sel{border-color:var(--accent);background:var(--accent-soft)}
+.mt.ok{border-color:var(--ok);background:var(--ok-soft);opacity:.55}
+.mt.bad{border-color:var(--bad);background:var(--bad-soft)}
+.fb{border-radius:16px;padding:14px 16px;margin-top:12px;border:1.5px solid}
+.fb.ok{background:var(--ok-soft);border-color:var(--ok)}.fb.bad{background:var(--bad-soft);border-color:var(--bad)}
+.fb b.h{display:block;font-size:1.05rem;margin-bottom:4px}
+.fb .ans{font-family:var(--f-display);font-size:1.2rem;font-weight:700;overflow-wrap:anywhere}
+.fb .you{font-family:var(--f-display);font-size:1.2rem;overflow-wrap:anywhere}
+.cmp{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 12px;align-items:baseline}
+.cmp span{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+mark{background:none;color:inherit}
+mark.dx{color:var(--bad);text-decoration:line-through;text-decoration-thickness:2px}
+mark.dn{color:var(--ok);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px}
+.fb .tr{margin-top:6px;font-size:.92rem}
+.fb .ex{margin-top:4px;font-size:.88rem;color:var(--muted)}
+.fb .acc{margin-top:6px;font-size:.88rem;background:var(--sun-soft);border-radius:8px;padding:6px 9px}
+.more{margin-top:8px}.more summary{cursor:pointer;font-size:.9rem;font-weight:600;padding:6px 0}
+/* results */
+.bigstars{display:flex;justify-content:center;gap:6px;font-size:2.4rem;color:var(--line)}.bigstars i.on{color:var(--sun)}
+.score{font-family:var(--f-display);font-size:3.2rem;font-weight:700;line-height:1;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.gain{display:flex;justify-content:center;gap:18px;margin-top:12px;font-weight:600;font-size:.95rem}.gain>span{display:inline-flex;align-items:center;gap:5px}
+.wrong{display:flex;flex-direction:column;gap:6px}
+.wrong div{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--bad);border-radius:10px;padding:9px 12px;font-size:.92rem}
+.wrong div span{display:block;color:var(--muted);font-size:.84rem}
+/* review */
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 12px 10px;height:118px}
+.week div{display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:6px;height:100%}
+.week i{width:100%;max-width:26px;border-radius:6px;background:var(--line)}
+.week i.some{background:var(--accent)}.week i.hit{background:var(--ok)}
+.week span{font-size:.72rem;color:var(--muted)}
+.tbl{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.trow{display:grid;grid-template-columns:22px minmax(0,1fr) auto auto 38px;gap:8px;align-items:center;padding:8px 12px;border-top:1px solid var(--line);font-size:.82rem}
+.trow:first-child{border-top:0}
+.trow b{font-family:var(--f-display)}.trow span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.trow em{font-style:normal;color:var(--muted);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+/* theory */
+.th{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px;margin-top:10px}
+.th h3{font-family:var(--f-display);font-size:1.15rem;margin:0 0 6px}
+.th p{margin:6px 0;font-size:.95rem}
+.tw{overflow-x:auto;margin:8px 0}
+.th table{border-collapse:collapse;width:100%;font-size:.9rem}
+.th th{text-align:left;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:5px 8px;border-bottom:2px solid var(--line);white-space:nowrap}
+.th td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
+.th td:first-child{color:var(--muted)}
+.exs{display:flex;flex-direction:column;gap:5px;margin-top:8px}
+.exr{display:flex;flex-direction:column;text-align:left;border:0;border-left:3px solid var(--accent);background:var(--bg);border-radius:0 9px 9px 0;padding:7px 11px;width:100%}
+.exr span{font-size:.86rem;color:var(--muted)}
+.tip{background:var(--sun-soft);border-radius:10px;padding:8px 11px;margin-top:10px;font-size:.9rem}
+/* flashcards */
+.flash{perspective:1200px;margin-top:8px}
+.fc{position:relative;height:300px;transition:transform .45s;transform-style:preserve-3d;cursor:pointer}
+.fc.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--surface);border:1px solid var(--line);border-radius:20px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;gap:6px}
+.face.back{transform:rotateY(180deg);background:var(--accent-soft)}
+.face .w{font-family:var(--f-display);font-size:2rem;font-weight:700;overflow-wrap:anywhere}
+.face .hint{font-size:.8rem;color:var(--muted);position:absolute;bottom:14px}
+@media (prefers-reduced-motion: reduce){.fc,.prog i{transition:none}}
+.pack{display:flex;flex-direction:column;gap:6px;margin-top:10px;border:1.5px dashed var(--sun);background:var(--sun-soft);border-radius:var(--r);padding:14px 16px;cursor:pointer}
+.pack span{font-size:.9rem}.pack input,.packlink input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+.pack em{font-style:normal;align-self:flex-start;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 14px;font-weight:600;margin-top:4px}
+.pack i{font-style:normal;color:var(--bad);font-size:.88rem}
+.pack:focus-within,.packlink:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.packlink{display:inline-block;margin-top:10px;font-size:.85rem;color:var(--muted);text-decoration:underline;cursor:pointer}
+</style>
+
+<div id="app"></div>
+
+<script>
+const DATA = {"units":{"1":{"es":"Presentaciones","gr":"Γνωριμία","g":"ser · llamarse · γένος · para/porque"},"2":{"es":"La rutina y la hora","gr":"Ρουτίνα και ώρα","g":"η ώρα · ενεστώτας · αυτοπαθή"},"3":{"es":"El barrio y la casa","gr":"Γειτονιά και σπίτι","g":"hay/está/es · άρθρα · κατευθύνσεις"},"4":{"es":"La familia y el carácter","gr":"Οικογένεια και χαρακτήρας","g":"κτητικά · δεικτικά · ανώμαλα ρήματα"},"5":{"es":"Gustos y tiempo libre","gr":"Προτιμήσεις και ελεύθερος χρόνος","g":"gustar · ir a/en · estar + gerundio"},"6":{"es":"Ropa, aspecto y clima","gr":"Ρούχα, εμφάνιση, καιρός","g":"χρώματα · tener que · ρούχα · καιρός"},"7":{"es":"Comida y vida sana","gr":"Φαγητό και υγιεινή ζωή","g":"es bueno + απαρ. · reírse, vestirse"},"8":{"es":"Lo que he vivido","gr":"Εμπειρίες","g":"παρακείμενος (he hablado)"},"9":{"es":"La salud","gr":"Υγεία","g":"doler · deber/poder"},"10":{"es":"Naturaleza y clima","gr":"Φύση και κλίμα","g":"συγκριτικά · αντωνυμίες OD"},"11":{"es":"Estudios y trabajo","gr":"Σπουδές και δουλειά","g":"αόριστος ομαλός"},"12":{"es":"Excursiones","gr":"Εκδρομές","g":"αόριστος ανώμαλος · mío/tuyo"},"13":{"es":"Antes y ahora","gr":"Πριν και τώρα","g":"παρατατικός"},"14":{"es":"El deporte","gr":"Αθλητισμός","g":"προστακτική (tú)"}},"vocab":{},"fill":{"1":[{"s":"Yo ___ griego.","a":["soy"],"o":["soy","estoy","es","eres"],"t":"Είμαι Έλληνας.","x":"ser + εθνικότητα"},{"s":"¿Cómo te ___?","a":["llamas"],"o":["llamas","llamo","llama","llaman"],"t":"Πώς σε λένε;","x":"te → tú → llamas"},{"s":"Ella ___ médica.","a":["es"],"o":["es","está","hay","son"],"t":"Αυτή είναι γιατρός.","x":"ser + επάγγελμα, χωρίς άρθρο"},{"s":"Nosotros ___ (trabajar) en un hospital.","a":["trabajamos"],"o":["trabajamos","trabajáis","trabajan","trabajo"],"t":"Δουλεύουμε σε ένα νοσοκομείο.","x":"nosotros → -amos"},{"s":"Estudio español ___ viajar a México.","a":["para"],"o":["para","porque","por qué","pero"],"t":"Μαθαίνω ισπανικά για να ταξιδέψω στο Μεξικό.","x":"para + απαρέμφατο = για να"},{"s":"Estudio español ___ me gusta la cultura.","a":["porque"],"o":["porque","para","por qué","pero"],"t":"Μαθαίνω ισπανικά επειδή μου αρέσει ο πολιτισμός.","x":"porque + κλιμένο ρήμα = επειδή"},{"s":"___ hablo francés.","a":["no"],"o":["No","Ni","Nada","Sin"],"t":"Δεν μιλάω γαλλικά.","x":"άρνηση: no πριν από το ρήμα"},{"s":"Él es profesor y ella es ___.","a":["profesora"],"o":["profesora","profesor","profesoro","profesores"],"t":"Αυτός είναι καθηγητής κι αυτή καθηγήτρια.","x":"σύμφωνο → + a"},{"s":"Ana es ___ (francés).","a":["francesa"],"o":["francesa","francés","francésa","franceses"],"t":"Η Άννα είναι Γαλλίδα.","x":"+a και φεύγει ο τόνος"},{"s":"Ella es ___ (cantante).","a":["cantante"],"o":["cantante","cantanta","cantantes","cantanto"],"t":"Αυτή είναι τραγουδίστρια.","x":"-ante δεν αλλάζει στο θηλυκό"},{"s":"¿___ años tienes?","a":["cuántos"],"o":["Cuántos","Cuántas","Qué","Cómo"],"t":"Πόσο χρονών είσαι;","x":"el año → αρσενικό → cuántos"},{"s":"Mis amigos ___ de Italia.","a":["son"],"o":["son","es","sois","somos"],"t":"Οι φίλοι μου είναι από την Ιταλία.","x":"ellos → son"},{"s":"Pedro y tú ___ españoles.","a":["sois"],"o":["sois","son","somos","es"],"t":"Εσύ κι ο Πέδρο είστε Ισπανοί.","x":"εσύ + αυτός = vosotros → sois"},{"s":"Hablo griego ___ inglés.","a":["e"],"o":["e","y","o","u"],"t":"Μιλάω ελληνικά και αγγλικά.","x":"το y γίνεται e πριν από i-/hi-"},{"s":"¿De dónde ___ (tú)?","a":["eres"],"o":["eres","es","soy","estás"],"t":"Από πού είσαι;","x":"tú → eres"},{"s":"Yo ___ veinte años.","a":["tengo"],"o":["tengo","soy","estoy","tiene"],"t":"Είμαι είκοσι χρονών.","x":"η ηλικία λέγεται με tener"},{"s":"Ella ___ llama Marta.","a":["se"],"o":["se","me","te","le"],"t":"Τη λένε Μάρτα.","x":"ella → se llama"},{"s":"___ gusto.","a":["mucho"],"o":["Mucho","Muy","Mucha","Buen"],"t":"Χάρηκα.","x":"σταθερή φράση: Mucho gusto"},{"s":"Buenas ___, son las diez de la noche.","a":["noches"],"o":["noches","tardes","días","mañanas"],"t":"Καλησπέρα, είναι δέκα το βράδυ.","x":"το βράδυ: buenas noches"},{"s":"Soy ___ Grecia.","a":["de"],"o":["de","en","a","del"],"t":"Είμαι από την Ελλάδα.","x":"ser de + χώρα"},{"s":"Trabajo ___ una oficina.","a":["en"],"o":["en","a","de","por"],"t":"Δουλεύω σε ένα γραφείο.","x":"trabajar en + χώρος"},{"s":"Tú ___ (hablar) muy bien español.","a":["hablas"],"o":["hablas","hablo","habla","habláis"],"t":"Μιλάς πολύ καλά ισπανικά.","x":"tú → -as"}],"2":[{"s":"___ las cinco y media.","a":["son"],"o":["Son","Es","Está","Hay"],"t":"Είναι πεντέμισι.","x":"για όλες τις ώρες εκτός από τη μία: son las"},{"s":"___ la una y cuarto.","a":["es"],"o":["Es","Son","Está","Hay"],"t":"Είναι μία και τέταρτο.","x":"μόνο για τη μία: es la una"},{"s":"Me levanto ___ las siete.","a":["a"],"o":["a","en","de","por"],"t":"Σηκώνομαι στις επτά.","x":"a las + ώρα = στις"},{"s":"Estudio ___ la tarde.","a":["por"],"o":["por","de","a","en"],"t":"Διαβάζω το απόγευμα.","x":"χωρίς ώρα: por la tarde"},{"s":"Son las ocho ___ la mañana.","a":["de"],"o":["de","por","a","en"],"t":"Είναι οκτώ το πρωί.","x":"με ώρα: de la mañana"},{"s":"Trabajo de nueve ___ cinco.","a":["a"],"o":["a","en","por","con"],"t":"Δουλεύω από τις εννιά μέχρι τις πέντε.","x":"de … a = από … μέχρι"},{"s":"Desayuno antes de ___ a clase.","a":["ir"],"o":["ir","voy","va","vas"],"t":"Τρώω πρωινό πριν πάω στο μάθημα.","x":"antes de + απαρέμφατο"},{"s":"Nosotros ___ (cenar) a las nueve.","a":["cenamos"],"o":["cenamos","cenáis","cenan","ceno"],"t":"Τρώμε βραδινό στις εννιά.","x":"-ar, nosotros → -amos"},{"s":"¿A qué hora te ___ (levantarse)?","a":["levantas"],"o":["levantas","levanto","levanta","levantan"],"t":"Τι ώρα σηκώνεσαι;","x":"te … -as"},{"s":"Ella ___ ducha por la mañana.","a":["se"],"o":["se","te","me","le"],"t":"Αυτή κάνει ντους το πρωί.","x":"αυτοπαθές: ella → se"},{"s":"Yo ___ llamo Carmen.","a":["me"],"o":["me","te","se","mi"],"t":"Με λένε Κάρμεν.","x":"yo → me"},{"s":"Los sábados ___ (yo, leer) el periódico.","a":["leo"],"o":["leo","lee","lees","leer"],"t":"Τα Σάββατα διαβάζω εφημερίδα.","x":"yo → -o"},{"s":"¿Qué hora ___?","a":["es"],"o":["es","son","está","hay"],"t":"Τι ώρα είναι;","x":"η ερώτηση είναι πάντα ¿Qué hora es?"},{"s":"Ellos ___ (vivir) en Madrid.","a":["viven"],"o":["viven","vivimos","vive","vivís"],"t":"Αυτοί μένουν στη Μαδρίτη.","x":"-ir, ellos → -en"},{"s":"Son las tres ___ cuarto. (3:15)","a":["y"],"o":["y","menos","de","con"],"t":"Είναι τρεις και τέταρτο.","x":"μέχρι τις :30 → y"},{"s":"Son las cuatro ___ cuarto. (3:45)","a":["menos"],"o":["menos","y","de","a"],"t":"Είναι τέσσερις παρά τέταρτο.","x":"μετά τις :30 → επόμενη ώρα + menos"},{"s":"Son las seis y ___. (6:30)","a":["media"],"o":["media","medio","cuarto","mitad"],"t":"Είναι εξίμισι.","x":"y media = και μισή"},{"s":"Son las diez ___ punto.","a":["en"],"o":["en","a","de","y"],"t":"Είναι δέκα ακριβώς.","x":"en punto = ακριβώς"},{"s":"¿A qué hora ___ (tú, cenar)?","a":["cenas"],"o":["cenas","ceno","cena","cenáis"],"t":"Τι ώρα τρως βραδινό;","x":"tú → -as"},{"s":"La clase es ___ las seis.","a":["a"],"o":["a","en","de","por"],"t":"Το μάθημα είναι στις έξι.","x":"a las + ώρα = στις"},{"s":"Leo después de ___.","a":["cenar"],"o":["cenar","ceno","cena","cenando"],"t":"Διαβάζω μετά το βραδινό.","x":"después de + απαρέμφατο"},{"s":"Nosotros nos ___ (levantarse) temprano.","a":["levantamos"],"o":["levantamos","levantáis","levantan","levanto"],"t":"Σηκωνόμαστε νωρίς.","x":"nos … -amos"},{"s":"___ lunes voy al gimnasio. (κάθε Δευτέρα)","a":["los"],"o":["Los","El","En","A"],"t":"Τις Δευτέρες πάω γυμναστήριο.","x":"los lunes = κάθε Δευτέρα"},{"s":"Vosotros ___ (comer) a las dos.","a":["coméis"],"o":["coméis","comemos","comen","comes"],"t":"Τρώτε στις δύο.","x":"vosotros, -er → -éis"}],"3":[{"s":"En mi barrio ___ un parque.","a":["hay"],"o":["hay","está","es","son"],"t":"Στη γειτονιά μου υπάρχει ένα πάρκο.","x":"hay + un/una"},{"s":"El museo ___ en el centro.","a":["está"],"o":["está","hay","es","son"],"t":"Το μουσείο είναι στο κέντρο.","x":"el/la + está = πού βρίσκεται"},{"s":"Mi barrio ___ tranquilo.","a":["es"],"o":["es","está","hay","son"],"t":"Η γειτονιά μου είναι ήσυχη.","x":"ser = περιγραφή"},{"s":"¿Dónde ___ los bancos?","a":["están"],"o":["están","hay","son","está"],"t":"Πού είναι οι τράπεζες;","x":"los … → están"},{"s":"Hay ___ farmacia en la esquina.","a":["una"],"o":["una","la","un","el"],"t":"Υπάρχει ένα φαρμακείο στη γωνία.","x":"hay + αόριστο άρθρο"},{"s":"___ farmacia está al lado del banco.","a":["la"],"o":["La","Una","El","Un"],"t":"Το φαρμακείο είναι δίπλα στην τράπεζα.","x":"está + οριστικό άρθρο"},{"s":"Vivo en el ___ piso. (3ος)","a":["tercer"],"o":["tercer","tercero","tercera","tres"],"t":"Μένω στον τρίτο όροφο.","x":"tercero → tercer πριν από αρσενικό"},{"s":"Toma la ___ calle a la derecha. (2ος)","a":["segunda"],"o":["segunda","segundo","dos","secunda"],"t":"Πάρε τον δεύτερο δρόμο δεξιά.","x":"la calle → θηλυκό"},{"s":"El cine está cerca ___ la plaza.","a":["de"],"o":["de","a","en","por"],"t":"Το σινεμά είναι κοντά στην πλατεία.","x":"cerca de / lejos de"},{"s":"El gimnasio está ___ una esquina.","a":["en"],"o":["en","de","a","por"],"t":"Το γυμναστήριο είναι σε μια γωνία.","x":"θέση: en"},{"s":"El teatro está ___ la izquierda.","a":["a"],"o":["a","en","de","por"],"t":"Το θέατρο είναι αριστερά.","x":"a la derecha / a la izquierda"},{"s":"Está ___ unos diez minutos a pie.","a":["a"],"o":["a","en","de","por"],"t":"Είναι περίπου δέκα λεπτά με τα πόδια.","x":"απόσταση: a"},{"s":"¿___ hay en tu barrio?","a":["qué"],"o":["Qué","Cómo","Dónde","Cuál"],"t":"Τι υπάρχει στη γειτονιά σου;","x":"Qué = τι"},{"s":"Voy ___ cine.","a":["al"],"o":["al","a el","del","en"],"t":"Πάω σινεμά.","x":"a + el = al"},{"s":"Madrid ___ en España.","a":["está"],"o":["está","es","hay","son"],"t":"Η Μαδρίτη βρίσκεται στην Ισπανία.","x":"πού βρίσκεται → estar"},{"s":"Madrid ___ una ciudad grande.","a":["es"],"o":["es","está","hay","son"],"t":"Η Μαδρίτη είναι μεγάλη πόλη.","x":"τι είναι → ser"},{"s":"En Madrid ___ muchos museos.","a":["hay"],"o":["hay","están","son","es"],"t":"Στη Μαδρίτη υπάρχουν πολλά μουσεία.","x":"hay + muchos"},{"s":"¿___ una farmacia por aquí?","a":["hay"],"o":["Hay","Está","Es","Son"],"t":"Υπάρχει φαρμακείο εδώ γύρω;","x":"ρωτάς αν υπάρχει → hay"},{"s":"¿Dónde ___ la farmacia?","a":["está"],"o":["está","hay","es","son"],"t":"Πού είναι το φαρμακείο;","x":"la + está"},{"s":"No ___ metro en mi barrio.","a":["hay"],"o":["hay","está","es","son"],"t":"Δεν υπάρχει μετρό στη γειτονιά μου.","x":"no hay = δεν υπάρχει"},{"s":"Las calles ___ estrechas.","a":["son"],"o":["son","están","hay","es"],"t":"Οι δρόμοι είναι στενοί.","x":"περιγραφή → ser"},{"s":"La estación está lejos ___ aquí.","a":["de"],"o":["de","a","en","por"],"t":"Ο σταθμός είναι μακριά από εδώ.","x":"lejos de"},{"s":"El banco está al lado ___ supermercado.","a":["del"],"o":["del","de","al","en el"],"t":"Η τράπεζα είναι δίπλα στο σούπερ μάρκετ.","x":"de + el = del"},{"s":"Sigue todo ___.","a":["recto"],"o":["recto","derecha","cerca","esquina"],"t":"Συνέχισε ευθεία.","x":"todo recto = ευθεία"},{"s":"Gira ___ la derecha.","a":["a"],"o":["a","en","de","por"],"t":"Στρίψε δεξιά.","x":"a la derecha"},{"s":"Hay ___ parques en mi barrio. (δύο)","a":["dos"],"o":["dos","los","el","unas"],"t":"Υπάρχουν δύο πάρκα στη γειτονιά μου.","x":"hay + αριθμός"}],"4":[{"s":"___ hermanos se llaman Juan y Luis.","a":["mis"],"o":["Mis","Mi","Míos","Sus"],"t":"Τα αδέλφια μου λέγονται Χουάν και Λουίς.","x":"πληθυντικός → mis"},{"s":"¿Cómo se llama ___ madre? (η μητέρα σου)","a":["tu"],"o":["tu","tú","tus","su"],"t":"Πώς λέγεται η μητέρα σου;","x":"tu (χωρίς τόνο) = σου"},{"s":"Juan y Ana son ___ padres. (μας)","a":["nuestros"],"o":["nuestros","nuestras","nuestro","vuestros"],"t":"Ο Χουάν και η Άννα είναι οι γονείς μας.","x":"nuestro συμφωνεί με το padres"},{"s":"La madre de mi madre es mi ___.","a":["abuela"],"o":["abuela","tía","prima","sobrina"],"t":"Η μητέρα της μητέρας μου είναι η γιαγιά μου.","x":"abuelo/a = παππούς/γιαγιά"},{"s":"El hijo de mi hermano es mi ___.","a":["sobrino"],"o":["sobrino","nieto","primo","tío"],"t":"Ο γιος του αδελφού μου είναι ο ανιψιός μου.","x":"sobrino = ανιψιός"},{"s":"___ chico de aquí es mi primo.","a":["este"],"o":["Este","Esta","Ese","Aquella"],"t":"Αυτό το αγόρι εδώ είναι ο ξάδελφός μου.","x":"εδώ → este/esta"},{"s":"___ casa de allí es muy antigua.","a":["aquella"],"o":["Aquella","Aquel","Esta","Este"],"t":"Εκείνο το σπίτι εκεί πέρα είναι πολύ παλιό.","x":"μακριά → aquel/aquella"},{"s":"Mi hermana es ___ simpática.","a":["muy"],"o":["muy","mucho","mucha","muchas"],"t":"Η αδελφή μου είναι πολύ συμπαθητική.","x":"muy + επίθετο"},{"s":"Yo ___ (querer) un café.","a":["quiero"],"o":["quiero","quero","quieres","queremos"],"t":"Θέλω έναν καφέ.","x":"e → ie"},{"s":"Nosotros no ___ (poder) venir.","a":["podemos"],"o":["podemos","puedemos","pueden","puedo"],"t":"Δεν μπορούμε να έρθουμε.","x":"nosotros: χωρίς αλλαγή ρίζας"},{"s":"¿A qué hora ___ (empezar) la clase?","a":["empieza"],"o":["empieza","empeza","empiezan","empiezo"],"t":"Τι ώρα αρχίζει το μάθημα;","x":"e → ie"},{"s":"Mis amigos ___ (venir) mañana.","a":["vienen"],"o":["vienen","venen","vengo","venimos"],"t":"Οι φίλοι μου έρχονται αύριο.","x":"e → ie"},{"s":"Yo no ___ (saber) la respuesta.","a":["sé"],"o":["sé","sabo","sabe","se"],"t":"Δεν ξέρω την απάντηση.","x":"saber → yo sé"},{"s":"Ellos son muy ___ (simpático).","a":["simpáticos"],"o":["simpáticos","simpático","simpáticas","simpática"],"t":"Αυτοί είναι πολύ συμπαθητικοί.","x":"συμφωνία: αρσενικό πληθυντικός"},{"s":"Mis hermanas son ___ (trabajador).","a":["trabajadoras"],"o":["trabajadoras","trabajadores","trabajadora","trabajador"],"t":"Οι αδελφές μου είναι εργατικές.","x":"-or → -ora → -oras"},{"s":"___ padres viven en Atenas. (οι γονείς του)","a":["sus"],"o":["Sus","Su","Suyos","Tus"],"t":"Οι γονείς του μένουν στην Αθήνα.","x":"πληθυντικός → sus"},{"s":"___ libros de aquí son nuevos.","a":["estos"],"o":["Estos","Estas","Este","Aquellas"],"t":"Αυτά τα βιβλία εδώ είναι καινούργια.","x":"αρσενικό πληθυντικός, εδώ → estos"},{"s":"Mi abuelo es ___ mayor.","a":["muy"],"o":["muy","mucho","muchos","mucha"],"t":"Ο παππούς μου είναι πολύ μεγάλος.","x":"muy + επίθετο"},{"s":"Yo ___ (pensar) mucho en mi familia.","a":["pienso"],"o":["pienso","penso","piensa","pensamos"],"t":"Σκέφτομαι πολύ την οικογένειά μου.","x":"e → ie"},{"s":"¿Tú ___ (dormir) bien?","a":["duermes"],"o":["duermes","dormes","duermo","dormís"],"t":"Κοιμάσαι καλά;","x":"o → ue"},{"s":"Ella ___ (pedir) un café.","a":["pide"],"o":["pide","pede","pido","pedimos"],"t":"Παραγγέλνει έναν καφέ.","x":"e → i"}],"5":[{"s":"Me ___ el cine.","a":["gusta"],"o":["gusta","gustan","gusto","gustas"],"t":"Μου αρέσει το σινεμά.","x":"ενικός → gusta"},{"s":"Me ___ los conciertos.","a":["gustan"],"o":["gustan","gusta","gusto","gustamos"],"t":"Μου αρέσουν οι συναυλίες.","x":"πληθυντικός → gustan"},{"s":"¿Te ___ bailar?","a":["gusta"],"o":["gusta","gustan","gustas","gusto"],"t":"Σου αρέσει να χορεύεις;","x":"με απαρέμφατο → gusta"},{"s":"A Ana ___ gusta la música.","a":["le"],"o":["le","se","la","me"],"t":"Στην Άννα αρέσει η μουσική.","x":"σε αυτόν/αυτή → le"},{"s":"A nosotros ___ gusta viajar.","a":["nos"],"o":["nos","os","les","me"],"t":"Σε εμάς αρέσει να ταξιδεύουμε.","x":"εμάς → nos"},{"s":"–Me gusta el fútbol. –A mí ___. (κι εμένα)","a":["también"],"o":["también","tampoco","sí","no"],"t":"–Μου αρέσει το ποδόσφαιρο. –Κι εμένα.","x":"συμφωνία με καταφατική → también"},{"s":"–No me gusta el café. –A mí ___. (ούτε εμένα)","a":["tampoco"],"o":["tampoco","también","sí","no"],"t":"–Δεν μου αρέσει ο καφές. –Ούτε εμένα.","x":"συμφωνία με αρνητική → tampoco"},{"s":"–No me gusta correr. –A mí ___. (εμένα ναι)","a":["sí"],"o":["sí","también","tampoco","no"],"t":"–Δεν μου αρέσει το τρέξιμο. –Εμένα ναι.","x":"διαφωνία με αρνητική → sí"},{"s":"Los sábados ___ (yo, salir) con amigos.","a":["salgo"],"o":["salgo","salo","sales","sale"],"t":"Τα Σάββατα βγαίνω με φίλους.","x":"salir → yo salgo"},{"s":"¿Qué ___ (tú, hacer) el fin de semana?","a":["haces"],"o":["haces","hago","hace","haz"],"t":"Τι κάνεις το Σαββατοκύριακο;","x":"tú → -es"},{"s":"Yo ___ (preferir) el teatro.","a":["prefiero"],"o":["prefiero","prefero","prefieres","preferimos"],"t":"Προτιμώ το θέατρο.","x":"e → ie"},{"s":"Voy ___ tren.","a":["en"],"o":["en","a","por","con"],"t":"Πάω με τρένο.","x":"μέσο μεταφοράς: en"},{"s":"Voy ___ pie.","a":["a"],"o":["a","en","por","con"],"t":"Πάω με τα πόδια.","x":"a pie"},{"s":"Ahora ___ comiendo. (εγώ)","a":["estoy"],"o":["estoy","soy","está","hay"],"t":"Τώρα τρώω.","x":"estar + gerundio"},{"s":"Mi hermano está ___ (leer) un libro.","a":["leyendo"],"o":["leyendo","leiendo","leendo","leído"],"t":"Ο αδελφός μου διαβάζει ένα βιβλίο.","x":"leer → leyendo"},{"s":"A mí ___ gusta el chocolate.","a":["me"],"o":["me","mi","yo","te"],"t":"Εμένα μου αρέσει η σοκολάτα.","x":"a mí → me"},{"s":"¿A ti ___ gustan los perros?","a":["te"],"o":["te","tu","le","ti"],"t":"Εσένα σου αρέσουν τα σκυλιά;","x":"a ti → te"},{"s":"Me ___ (encantar) la música.","a":["encanta"],"o":["encanta","encantan","encanto","encantas"],"t":"Λατρεύω τη μουσική.","x":"encantar κλίνεται όπως το gustar"},{"s":"Mañana voy ___ estudiar.","a":["a"],"o":["a","de","en","que"],"t":"Αύριο θα διαβάσω.","x":"ir a + απαρέμφατο = θα"},{"s":"Estamos ___ (comer) ahora.","a":["comiendo"],"o":["comiendo","comando","comido","comer"],"t":"Τρώμε τώρα.","x":"-er → -iendo"},{"s":"Ella está ___ (bailar).","a":["bailando"],"o":["bailando","bailiendo","bailado","baila"],"t":"Χορεύει (τώρα).","x":"-ar → -ando"}],"6":[{"s":"Llevo una camisa ___ (blanco).","a":["blanca"],"o":["blanca","blanco","blancas","blancos"],"t":"Φοράω ένα άσπρο πουκάμισο.","x":"la camisa → blanca"},{"s":"Me gustan los zapatos ___ (negro).","a":["negros"],"o":["negros","negro","negras","negra"],"t":"Μου αρέσουν τα μαύρα παπούτσια.","x":"los zapatos → negros"},{"s":"Tengo una falda ___ (azul).","a":["azul"],"o":["azul","azula","azules","azulo"],"t":"Έχω μια μπλε φούστα.","x":"-l: ίδιο στο θηλυκό"},{"s":"Ella ___ los ojos verdes.","a":["tiene"],"o":["tiene","es","está","hay"],"t":"Αυτή έχει πράσινα μάτια.","x":"tener + μάτια/μαλλιά"},{"s":"Hoy Juan ___ una chaqueta negra. (φοράει)","a":["lleva"],"o":["lleva","es","está","hay"],"t":"Σήμερα ο Χουάν φοράει ένα μαύρο σακάκι.","x":"llevar = φοράω"},{"s":"Pedro ___ alto y delgado.","a":["es"],"o":["es","está","tiene","lleva"],"t":"Ο Πέδρο είναι ψηλός και αδύνατος.","x":"ser + περιγραφή"},{"s":"Para la fiesta ___ un vestido nuevo. (χρειάζομαι)","a":["necesito"],"o":["necesito","necesita","necesitas","necesitar"],"t":"Για το πάρτι χρειάζομαι καινούργιο φόρεμα.","x":"necesitar + ουσιαστικό"},{"s":"Tengo ___ estudiar.","a":["que"],"o":["que","de","a","para"],"t":"Πρέπει να διαβάσω.","x":"tener que + απαρέμφατο"},{"s":"Para estar sano, ___ comer fruta. (εγώ)","a":["debo","tengo que"],"o":["debo","debes","deber","debe"],"t":"Για να είμαι υγιής, πρέπει να τρώω φρούτα.","x":"deber + απαρέμφατο"},{"s":"En invierno ___ frío.","a":["hace"],"o":["hace","está","es","hay"],"t":"Τον χειμώνα κάνει κρύο.","x":"καιρός: hace frío/calor/sol"},{"s":"En Londres ___ mucho. (βρέχει)","a":["llueve"],"o":["llueve","lluvia","llover","nieva"],"t":"Στο Λονδίνο βρέχει πολύ.","x":"llover → llueve"},{"s":"Mi cumpleaños es ___ mayo.","a":["en"],"o":["en","a","de","por"],"t":"Τα γενέθλιά μου είναι τον Μάιο.","x":"en + μήνας"},{"s":"Ella tiene el pelo ___ (rubio).","a":["rubio"],"o":["rubio","rubia","rubios","rubias"],"t":"Αυτή έχει ξανθά μαλλιά.","x":"el pelo → αρσενικό"},{"s":"En verano ___ calor.","a":["hace"],"o":["hace","es","tiene","está"],"t":"Το καλοκαίρι κάνει ζέστη.","x":"hace calor"},{"s":"Las camisetas son ___ (rojo).","a":["rojas"],"o":["rojas","rojos","roja","rojo"],"t":"Τα μπλουζάκια είναι κόκκινα.","x":"las camisetas → rojas"},{"s":"Él ___ barba y bigote.","a":["tiene","lleva"],"o":["tiene","es","está","hace"],"t":"Έχει γένια και μουστάκι.","x":"tener + χαρακτηριστικό"},{"s":"No ___ que trabajar mañana. (εγώ)","a":["tengo"],"o":["tengo","debo","necesito","tiene"],"t":"Δεν χρειάζεται να δουλέψω αύριο.","x":"tener que + απαρέμφατο"},{"s":"En otoño ___ mucho viento.","a":["hace"],"o":["hace","es","está","tiene"],"t":"Το φθινόπωρο φυσάει πολύ.","x":"hace viento"}],"7":[{"s":"Es bueno ___ fruta.","a":["comer","tomar"],"o":["comer","como","come","comes"],"t":"Είναι καλό να τρως φρούτα.","x":"es bueno + απαρέμφατο"},{"s":"Es necesario ___ agua.","a":["beber","tomar"],"o":["beber","bebo","bebe","bebemos"],"t":"Είναι απαραίτητο να πίνεις νερό.","x":"es necesario + απαρέμφατο"},{"s":"Yo me ___ (acostarse) a las once.","a":["acuesto"],"o":["acuesto","acosto","acuestas","acostamos"],"t":"Πλαγιάζω στις έντεκα.","x":"o → ue"},{"s":"Ellos se ___ (vestirse) rápido.","a":["visten"],"o":["visten","vesten","vestimos","viste"],"t":"Αυτοί ντύνονται γρήγορα.","x":"e → i"},{"s":"Nosotros nos ___ (reírse) mucho.","a":["reímos"],"o":["reímos","ríemos","ríen","río"],"t":"Γελάμε πολύ.","x":"nosotros: reímos"},{"s":"Yo ___ (dar) un paseo por la tarde.","a":["doy"],"o":["doy","do","da","das"],"t":"Κάνω βόλτα το απόγευμα.","x":"dar → yo doy"},{"s":"Me gusta el pescado, ___ no me gusta la carne.","a":["pero"],"o":["pero","y","porque","también"],"t":"Μου αρέσει το ψάρι, αλλά δεν μου αρέσει το κρέας.","x":"pero = αλλά"},{"s":"Bebo ___ agua, unos dos litros al día.","a":["mucha"],"o":["mucha","mucho","muy","muchas"],"t":"Πίνω πολύ νερό, περίπου δύο λίτρα τη μέρα.","x":"el agua είναι θηλυκό → mucha"},{"s":"Como ___ verduras. (πολλά)","a":["muchas"],"o":["muchas","muchos","mucho","muy"],"t":"Τρώω πολλά λαχανικά.","x":"las verduras → muchas"},{"s":"No tomo ___ azúcar. (καθόλου)","a":["nada de"],"o":["nada de","algo de","mucho","poco"],"t":"Δεν παίρνω καθόλου ζάχαρη.","x":"no … nada = καθόλου"},{"s":"De primer plato, ensalada, y de ___, pescado.","a":["segundo"],"o":["segundo","postre","primero","plato"],"t":"Για πρώτο πιάτο σαλάτα και για δεύτερο ψάρι.","x":"primer plato / segundo plato"},{"s":"De ___ quiero un helado.","a":["postre"],"o":["postre","segundo","desayuno","primero"],"t":"Για επιδόρπιο θέλω ένα παγωτό.","x":"el postre = το επιδόρπιο"},{"s":"Tú te ___ (despertarse) temprano.","a":["despiertas"],"o":["despiertas","despertas","despierto","despiertan"],"t":"Ξυπνάς νωρίς.","x":"e → ie"},{"s":"Me gusta el deporte ___ como sano.","a":["y"],"o":["y","pero","o","porque"],"t":"Μου αρέσει ο αθλητισμός και τρώω υγιεινά.","x":"y = και"},{"s":"Es malo ___ mucho.","a":["fumar"],"o":["fumar","fumo","fuma","fumando"],"t":"Είναι κακό να καπνίζεις πολύ.","x":"es malo + απαρέμφατο"},{"s":"Ella se ___ (acostarse) tarde.","a":["acuesta"],"o":["acuesta","acosta","acuesto","acostamos"],"t":"Πλαγιάζει αργά.","x":"o → ue"},{"s":"La cuenta, ___ favor.","a":["por"],"o":["por","para","de","con"],"t":"Τον λογαριασμό, παρακαλώ.","x":"por favor"},{"s":"Como ___ carne, una vez al mes.","a":["poca"],"o":["poca","poco","pocos","nada"],"t":"Τρώω λίγο κρέας, μία φορά τον μήνα.","x":"la carne → poca"}],"8":[{"s":"Yo ___ estado en México.","a":["he"],"o":["he","ha","has","hemos"],"t":"Έχω πάει στο Μεξικό.","x":"yo → he"},{"s":"¿___ visto esta película? (εσύ)","a":["has"],"o":["Has","He","Ha","Han"],"t":"Έχεις δει αυτή την ταινία;","x":"tú → has"},{"s":"Nosotros hemos ___ (viajar) mucho.","a":["viajado"],"o":["viajado","viajido","viajando","viajamos"],"t":"Έχουμε ταξιδέψει πολύ.","x":"-ar → -ado"},{"s":"Ella ha ___ (escribir) un libro.","a":["escrito"],"o":["escrito","escribido","escribiendo","escribe"],"t":"Έχει γράψει ένα βιβλίο.","x":"ανώμαλη μετοχή: escrito"},{"s":"Hoy he ___ (hacer) deporte.","a":["hecho"],"o":["hecho","hacido","hago","hizo"],"t":"Σήμερα έχω αθληθεί.","x":"hacer → hecho"},{"s":"¿Has ___ (ver) las pirámides?","a":["visto"],"o":["visto","vido","veído","vista"],"t":"Έχεις δει τις πυραμίδες;","x":"ver → visto"},{"s":"Mis padres han ___ (volver) de vacaciones.","a":["vuelto"],"o":["vuelto","volvido","volvieron","vuelven"],"t":"Οι γονείς μου έχουν γυρίσει από τις διακοπές.","x":"volver → vuelto"},{"s":"Nunca ___ (yo, comer) insectos.","a":["he comido"],"o":["he comido","ha comido","he comer","comido"],"t":"Δεν έχω φάει ποτέ έντομα.","x":"haber + μετοχή"},{"s":"Esta semana ___ ido al cine dos veces. (εμείς)","a":["hemos"],"o":["hemos","han","habéis","he"],"t":"Αυτή την εβδομάδα έχουμε πάει σινεμά δύο φορές.","x":"nosotros → hemos"},{"s":"Estudio español desde ___ dos años.","a":["hace"],"o":["hace","desde","por","en"],"t":"Μαθαίνω ισπανικά εδώ και δύο χρόνια.","x":"desde hace + διάστημα"},{"s":"Vivo aquí ___ 2020.","a":["desde"],"o":["desde","hace","desde hace","por"],"t":"Μένω εδώ από το 2020.","x":"desde + ημερομηνία"},{"s":"Me he ___ (levantarse) temprano.","a":["levantado"],"o":["levantado","levantando","levanté","levantar"],"t":"Έχω σηκωθεί νωρίς.","x":"me he + μετοχή"},{"s":"Ellos han ___ (decir) la verdad.","a":["dicho"],"o":["dicho","decido","dijo","dicen"],"t":"Έχουν πει την αλήθεια.","x":"decir → dicho"},{"s":"¿Has abierto la ventana? –Sí, la he ___.","a":["abierto"],"o":["abierto","abrido","abre","abrí"],"t":"Έχεις ανοίξει το παράθυρο; –Ναι, το έχω ανοίξει.","x":"abrir → abierto"},{"s":"Todavía no ___ terminado. (εγώ)","a":["he"],"o":["he","ha","has","han"],"t":"Δεν έχω τελειώσει ακόμα.","x":"yo → he"},{"s":"¿Ya ___ comido? (εσείς, vosotros)","a":["habéis"],"o":["habéis","han","hemos","has"],"t":"Έχετε φάει ήδη;","x":"vosotros → habéis"},{"s":"Hemos ___ (poner) la mesa.","a":["puesto"],"o":["puesto","ponido","pone","pusimos"],"t":"Έχουμε στρώσει το τραπέζι.","x":"poner → puesto"},{"s":"He ___ (romper) el vaso.","a":["roto"],"o":["roto","rompido","rompo","rompe"],"t":"Έσπασα το ποτήρι.","x":"romper → roto"}],"9":[{"s":"Me ___ la cabeza.","a":["duele"],"o":["duele","duelen","dolor","duelo"],"t":"Πονάει το κεφάλι μου.","x":"ενικός → duele"},{"s":"Me ___ los pies.","a":["duelen"],"o":["duelen","duele","dolen","duelo"],"t":"Πονάνε τα πόδια μου.","x":"πληθυντικός → duelen"},{"s":"¿Te ___ la garganta?","a":["duele"],"o":["duele","duelen","dueles","dolor"],"t":"Σε πονάει ο λαιμός σου;","x":"la garganta → duele"},{"s":"A mi madre ___ duele la espalda.","a":["le"],"o":["le","se","la","me"],"t":"Τη μητέρα μου την πονάει η πλάτη.","x":"σε αυτήν → le"},{"s":"Tienes fiebre. ___ ir al médico.","a":["debes","tienes que"],"o":["Debes","Puedes","Duele","Estás"],"t":"Έχεις πυρετό. Πρέπει να πας στον γιατρό.","x":"deber + απαρέμφατο = συμβουλή"},{"s":"No ___ (yo, poder) ir a trabajar, estoy enfermo.","a":["puedo"],"o":["puedo","podo","puede","podemos"],"t":"Δεν μπορώ να πάω στη δουλειά, είμαι άρρωστος.","x":"o → ue"},{"s":"A lo mejor ___ gripe. (εσύ)","a":["tienes"],"o":["tienes","tener","tiene","tengo"],"t":"Μπορεί να έχεις γρίπη.","x":"a lo mejor + οριστική"},{"s":"Estoy enfermo, ___ no voy a clase.","a":["por eso"],"o":["por eso","porque","pero","también"],"t":"Είμαι άρρωστος, γι' αυτό δεν πάω στο μάθημα.","x":"por eso = γι' αυτό"},{"s":"___ problema es grave.","a":["el"],"o":["El","La","Los","Las"],"t":"Το πρόβλημα είναι σοβαρό.","x":"-ma → αρσενικό: el problema"},{"s":"Me he roto ___ pierna.","a":["la"],"o":["la","mi","el","una"],"t":"Έσπασα το πόδι μου.","x":"μέρη του σώματος με άρθρο"},{"s":"Tengo dolor ___ estómago.","a":["de"],"o":["de","en","a","con"],"t":"Έχω πόνο στο στομάχι.","x":"dolor de + μέρος"},{"s":"Ella está muy ___ (cansado).","a":["cansada"],"o":["cansada","cansado","cansadas","cansados"],"t":"Είναι πολύ κουρασμένη.","x":"ella → -a"},{"s":"Tienes que ___ una pastilla.","a":["tomar"],"o":["tomar","beber","comer","poner"],"t":"Πρέπει να πάρεις ένα χάπι.","x":"tomar una pastilla"},{"s":"Me ___ (encontrarse) mal.","a":["encuentro"],"o":["encuentro","encontro","encuentra","encontramos"],"t":"Αισθάνομαι άσχημα.","x":"o → ue"},{"s":"Tengo ___ de cabeza.","a":["dolor"],"o":["dolor","duele","dolores","doler"],"t":"Έχω πονοκέφαλο.","x":"tener dolor de + μέρος"},{"s":"María está ___ (resfriado).","a":["resfriada"],"o":["resfriada","resfriado","resfriadas","resfría"],"t":"Η Μαρία είναι κρυωμένη.","x":"ella → -a"},{"s":"Puedes ___ una infusión.","a":["tomar"],"o":["tomar","tomas","toma","tomando"],"t":"Μπορείς να πιεις ένα τσάι βοτάνων.","x":"poder + απαρέμφατο"}],"10":[{"s":"Madrid es ___ grande que Sevilla.","a":["más"],"o":["más","menos","tan","muy"],"t":"Η Μαδρίτη είναι μεγαλύτερη από τη Σεβίλλη.","x":"más … que"},{"s":"El río es tan largo ___ el otro.","a":["como"],"o":["como","que","de","más"],"t":"Το ποτάμι είναι τόσο μακρύ όσο το άλλο.","x":"tan … como"},{"s":"Este pueblo es ___ bonito de la isla.","a":["el más"],"o":["el más","más","muy","tan"],"t":"Αυτό το χωριό είναι το πιο όμορφο του νησιού.","x":"υπερθετικός: el más … de"},{"s":"Mi hermano es ___ que yo. (μεγαλύτερος σε ηλικία)","a":["mayor"],"o":["mayor","menor","mejor","peor"],"t":"Ο αδελφός μου είναι μεγαλύτερος από μένα.","x":"mayor = μεγαλύτερος σε ηλικία"},{"s":"Este hotel es ___ que el otro. (καλύτερο)","a":["mejor"],"o":["mejor","más bueno","peor","mayor"],"t":"Αυτό το ξενοδοχείο είναι καλύτερο από το άλλο.","x":"bueno → mejor"},{"s":"Este restaurante es ___ que el otro. (χειρότερο)","a":["peor"],"o":["peor","más malo","mejor","menor"],"t":"Αυτό το εστιατόριο είναι χειρότερο από το άλλο.","x":"malo → peor"},{"s":"–¿Conoces a Ana? –Sí, ___ conozco.","a":["la"],"o":["la","le","lo","las"],"t":"–Ξέρεις την Άννα; –Ναι, την ξέρω.","x":"θηλυκό ενικός → la"},{"s":"–¿Tienes el mapa? –Sí, ___ tengo.","a":["lo"],"o":["lo","la","le","los"],"t":"–Έχεις τον χάρτη; –Ναι, τον έχω.","x":"αρσενικό ενικός → lo"},{"s":"–¿Reciclas las botellas? –Sí, ___ reciclo.","a":["las"],"o":["las","los","la","les"],"t":"–Ανακυκλώνεις τα μπουκάλια; –Ναι, τα ανακυκλώνω.","x":"θηλυκό πληθυντικός → las"},{"s":"–¿Compras los billetes? –Sí, ___ compro.","a":["los"],"o":["los","las","lo","les"],"t":"–Αγοράζεις τα εισιτήρια; –Ναι, τα αγοράζω.","x":"αρσενικό πληθυντικός → los"},{"s":"En el desierto hace ___ calor.","a":["mucho"],"o":["mucho","muy","mucha","más"],"t":"Στην έρημο κάνει πολλή ζέστη.","x":"el calor → mucho"},{"s":"La isla es ___ bonita que la costa. (λιγότερο)","a":["menos"],"o":["menos","más","tan","muy"],"t":"Το νησί είναι λιγότερο όμορφο από την ακτή.","x":"menos … que"},{"s":"Hoy ___ nublado.","a":["está"],"o":["está","hace","es","hay"],"t":"Σήμερα έχει συννεφιά.","x":"está nublado"},{"s":"El Teide es ___ volcán más alto de España.","a":["el"],"o":["el","un","más","la"],"t":"Το Τέιδε είναι το πιο ψηλό ηφαίστειο της Ισπανίας.","x":"υπερθετικός: el … más … de"},{"s":"Mi casa es ___ pequeña que la tuya.","a":["más"],"o":["más","tan","muy","mucho"],"t":"Το σπίτι μου είναι πιο μικρό από το δικό σου.","x":"más … que"},{"s":"Ana es tan alta ___ su hermana.","a":["como"],"o":["como","que","de","tan"],"t":"Η Άννα είναι τόσο ψηλή όσο η αδελφή της.","x":"tan … como"},{"s":"–¿Ves la montaña? –Sí, ___ veo.","a":["la"],"o":["la","lo","le","las"],"t":"–Βλέπεις το βουνό; –Ναι, το βλέπω.","x":"la montaña → la"}],"11":[{"s":"Ayer ___ (yo, trabajar) mucho.","a":["trabajé"],"o":["trabajé","trabajó","trabajo","he trabajado"],"t":"Χθες δούλεψα πολύ.","x":"ayer → αόριστος · yo -é"},{"s":"El año pasado ___ (nosotros, viajar) a Italia.","a":["viajamos"],"o":["viajamos","viajemos","viajaron","viajé"],"t":"Πέρσι ταξιδέψαμε στην Ιταλία.","x":"nosotros -amos"},{"s":"En 2015 ella ___ (terminar) la carrera.","a":["terminó"],"o":["terminó","terminé","termino","terminaba"],"t":"Το 2015 τελείωσε τις σπουδές της.","x":"ella -ó"},{"s":"Ellos ___ (vivir) en Londres dos años.","a":["vivieron"],"o":["vivieron","vivían","vivió","viven"],"t":"Έζησαν στο Λονδίνο δύο χρόνια.","x":"ellos -ieron"},{"s":"¿Dónde ___ (tú, estudiar)?","a":["estudiaste"],"o":["estudiaste","estudiastes","estudió","estudias"],"t":"Πού σπούδασες;","x":"tú -aste"},{"s":"La semana pasada ___ (yo, ir) a Madrid.","a":["fui"],"o":["fui","fue","iba","voy"],"t":"Την προηγούμενη εβδομάδα πήγα στη Μαδρίτη.","x":"ir → fui"},{"s":"Ayer ___ (yo, estar) en casa.","a":["estuve"],"o":["estuve","estuvo","estaba","estuvé"],"t":"Χθες ήμουν στο σπίτι.","x":"estar → estuve"},{"s":"El lunes ___ (ellos, tener) un examen.","a":["tuvieron"],"o":["tuvieron","tenieron","tuvo","tienen"],"t":"Τη Δευτέρα είχαν διαγώνισμα.","x":"tener → tuv-"},{"s":"¿Qué ___ (tú, hacer) ayer?","a":["hiciste"],"o":["hiciste","haciste","hizo","haces"],"t":"Τι έκανες χθες;","x":"hacer → hic-"},{"s":"Hoy ___ (yo, comer) paella.","a":["he comido"],"o":["he comido","comí","como","comía"],"t":"Σήμερα έφαγα παέγια.","x":"hoy → παρακείμενος"},{"s":"Ayer ___ (yo, comer) paella.","a":["comí"],"o":["comí","he comido","comió","como"],"t":"Χθες έφαγα παέγια.","x":"ayer → αόριστος"},{"s":"Empecé a trabajar ___ tres años.","a":["hace"],"o":["hace","desde","por","en"],"t":"Άρχισα να δουλεύω πριν από τρία χρόνια.","x":"hace + διάστημα = πριν από"},{"s":"Yo ___ (empezar) a estudiar en 2019.","a":["empecé"],"o":["empecé","empezé","empezó","empiezo"],"t":"Άρχισα να σπουδάζω το 2019.","x":"z → c πριν από é"},{"s":"Ayer ___ (yo, jugar) al fútbol.","a":["jugué"],"o":["jugué","jugé","jugó","juego"],"t":"Χθες έπαιξα ποδόσφαιρο.","x":"g → gu πριν από é"},{"s":"Anoche ___ (nosotros, cenar) en un restaurante.","a":["cenamos"],"o":["cenamos","cenemos","cenaron","cenábamos"],"t":"Χθες βράδυ φάγαμε σε εστιατόριο.","x":"anoche → αόριστος"},{"s":"¿Cuándo ___ (tú, nacer)?","a":["naciste"],"o":["naciste","nació","nací","naces"],"t":"Πότε γεννήθηκες;","x":"tú → -iste"},{"s":"Ella ___ (ir) a Londres en 2020.","a":["fue"],"o":["fue","fui","iba","va"],"t":"Πήγε στο Λονδίνο το 2020.","x":"ir → fue"}],"12":[{"s":"Ayer no ___ (yo, poder) ir a la excursión.","a":["pude"],"o":["pude","podí","pudo","puedo"],"t":"Χθες δεν μπόρεσα να πάω στην εκδρομή.","x":"poder → pud-"},{"s":"¿Quién te lo ___ (decir)?","a":["dijo"],"o":["dijo","decidió","dició","dice"],"t":"Ποιος σου το είπε;","x":"decir → dij-"},{"s":"El sábado ___ (nosotros, venir) en tren.","a":["vinimos"],"o":["vinimos","venimos","vinieron","vino"],"t":"Το Σάββατο ήρθαμε με τρένο.","x":"venir → vin-"},{"s":"¿Dónde ___ (tú, poner) el mapa?","a":["pusiste"],"o":["pusiste","poniste","puso","pones"],"t":"Πού έβαλες τον χάρτη;","x":"poner → pus-"},{"s":"Ellos ___ (traer) comida.","a":["trajeron"],"o":["trajeron","trajieron","traieron","traen"],"t":"Αυτοί έφεραν φαγητό.","x":"traer → trajeron (χωρίς i)"},{"s":"Anoche ___ (yo, dormir) en la tienda de campaña.","a":["dormí"],"o":["dormí","durmí","durmió","duermo"],"t":"Χθες βράδυ κοιμήθηκα στη σκηνή.","x":"yo: χωρίς αλλαγή"},{"s":"Ella ___ (dormir) muy bien.","a":["durmió"],"o":["durmió","dormió","dormí","duerme"],"t":"Αυτή κοιμήθηκε πολύ καλά.","x":"él/ella: o → u"},{"s":"–¿Es tu mochila? –Sí, es ___.","a":["mía"],"o":["mía","mío","mi","mías"],"t":"–Είναι το σακίδιό σου; –Ναι, είναι δικό μου.","x":"la mochila → mía"},{"s":"–¿Son tuyos estos prismáticos? –No, no son ___.","a":["míos"],"o":["míos","mías","mis","mío"],"t":"–Είναι δικά σου αυτά τα κιάλια; –Όχι, δεν είναι δικά μου.","x":"los prismáticos → míos"},{"s":"Esta linterna es ___. (δική του)","a":["suya"],"o":["suya","suyo","su","suyas"],"t":"Αυτός ο φακός είναι δικός του.","x":"la linterna → suya"},{"s":"–¿Le das el mapa a Juan? –Sí, ___ lo doy.","a":["se"],"o":["se","le","lo","la"],"t":"–Δίνεις τον χάρτη στον Χουάν; –Ναι, του τον δίνω.","x":"le + lo → se lo"},{"s":"Mi madre ___ regaló una brújula. (σε μένα)","a":["me"],"o":["me","le","te","se"],"t":"Η μητέρα μου μού χάρισε μια πυξίδα.","x":"σε μένα → me"},{"s":"El viaje ___ fantástico.","a":["fue"],"o":["fue","era","fui","estuvo"],"t":"Το ταξίδι ήταν φανταστικό.","x":"αξιολόγηση ολοκληρωμένου γεγονότος → fue"},{"s":"El año pasado ___ (yo, hacer) una excursión a los Pirineos.","a":["hice"],"o":["hice","hizo","hací","hago"],"t":"Πέρσι έκανα μια εκδρομή στα Πυρηναία.","x":"hacer → hice"},{"s":"¿Qué ___ (vosotros, hacer) el domingo?","a":["hicisteis"],"o":["hicisteis","hacisteis","hicieron","hacéis"],"t":"Τι κάνατε την Κυριακή;","x":"hacer → hic-"},{"s":"Yo no ___ (saber) qué decir.","a":["supe"],"o":["supe","sabí","supo","sé"],"t":"Δεν ήξερα τι να πω.","x":"saber → sup-"},{"s":"Ellos ___ (querer) venir, pero no pudieron.","a":["quisieron"],"o":["quisieron","querieron","quiso","quieren"],"t":"Ήθελαν να έρθουν, αλλά δεν μπόρεσαν.","x":"querer → quis-"}],"13":[{"s":"De niño ___ (yo, jugar) en la calle.","a":["jugaba"],"o":["jugaba","jugué","juego","jugía"],"t":"Όταν ήμουν παιδί, έπαιζα στον δρόμο.","x":"συνήθεια στο παρελθόν → παρατατικός"},{"s":"Antes ___ (nosotros, vivir) en un pueblo.","a":["vivíamos"],"o":["vivíamos","vivimos","vivábamos","vivían"],"t":"Πριν ζούσαμε σε ένα χωριό.","x":"-ir → -íamos"},{"s":"Cuando ___ (yo, ser) joven, no había móviles.","a":["era"],"o":["era","fui","soy","estaba"],"t":"Όταν ήμουν νέος, δεν υπήρχαν κινητά.","x":"ser → era"},{"s":"Mis abuelos ___ (ir) al mercado todos los días.","a":["iban"],"o":["iban","fueron","van","ían"],"t":"Οι παππούδες μου πήγαιναν στη λαϊκή κάθε μέρα.","x":"ir → iba"},{"s":"Antes no ___ (haber) internet.","a":["había"],"o":["había","hubo","hay","habían"],"t":"Πριν δεν υπήρχε ίντερνετ.","x":"hay → había"},{"s":"¿Qué ___ (tú, hacer) los domingos de pequeño?","a":["hacías"],"o":["hacías","hiciste","haces","hacíais"],"t":"Τι έκανες τις Κυριακές όταν ήσουν μικρός;","x":"-er → -ías"},{"s":"En aquella época mi padre ___ (trabajar) mucho.","a":["trabajaba"],"o":["trabajaba","trabajó","trabajía","trabaja"],"t":"Εκείνη την εποχή ο πατέρας μου δούλευε πολύ.","x":"-ar → -aba"},{"s":"Antes ___ (yo, ver) mucho la tele.","a":["veía"],"o":["veía","vía","vi","veo"],"t":"Πριν έβλεπα πολύ τηλεόραση.","x":"ver → veía"},{"s":"Antes comía carne, pero ___ soy vegetariano.","a":["ahora"],"o":["ahora","entonces","antes","ayer"],"t":"Πριν έτρωγα κρέας, αλλά τώρα είμαι χορτοφάγος.","x":"antes ↔ ahora"},{"s":"Quiero medio ___ de tomates.","a":["kilo"],"o":["kilo","litro","gramo","cuarto"],"t":"Θέλω μισό κιλό ντομάτες.","x":"medio kilo"},{"s":"Un ___ de leche, por favor.","a":["litro"],"o":["litro","kilo","gramo","plato"],"t":"Ένα λίτρο γάλα, παρακαλώ.","x":"un litro de"},{"s":"Yo siempre ___ la cama por la mañana.","a":["hago"],"o":["hago","pongo","paso","tiro"],"t":"Πάντα στρώνω το κρεβάτι το πρωί.","x":"hacer la cama"},{"s":"¿Quién ___ la mesa hoy? (στρώνει)","a":["pone"],"o":["pone","hace","pasa","lava"],"t":"Ποιος στρώνει το τραπέζι σήμερα;","x":"poner la mesa"},{"s":"Voy a ___ la aspiradora.","a":["pasar"],"o":["pasar","hacer","poner","lavar"],"t":"Θα περάσω ηλεκτρική σκούπα.","x":"pasar la aspiradora"},{"s":"Caliento la comida en el ___.","a":["microondas"],"o":["microondas","lavaplatos","lavadora","armario"],"t":"Ζεσταίνω το φαγητό στον φούρνο μικροκυμάτων.","x":"σύνθετη λέξη: micro + ondas"},{"s":"Cuando era pequeño, ___ (yo, tener) un perro.","a":["tenía"],"o":["tenía","tuve","tengo","tenaba"],"t":"Όταν ήμουν μικρός, είχα ένα σκυλί.","x":"περιγραφή στο παρελθόν → παρατατικός"},{"s":"Antes la gente ___ (escribir) cartas.","a":["escribía"],"o":["escribía","escribió","escribaba","escribe"],"t":"Παλιά οι άνθρωποι έγραφαν γράμματα.","x":"-ir → -ía"},{"s":"Nosotros ___ (ir) a la playa todos los veranos.","a":["íbamos"],"o":["íbamos","fuimos","vamos","íamos"],"t":"Πηγαίναμε στην παραλία κάθε καλοκαίρι.","x":"ir → íbamos"}],"14":[{"s":"___ (correr, tú) más rápido.","a":["corre"],"o":["Corre","Corres","Corra","Correr"],"t":"Τρέξε πιο γρήγορα.","x":"προστακτική = 3ο πρόσωπο ενεστώτα"},{"s":"___ (beber, tú) mucha agua.","a":["bebe"],"o":["Bebe","Bebes","Beba","Bebo"],"t":"Πίνε πολύ νερό.","x":"beber → bebe"},{"s":"___ (escribir, tú) tu nombre aquí.","a":["escribe"],"o":["Escribe","Escribes","Escriba","Escribí"],"t":"Γράψε το όνομά σου εδώ.","x":"escribir → escribe"},{"s":"___ (venir, tú) conmigo al gimnasio.","a":["ven"],"o":["Ven","Viene","Vienes","Vene"],"t":"Έλα μαζί μου στο γυμναστήριο.","x":"ανώμαλη: venir → ven"},{"s":"___ (hacer, tú) ejercicio todos los días.","a":["haz"],"o":["Haz","Hace","Hazte","Haces"],"t":"Κάνε άσκηση κάθε μέρα.","x":"ανώμαλη: hacer → haz"},{"s":"___ (poner, tú) la mochila aquí.","a":["pon"],"o":["Pon","Pone","Ponga","Pones"],"t":"Βάλε το σακίδιο εδώ.","x":"ανώμαλη: poner → pon"},{"s":"___ (salir, tú) a correr por la mañana.","a":["sal"],"o":["Sal","Sale","Salga","Sales"],"t":"Βγες για τρέξιμο το πρωί.","x":"ανώμαλη: salir → sal"},{"s":"___ (tener, tú) cuidado.","a":["ten"],"o":["Ten","Tiene","Tienes","Tenga"],"t":"Πρόσεχε.","x":"ανώμαλη: tener → ten"},{"s":"___ (decir, tú) la verdad.","a":["di"],"o":["Di","Dice","Dices","Dime"],"t":"Πες την αλήθεια.","x":"ανώμαλη: decir → di"},{"s":"___ (ir, tú) al médico.","a":["ve"],"o":["Ve","Va","Vas","Vete"],"t":"Πήγαινε στον γιατρό.","x":"ανώμαλη: ir → ve"},{"s":"Después del partido ___ muy cansado. (εγώ)","a":["estoy"],"o":["estoy","soy","tengo","hay"],"t":"Μετά τον αγώνα είμαι πολύ κουρασμένος.","x":"estar + κατάσταση"},{"s":"Ella está muy ___ (nervioso) antes de la carrera.","a":["nerviosa"],"o":["nerviosa","nervioso","nerviosas","nerviosos"],"t":"Είναι πολύ αγχωμένη πριν από τον αγώνα.","x":"ella → -a"},{"s":"___ (descansar, tú) un poco.","a":["descansa"],"o":["Descansa","Descansas","Descanse","Descanso"],"t":"Ξεκουράσου λίγο.","x":"-ar → -a"},{"s":"¿Quedamos ___ las seis en el polideportivo?","a":["a"],"o":["a","en","de","por"],"t":"Βρισκόμαστε στις έξι στο αθλητικό κέντρο;","x":"quedar a las + ώρα"},{"s":"___ (comer, tú) más fruta.","a":["come"],"o":["Come","Comes","Coma","Comer"],"t":"Τρώγε περισσότερα φρούτα.","x":"comer → come"},{"s":"___ (ser, tú) puntual.","a":["sé"],"o":["Sé","Es","Eres","Sea"],"t":"Να είσαι ακριβής στην ώρα σου.","x":"ανώμαλη: ser → sé"},{"s":"Ana está muy ___ (contento).","a":["contenta"],"o":["contenta","contento","contentas","contentos"],"t":"Η Άννα είναι πολύ χαρούμενη.","x":"ella → -a"}]},"phr":{"1":[{"g":"Είμαι από την Ελλάδα.","a":["Soy de Grecia"]},{"g":"Δεν μιλάω γερμανικά.","a":["No hablo alemán"]},{"g":"Πόσο χρονών είσαι;","a":["¿Cuántos años tienes?"]},{"g":"Αυτή είναι γιατρός και δουλεύει σε ένα νοσοκομείο.","a":["Es médica y trabaja en un hospital","Ella es médica y trabaja en un hospital"]},{"g":"Μαθαίνω ισπανικά για να ταξιδεύω.","a":["Estudio español para viajar","Aprendo español para viajar"]},{"g":"Πώς σε λένε;","a":["¿Cómo te llamas?"]},{"g":"Είμαι Έλληνας.","a":["Soy griego"]},{"g":"Χάρηκα.","a":["Mucho gusto","Encantado","Encantada"]},{"g":"Δουλεύω σε μια εταιρεία.","a":["Trabajo en una empresa"]},{"g":"Από πού είσαι;","a":["¿De dónde eres?"]}],"2":[{"g":"Τι ώρα είναι;","a":["¿Qué hora es?"]},{"g":"Σηκώνομαι στις επτά.","a":["Me levanto a las siete"]},{"g":"Δουλεύω από Δευτέρα μέχρι Παρασκευή.","a":["Trabajo de lunes a viernes"]},{"g":"Τρώω βραδινό στις εννιά.","a":["Ceno a las nueve"]},{"g":"Το απόγευμα διαβάζω ισπανικά.","a":["Por la tarde estudio español","Estudio español por la tarde"]},{"g":"Κάνω ντους το πρωί.","a":["Me ducho por la mañana","Por la mañana me ducho"]},{"g":"Είναι δέκα και μισή.","a":["Son las diez y media"]},{"g":"Τι ώρα σηκώνεσαι;","a":["¿A qué hora te levantas?"]},{"g":"Τρώω πρωινό στις οκτώ.","a":["Desayuno a las ocho"]},{"g":"Είναι μία ακριβώς.","a":["Es la una en punto"]}],"3":[{"g":"Πού μένεις;","a":["¿Dónde vives?"]},{"g":"Στη γειτονιά μου υπάρχει ένα πάρκο.","a":["En mi barrio hay un parque","Hay un parque en mi barrio"]},{"g":"Το φαρμακείο είναι δίπλα στην τράπεζα.","a":["La farmacia está al lado del banco"]},{"g":"Συνέχισε ευθεία.","a":["Sigue todo recto","Sigue recto"]},{"g":"Είναι κοντά.","a":["Está cerca"]},{"g":"Η γειτονιά μου είναι ήσυχη.","a":["Mi barrio es tranquilo"]},{"g":"Υπάρχει φαρμακείο εδώ γύρω;","a":["¿Hay una farmacia por aquí?","¿Hay una farmacia cerca de aquí?","¿Hay una farmacia aquí cerca?","¿Hay una farmacia por aquí cerca?"]},{"g":"Πού είναι ο σταθμός;","a":["¿Dónde está la estación?"]},{"g":"Στρίψε αριστερά.","a":["Gira a la izquierda"]},{"g":"Μένω στον δεύτερο όροφο.","a":["Vivo en el segundo piso","Vivo en el segundo","Vivo en la segunda planta"]},{"g":"Το μουσείο είναι μακριά.","a":["El museo está lejos"]}],"4":[{"g":"Έχω δύο αδέλφια.","a":["Tengo dos hermanos"]},{"g":"Η αδελφή μου είναι πολύ συμπαθητική.","a":["Mi hermana es muy simpática"]},{"g":"Αυτός είναι ο πατέρας μου.","a":["Este es mi padre","Éste es mi padre"]},{"g":"Θέλω έναν καφέ.","a":["Quiero un café"]},{"g":"Σήμερα δεν μπορώ.","a":["Hoy no puedo","No puedo hoy"]},{"g":"Η μητέρα μου είναι πολύ εργατική.","a":["Mi madre es muy trabajadora"]},{"g":"Οι γονείς μου μένουν στην Αθήνα.","a":["Mis padres viven en Atenas"]}],"5":[{"g":"Μου αρέσει το σινεμά.","a":["Me gusta el cine"]},{"g":"Μου αρέσουν οι συναυλίες.","a":["Me gustan los conciertos"]},{"g":"Κι εμένα.","a":["A mí también","Yo también"]},{"g":"Τι κάνεις το Σαββατοκύριακο;","a":["¿Qué haces el fin de semana?"]},{"g":"Βγαίνω με φίλους.","a":["Salgo con amigos","Salgo con mis amigos"]},{"g":"Τώρα διαβάζω ένα βιβλίο.","a":["Ahora estoy leyendo un libro","Estoy leyendo un libro ahora"]},{"g":"Δεν μου αρέσει ο καφές.","a":["No me gusta el café"]},{"g":"Ούτε εμένα.","a":["A mí tampoco","Yo tampoco"]},{"g":"Πάω στη δουλειά με τα πόδια.","a":["Voy al trabajo a pie","Voy a pie al trabajo","Voy andando al trabajo","Voy al trabajo andando"]}],"6":[{"g":"Φοράω ένα μπλε πουλόβερ.","a":["Llevo un jersey azul"]},{"g":"Κάνει κρύο.","a":["Hace frío"]},{"g":"Πρέπει να δουλέψω.","a":["Tengo que trabajar","Debo trabajar"]},{"g":"Χρειάζομαι παπούτσια.","a":["Necesito zapatos","Necesito unos zapatos"]},{"g":"Βρέχει.","a":["Llueve","Está lloviendo"]},{"g":"Είναι ψηλός και αδύνατος.","a":["Es alto y delgado"]}],"7":[{"g":"Είναι καλό να πίνεις νερό.","a":["Es bueno beber agua","Es bueno tomar agua"]},{"g":"Πλαγιάζω νωρίς.","a":["Me acuesto temprano","Me acuesto pronto"]},{"g":"Τρώω υγιεινά.","a":["Como sano"]},{"g":"Για επιδόρπιο θέλω φρούτα.","a":["De postre quiero fruta"]},{"g":"Δεν πίνω καθόλου καφέ.","a":["No bebo nada de café","No tomo nada de café","No bebo café","No tomo café"]}],"8":[{"g":"Έχω πάει στο Μεξικό.","a":["He estado en México","He ido a México"]},{"g":"Δεν έχω δει ποτέ τις πυραμίδες.","a":["Nunca he visto las pirámides","No he visto nunca las pirámides"]},{"g":"Σήμερα έχω αθληθεί.","a":["Hoy he hecho deporte","Hoy he hecho ejercicio"]},{"g":"Μαθαίνω ισπανικά εδώ και δύο μήνες.","a":["Estudio español desde hace dos meses","Aprendo español desde hace dos meses"]},{"g":"Έχεις πετάξει ποτέ με αερόστατο;","a":["¿Has volado alguna vez en globo?","¿Alguna vez has volado en globo?","¿Has volado en globo alguna vez?"]}],"9":[{"g":"Πονάει το κεφάλι μου.","a":["Me duele la cabeza"]},{"g":"Έχω πυρετό.","a":["Tengo fiebre"]},{"g":"Πρέπει να πας στον γιατρό.","a":["Debes ir al médico","Tienes que ir al médico"]},{"g":"Πονάνε τα πόδια μου.","a":["Me duelen los pies","Me duelen las piernas"]},{"g":"Αισθάνομαι άσχημα.","a":["Me encuentro mal","Me siento mal"]}],"10":[{"g":"Η Μαδρίτη είναι μεγαλύτερη από τη Σεβίλλη.","a":["Madrid es más grande que Sevilla"]},{"g":"Είναι το πιο ψηλό βουνό της Ισπανίας.","a":["Es la montaña más alta de España"]},{"g":"Ανακυκλώνω τα μπουκάλια.","a":["Reciclo las botellas"]},{"g":"Κάνει πολλή ζέστη.","a":["Hace mucho calor"]},{"g":"Σήμερα έχει συννεφιά.","a":["Hoy está nublado"]}],"11":[{"g":"Χθες δούλεψα πολύ.","a":["Ayer trabajé mucho"]},{"g":"Πέρσι πήγα στην Ισπανία.","a":["El año pasado fui a España"]},{"g":"Σπούδασα στη Θεσσαλονίκη.","a":["Estudié en Tesalónica"]},{"g":"Τι έκανες χθες;","a":["¿Qué hiciste ayer?"]},{"g":"Χθες ήμουν στο σπίτι.","a":["Ayer estuve en casa"]}],"12":[{"g":"Χθες δεν μπόρεσα να έρθω.","a":["Ayer no pude venir"]},{"g":"Το σακίδιο είναι δικό μου.","a":["La mochila es mía"]},{"g":"Κοιμηθήκαμε στο βουνό.","a":["Dormimos en la montaña"]},{"g":"Η εκδρομή ήταν υπέροχη.","a":["La excursión fue maravillosa","La excursión fue fantástica","La excursión fue estupenda"]},{"g":"Τι σου είπε;","a":["¿Qué te dijo?"]}],"13":[{"g":"Όταν ήμουν παιδί, έπαιζα στον δρόμο.","a":["Cuando era niño, jugaba en la calle","Cuando era niño jugaba en la calle","De niño jugaba en la calle","Cuando era pequeño, jugaba en la calle"]},{"g":"Πριν ζούσαμε σε ένα χωριό.","a":["Antes vivíamos en un pueblo"]},{"g":"Στρώνω το κρεβάτι.","a":["Hago la cama"]},{"g":"Ένα κιλό ντομάτες, παρακαλώ.","a":["Un kilo de tomates, por favor"]},{"g":"Τότε δεν υπήρχαν κινητά.","a":["Entonces no había móviles"]}],"14":[{"g":"Πίνε πολύ νερό.","a":["Bebe mucha agua"]},{"g":"Έλα μαζί μου.","a":["Ven conmigo"]},{"g":"Κάνε άσκηση κάθε μέρα.","a":["Haz ejercicio todos los días","Haz ejercicio cada día","Haz deporte todos los días"]},{"g":"Είμαι κουρασμένος.","a":["Estoy cansado"]},{"g":"Τι ώρα θα βρεθούμε;","a":["¿A qué hora quedamos?"]}]},"verbs":{"1":[{"v":"ser","t":"pres","m":"είμαι","f":["soy","eres","es","somos","sois","son"]},{"v":"llamarse","t":"pres","m":"λέγομαι","f":["me llamo","te llamas","se llama","nos llamamos","os llamáis","se llaman"]},{"v":"tener","t":"pres","m":"έχω","f":["tengo","tienes","tiene","tenemos","tenéis","tienen"]},{"v":"hablar","t":"pres","m":"μιλάω","f":["hablo","hablas","habla","hablamos","habláis","hablan"]},{"v":"trabajar","t":"pres","m":"δουλεύω","f":["trabajo","trabajas","trabaja","trabajamos","trabajáis","trabajan"]},{"v":"vivir","t":"pres","m":"μένω, ζω","f":["vivo","vives","vive","vivimos","vivís","viven"]},{"v":"estudiar","t":"pres","m":"σπουδάζω","f":["estudio","estudias","estudia","estudiamos","estudiáis","estudian"]}],"2":[{"v":"desayunar","t":"pres","m":"τρώω πρωινό","f":["desayuno","desayunas","desayuna","desayunamos","desayunáis","desayunan"]},{"v":"comer","t":"pres","m":"τρώω","f":["como","comes","come","comemos","coméis","comen"]},{"v":"cenar","t":"pres","m":"τρώω βραδινό","f":["ceno","cenas","cena","cenamos","cenáis","cenan"]},{"v":"leer","t":"pres","m":"διαβάζω","f":["leo","lees","lee","leemos","leéis","leen"]},{"v":"beber","t":"pres","m":"πίνω","f":["bebo","bebes","bebe","bebemos","bebéis","beben"]},{"v":"escribir","t":"pres","m":"γράφω","f":["escribo","escribes","escribe","escribimos","escribís","escriben"]},{"v":"comprar","t":"pres","m":"αγοράζω","f":["compro","compras","compra","compramos","compráis","compran"]},{"v":"aprender","t":"pres","m":"μαθαίνω","f":["aprendo","aprendes","aprende","aprendemos","aprendéis","aprenden"]},{"v":"recibir","t":"pres","m":"λαμβάνω","f":["recibo","recibes","recibe","recibimos","recibís","reciben"]},{"v":"tomar","t":"pres","m":"παίρνω","f":["tomo","tomas","toma","tomamos","tomáis","toman"]},{"v":"levantarse","t":"pres","m":"σηκώνομαι","f":["me levanto","te levantas","se levanta","nos levantamos","os levantáis","se levantan"]},{"v":"ducharse","t":"pres","m":"κάνω ντους","f":["me ducho","te duchas","se ducha","nos duchamos","os ducháis","se duchan"]},{"v":"lavarse","t":"pres","m":"πλένομαι","f":["me lavo","te lavas","se lava","nos lavamos","os laváis","se lavan"]},{"v":"peinarse","t":"pres","m":"χτενίζομαι","f":["me peino","te peinas","se peina","nos peinamos","os peináis","se peinan"]},{"v":"afeitarse","t":"pres","m":"ξυρίζομαι","f":["me afeito","te afeitas","se afeita","nos afeitamos","os afeitáis","se afeitan"]}],"3":[{"v":"estar","t":"pres","m":"είμαι, βρίσκομαι","f":["estoy","estás","está","estamos","estáis","están"]},{"v":"girar","t":"pres","m":"στρίβω","f":["giro","giras","gira","giramos","giráis","giran"]},{"v":"cruzar","t":"pres","m":"διασχίζω","f":["cruzo","cruzas","cruza","cruzamos","cruzáis","cruzan"]},{"v":"buscar","t":"pres","m":"ψάχνω","f":["busco","buscas","busca","buscamos","buscáis","buscan"]},{"v":"tomar","t":"pres","m":"παίρνω","f":["tomo","tomas","toma","tomamos","tomáis","toman"]}],"4":[{"v":"querer","t":"pres","m":"θέλω","f":["quiero","quieres","quiere","queremos","queréis","quieren"]},{"v":"pensar","t":"pres","m":"σκέφτομαι","f":["pienso","piensas","piensa","pensamos","pensáis","piensan"]},{"v":"empezar","t":"pres","m":"αρχίζω","f":["empiezo","empiezas","empieza","empezamos","empezáis","empiezan"]},{"v":"entender","t":"pres","m":"καταλαβαίνω","f":["entiendo","entiendes","entiende","entendemos","entendéis","entienden"]},{"v":"cerrar","t":"pres","m":"κλείνω","f":["cierro","cierras","cierra","cerramos","cerráis","cierran"]},{"v":"poder","t":"pres","m":"μπορώ","f":["puedo","puedes","puede","podemos","podéis","pueden"]},{"v":"volver","t":"pres","m":"γυρίζω","f":["vuelvo","vuelves","vuelve","volvemos","volvéis","vuelven"]},{"v":"dormir","t":"pres","m":"κοιμάμαι","f":["duermo","duermes","duerme","dormimos","dormís","duermen"]},{"v":"encontrar","t":"pres","m":"βρίσκω","f":["encuentro","encuentras","encuentra","encontramos","encontráis","encuentran"]},{"v":"pedir","t":"pres","m":"ζητάω","f":["pido","pides","pide","pedimos","pedís","piden"]},{"v":"repetir","t":"pres","m":"επαναλαμβάνω","f":["repito","repites","repite","repetimos","repetís","repiten"]},{"v":"seguir","t":"pres","m":"συνεχίζω","f":["sigo","sigues","sigue","seguimos","seguís","siguen"]},{"v":"venir","t":"pres","m":"έρχομαι","f":["vengo","vienes","viene","venimos","venís","vienen"]},{"v":"decir","t":"pres","m":"λέω","f":["digo","dices","dice","decimos","decís","dicen"]},{"v":"conocer","t":"pres","m":"γνωρίζω","f":["conozco","conoces","conoce","conocemos","conocéis","conocen"]},{"v":"saber","t":"pres","m":"ξέρω","f":["sé","sabes","sabe","sabemos","sabéis","saben"]},{"v":"jugar","t":"pres","m":"παίζω","f":["juego","juegas","juega","jugamos","jugáis","juegan"]}],"5":[{"v":"ir","t":"pres","m":"πηγαίνω","f":["voy","vas","va","vamos","vais","van"]},{"v":"preferir","t":"pres","m":"προτιμώ","f":["prefiero","prefieres","prefiere","preferimos","preferís","prefieren"]},{"v":"hacer","t":"pres","m":"κάνω","f":["hago","haces","hace","hacemos","hacéis","hacen"]},{"v":"salir","t":"pres","m":"βγαίνω","f":["salgo","sales","sale","salimos","salís","salen"]},{"v":"ver","t":"pres","m":"βλέπω","f":["veo","ves","ve","vemos","veis","ven"]},{"v":"poner","t":"pres","m":"βάζω","f":["pongo","pones","pone","ponemos","ponéis","ponen"]},{"v":"hablar","t":"ger","m":"μιλάω","f":["estoy hablando","estás hablando","está hablando","estamos hablando","estáis hablando","están hablando"]},{"v":"comer","t":"ger","m":"τρώω","f":["estoy comiendo","estás comiendo","está comiendo","estamos comiendo","estáis comiendo","están comiendo"]},{"v":"escribir","t":"ger","m":"γράφω","f":["estoy escribiendo","estás escribiendo","está escribiendo","estamos escribiendo","estáis escribiendo","están escribiendo"]},{"v":"leer","t":"ger","m":"διαβάζω","f":["estoy leyendo","estás leyendo","está leyendo","estamos leyendo","estáis leyendo","están leyendo"]},{"v":"dormir","t":"ger","m":"κοιμάμαι","f":["estoy durmiendo","estás durmiendo","está durmiendo","estamos durmiendo","estáis durmiendo","están durmiendo"]},{"v":"hacer","t":"ger","m":"κάνω","f":["estoy haciendo","estás haciendo","está haciendo","estamos haciendo","estáis haciendo","están haciendo"]},{"v":"jugar","t":"ger","m":"παίζω","f":["estoy jugando","estás jugando","está jugando","estamos jugando","estáis jugando","están jugando"]},{"v":"bailar","t":"ger","m":"χορεύω","f":["estoy bailando","estás bailando","está bailando","estamos bailando","estáis bailando","están bailando"]}],"6":[{"v":"llevar","t":"pres","m":"φοράω, κουβαλάω","f":["llevo","llevas","lleva","llevamos","lleváis","llevan"]},{"v":"necesitar","t":"pres","m":"χρειάζομαι","f":["necesito","necesitas","necesita","necesitamos","necesitáis","necesitan"]},{"v":"deber","t":"pres","m":"πρέπει","f":["debo","debes","debe","debemos","debéis","deben"]},{"v":"tener","t":"pres","m":"έχω","f":["tengo","tienes","tiene","tenemos","tenéis","tienen"]}],"7":[{"v":"dar","t":"pres","m":"δίνω","f":["doy","das","da","damos","dais","dan"]},{"v":"reírse","t":"pres","m":"γελάω","f":["me río","te ríes","se ríe","nos reímos","os reís","se ríen"]},{"v":"vestirse","t":"pres","m":"ντύνομαι","f":["me visto","te vistes","se viste","nos vestimos","os vestís","se visten"]},{"v":"acostarse","t":"pres","m":"πλαγιάζω","f":["me acuesto","te acuestas","se acuesta","nos acostamos","os acostáis","se acuestan"]},{"v":"despertarse","t":"pres","m":"ξυπνάω","f":["me despierto","te despiertas","se despierta","nos despertamos","os despertáis","se despiertan"]}],"8":[{"v":"hablar","t":"perf","m":"μιλάω","f":["he hablado","has hablado","ha hablado","hemos hablado","habéis hablado","han hablado"]},{"v":"comer","t":"perf","m":"τρώω","f":["he comido","has comido","ha comido","hemos comido","habéis comido","han comido"]},{"v":"vivir","t":"perf","m":"μένω, ζω","f":["he vivido","has vivido","ha vivido","hemos vivido","habéis vivido","han vivido"]},{"v":"viajar","t":"perf","m":"ταξιδεύω","f":["he viajado","has viajado","ha viajado","hemos viajado","habéis viajado","han viajado"]},{"v":"estar","t":"perf","m":"είμαι, βρίσκομαι","f":["he estado","has estado","ha estado","hemos estado","habéis estado","han estado"]},{"v":"tener","t":"perf","m":"έχω","f":["he tenido","has tenido","ha tenido","hemos tenido","habéis tenido","han tenido"]},{"v":"hacer","t":"perf","m":"κάνω","f":["he hecho","has hecho","ha hecho","hemos hecho","habéis hecho","han hecho"]},{"v":"ver","t":"perf","m":"βλέπω","f":["he visto","has visto","ha visto","hemos visto","habéis visto","han visto"]},{"v":"escribir","t":"perf","m":"γράφω","f":["he escrito","has escrito","ha escrito","hemos escrito","habéis escrito","han escrito"]},{"v":"volver","t":"perf","m":"γυρίζω","f":["he vuelto","has vuelto","ha vuelto","hemos vuelto","habéis vuelto","han vuelto"]},{"v":"decir","t":"perf","m":"λέω","f":["he dicho","has dicho","ha dicho","hemos dicho","habéis dicho","han dicho"]},{"v":"poner","t":"perf","m":"βάζω","f":["he puesto","has puesto","ha puesto","hemos puesto","habéis puesto","han puesto"]},{"v":"abrir","t":"perf","m":"ανοίγω","f":["he abierto","has abierto","ha abierto","hemos abierto","habéis abierto","han abierto"]},{"v":"romper","t":"perf","m":"σπάω","f":["he roto","has roto","ha roto","hemos roto","habéis roto","han roto"]},{"v":"levantarse","t":"perf","m":"σηκώνομαι","f":["me he levantado","te has levantado","se ha levantado","nos hemos levantado","os habéis levantado","se han levantado"]}],"9":[{"v":"deber","t":"pres","m":"πρέπει","f":["debo","debes","debe","debemos","debéis","deben"]},{"v":"poder","t":"pres","m":"μπορώ","f":["puedo","puedes","puede","podemos","podéis","pueden"]},{"v":"encontrarse","t":"pres","m":"αισθάνομαι","f":["me encuentro","te encuentras","se encuentra","nos encontramos","os encontráis","se encuentran"]},{"v":"sentirse","t":"pres","m":"νιώθω","f":["me siento","te sientes","se siente","nos sentimos","os sentís","se sienten"]},{"v":"toser","t":"pres","m":"βήχω","f":["toso","toses","tose","tosemos","toséis","tosen"]}],"11":[{"v":"trabajar","t":"ind","m":"δουλεύω","f":["trabajé","trabajaste","trabajó","trabajamos","trabajasteis","trabajaron"]},{"v":"estudiar","t":"ind","m":"σπουδάζω","f":["estudié","estudiaste","estudió","estudiamos","estudiasteis","estudiaron"]},{"v":"vivir","t":"ind","m":"μένω, ζω","f":["viví","viviste","vivió","vivimos","vivisteis","vivieron"]},{"v":"terminar","t":"ind","m":"τελειώνω","f":["terminé","terminaste","terminó","terminamos","terminasteis","terminaron"]},{"v":"empezar","t":"ind","m":"αρχίζω","f":["empecé","empezaste","empezó","empezamos","empezasteis","empezaron"]},{"v":"jugar","t":"ind","m":"παίζω","f":["jugué","jugaste","jugó","jugamos","jugasteis","jugaron"]},{"v":"buscar","t":"ind","m":"ψάχνω","f":["busqué","buscaste","buscó","buscamos","buscasteis","buscaron"]},{"v":"conocer","t":"ind","m":"γνωρίζω","f":["conocí","conociste","conoció","conocimos","conocisteis","conocieron"]},{"v":"escribir","t":"ind","m":"γράφω","f":["escribí","escribiste","escribió","escribimos","escribisteis","escribieron"]},{"v":"ir","t":"ind","m":"πηγαίνω","f":["fui","fuiste","fue","fuimos","fuisteis","fueron"]},{"v":"estar","t":"ind","m":"είμαι, βρίσκομαι","f":["estuve","estuviste","estuvo","estuvimos","estuvisteis","estuvieron"]},{"v":"tener","t":"ind","m":"έχω","f":["tuve","tuviste","tuvo","tuvimos","tuvisteis","tuvieron"]},{"v":"hacer","t":"ind","m":"κάνω","f":["hice","hiciste","hizo","hicimos","hicisteis","hicieron"]}],"12":[{"v":"ser","t":"ind","m":"είμαι","f":["fui","fuiste","fue","fuimos","fuisteis","fueron"]},{"v":"poder","t":"ind","m":"μπορώ","f":["pude","pudiste","pudo","pudimos","pudisteis","pudieron"]},{"v":"poner","t":"ind","m":"βάζω","f":["puse","pusiste","puso","pusimos","pusisteis","pusieron"]},{"v":"querer","t":"ind","m":"θέλω","f":["quise","quisiste","quiso","quisimos","quisisteis","quisieron"]},{"v":"saber","t":"ind","m":"ξέρω","f":["supe","supiste","supo","supimos","supisteis","supieron"]},{"v":"venir","t":"ind","m":"έρχομαι","f":["vine","viniste","vino","vinimos","vinisteis","vinieron"]},{"v":"decir","t":"ind","m":"λέω","f":["dije","dijiste","dijo","dijimos","dijisteis","dijeron"]},{"v":"traer","t":"ind","m":"φέρνω","f":["traje","trajiste","trajo","trajimos","trajisteis","trajeron"]},{"v":"dar","t":"ind","m":"δίνω","f":["di","diste","dio","dimos","disteis","dieron"]},{"v":"dormir","t":"ind","m":"κοιμάμαι","f":["dormí","dormiste","durmió","dormimos","dormisteis","durmieron"]},{"v":"pedir","t":"ind","m":"ζητάω","f":["pedí","pediste","pidió","pedimos","pedisteis","pidieron"]},{"v":"leer","t":"ind","m":"διαβάζω","f":["leí","leíste","leyó","leímos","leísteis","leyeron"]},{"v":"ver","t":"ind","m":"βλέπω","f":["vi","viste","vio","vimos","visteis","vieron"]}],"13":[{"v":"hablar","t":"imp","m":"μιλάω","f":["hablaba","hablabas","hablaba","hablábamos","hablabais","hablaban"]},{"v":"trabajar","t":"imp","m":"δουλεύω","f":["trabajaba","trabajabas","trabajaba","trabajábamos","trabajabais","trabajaban"]},{"v":"comer","t":"imp","m":"τρώω","f":["comía","comías","comía","comíamos","comíais","comían"]},{"v":"vivir","t":"imp","m":"μένω, ζω","f":["vivía","vivías","vivía","vivíamos","vivíais","vivían"]},{"v":"tener","t":"imp","m":"έχω","f":["tenía","tenías","tenía","teníamos","teníais","tenían"]},{"v":"jugar","t":"imp","m":"παίζω","f":["jugaba","jugabas","jugaba","jugábamos","jugabais","jugaban"]},{"v":"ser","t":"imp","m":"είμαι","f":["era","eras","era","éramos","erais","eran"]},{"v":"ir","t":"imp","m":"πηγαίνω","f":["iba","ibas","iba","íbamos","ibais","iban"]},{"v":"ver","t":"imp","m":"βλέπω","f":["veía","veías","veía","veíamos","veíais","veían"]}],"14":[{"v":"correr","t":"impv","m":"τρέχω","f":["corre"]},{"v":"beber","t":"impv","m":"πίνω","f":["bebe"]},{"v":"descansar","t":"impv","m":"ξεκουράζομαι","f":["descansa"]},{"v":"escribir","t":"impv","m":"γράφω","f":["escribe"]},{"v":"comer","t":"impv","m":"τρώω","f":["come"]},{"v":"cerrar","t":"impv","m":"κλείνω","f":["cierra"]},{"v":"dormir","t":"impv","m":"κοιμάμαι","f":["duerme"]},{"v":"tener","t":"impv","m":"έχω","f":["ten"]},{"v":"venir","t":"impv","m":"έρχομαι","f":["ven"]},{"v":"poner","t":"impv","m":"βάζω","f":["pon"]},{"v":"salir","t":"impv","m":"βγαίνω","f":["sal"]},{"v":"hacer","t":"impv","m":"κάνω","f":["haz"]},{"v":"decir","t":"impv","m":"λέω","f":["di"]},{"v":"ir","t":"impv","m":"πηγαίνω","f":["ve"]}]},"tense":{"pres":"Ενεστώτας","ger":"estar + gerundio (τώρα)","perf":"Παρακείμενος","ind":"Αόριστος","imp":"Παρατατικός","impv":"Προστακτική (tú)"},"theory":{"1":[{"h":"Ser = είμαι","p":["Το [[ser]] λέει ποιος ή τι είναι κάποιος: εθνικότητα, καταγωγή, επάγγελμα."],"t":[["","ser"],["yo","soy"],["tú","eres"],["él / ella / usted","es"],["nosotros/as","somos"],["vosotros/as","sois"],["ellos / ustedes","son"]],"ex":[["Soy griego.","Είμαι Έλληνας."],["Soy de Grecia.","Είμαι από την Ελλάδα."],["Ella es médica.","Αυτή είναι γιατρός."]],"tip":"Το επάγγελμα μπαίνει χωρίς άρθρο: [[Soy ingeniero]], όχι «soy un ingeniero»."},{"h":"Llamarse και tener","p":["Το [[llamarse]] (λέγομαι) παίρνει μπροστά [[me, te, se, nos, os, se]]. Την ηλικία τη λέμε με το [[tener]] (έχω)."],"t":[["","llamarse","tener"],["yo","me llamo","tengo"],["tú","te llamas","tienes"],["él / ella","se llama","tiene"],["nosotros","nos llamamos","tenemos"],["vosotros","os llamáis","tenéis"],["ellos","se llaman","tienen"]],"ex":[["¿Cómo te llamas? – Me llamo Ana.","Πώς σε λένε; – Με λένε Άννα."],["¿Cuántos años tienes? – Tengo 25 años.","Πόσο χρονών είσαι; – Είμαι 25."]]},{"h":"Γένος: επαγγέλματα και εθνικότητες","t":[["Κανόνας","Αρσενικό","Θηλυκό"],["-o → -a","médico, griego","médica, griega"],["σύμφωνο → + a","profesor, español","profesora, española"],["-és / -án → χάνει τον τόνο","francés, alemán","francesa, alemana"],["-ista, -ante, -e, -í: ίδιο","periodista, estudiante","periodista, estudiante"]],"tip":"Εθνικότητες και γλώσσες γράφονται με μικρό: [[Soy griego. Hablo inglés.]]"},{"h":"Para, porque και άρνηση","p":["[[para]] + απαρέμφατο = για να (σκοπός). [[porque]] + κλιμένο ρήμα = επειδή (αιτία).","Για άρνηση βάζεις [[no]] πριν από το ρήμα."],"ex":[["Estudio español para viajar.","Μαθαίνω ισπανικά για να ταξιδεύω."],["Estudio español porque me gusta.","Μαθαίνω ισπανικά επειδή μου αρέσει."],["No hablo francés.","Δεν μιλάω γαλλικά."]],"tip":"[[¿Por qué?]] (δύο λέξεις, με τόνο) = γιατί; · [[porque]] (μία λέξη) = επειδή."}],"2":[{"h":"Η ώρα","p":["Ρωτάμε [[¿Qué hora es?]]. Για τη μία λέμε [[Es la una]], για όλες τις άλλες [[Son las…]].","Μέχρι τις :30 λέμε [[y]] (και). Μετά πάμε στην επόμενη ώρα με [[menos]] (παρά)."],"t":[["Ώρα","Ισπανικά"],["1:00","Es la una"],["3:00","Son las tres en punto"],["3:15","Son las tres y cuarto"],["3:30","Son las tres y media"],["3:45","Son las cuatro menos cuarto"],["3:50","Son las cuatro menos diez"]],"tip":"[[Son las tres]] = είναι τρεις. [[A las tres]] = στις τρεις: [[Ceno a las nueve.]]"},{"h":"Μέρη της ημέρας","p":["Χωρίς ώρα λέμε [[por]]: [[por la mañana, por la tarde, por la noche]]. Με ώρα λέμε [[de]]: [[a las ocho de la mañana]].","[[de … a]] = από … μέχρι. [[antes de / después de]] + απαρέμφατο = πριν / μετά."],"ex":[["Estudio por la tarde.","Διαβάζω το απόγευμα."],["Trabajo de nueve a cinco.","Δουλεύω από τις 9 μέχρι τις 5."],["Desayuno antes de ir a clase.","Τρώω πρωινό πριν πάω στο μάθημα."],["Los lunes voy al gimnasio.","Τις Δευτέρες πάω γυμναστήριο."]]},{"h":"Ενεστώτας ομαλών ρημάτων","p":["Βγάζεις το -ar, -er ή -ir και βάζεις την κατάληξη."],"t":[["","hablar","comer","vivir"],["yo","hablo","como","vivo"],["tú","hablas","comes","vives"],["él / ella / usted","habla","come","vive"],["nosotros/as","hablamos","comemos","vivimos"],["vosotros/as","habláis","coméis","vivís"],["ellos / ustedes","hablan","comen","viven"]],"tip":"Το «εγώ» τελειώνει πάντα σε -o. Τα -er και -ir διαφέρουν μόνο στο nosotros και στο vosotros."},{"h":"Αυτοπαθή ρήματα (-se)","p":["Μοιάζουν με τα ελληνικά σε -ομαι. Κλίνονται κανονικά, με [[me, te, se, nos, os, se]] μπροστά."],"t":[["","levantarse"],["yo","me levanto"],["tú","te levantas"],["él / ella","se levanta"],["nosotros","nos levantamos"],["vosotros","os levantáis"],["ellos","se levantan"]],"ex":[["Me levanto a las siete y me ducho.","Σηκώνομαι στις επτά και κάνω ντους."]]}],"3":[{"h":"Es · hay · está","t":[["","Τι δείχνει","Τι ακολουθεί"],["es / son","περιγραφή: πώς ή τι είναι","επίθετο, un/una + ουσιαστικό"],["hay","ύπαρξη: υπάρχει, υπάρχουν","un/una, αριθμός, muchos, χωρίς άρθρο"],["está / están","θέση: πού βρίσκεται","el/la/los/las, mi/tu, όνομα"]],"ex":[["Mi barrio es tranquilo.","Η γειτονιά μου είναι ήσυχη."],["Hay un parque.","Υπάρχει ένα πάρκο."],["El parque está cerca.","Το πάρκο είναι κοντά."]],"tip":"Ποτέ «hay el parque». Με [[el/la]] πάει το [[está]], με [[un/una]] πάει το [[hay]]."},{"h":"Τα άρθρα","t":[["","Οριστικό","Αόριστο"],["αρσενικό ενικός","el","un"],["θηλυκό ενικός","la","una"],["αρσενικό πληθυντικός","los","unos"],["θηλυκό πληθυντικός","las","unas"]],"p":["[[a + el = al]], [[de + el = del]]. Το [[unos]] πριν από αριθμό σημαίνει «περίπου»: [[a unos diez minutos]]. Χώρες και πόλεις δεν παίρνουν άρθρο: [[Vivo en Tesalónica.]]"]},{"h":"Κατευθύνσεις","p":["[[a]] για κατεύθυνση και απόσταση, [[en]] για θέση, [[de]] μετά από [[cerca, lejos, al lado]]."],"t":[["Ισπανικά","Ελληνικά"],["todo recto","ευθεία"],["a la derecha / a la izquierda","δεξιά / αριστερά"],["al lado de","δίπλα σε"],["al final de","στο τέλος του"],["en la esquina","στη γωνία"],["cerca de / lejos de","κοντά σε / μακριά από"],["a unos 10 minutos a pie","περίπου 10 λεπτά με τα πόδια"]],"ex":[["Sigue todo recto y gira a la derecha.","Συνέχισε ευθεία και στρίψε δεξιά."],["Toma la segunda calle a la izquierda.","Πάρε τον δεύτερο δρόμο αριστερά."]]},{"h":"Τακτικά αριθμητικά","p":["[[primero, segundo, tercero, cuarto, quinto, sexto, séptimo, octavo, noveno, décimo]]. Θηλυκό σε -a: [[la primera calle]]."],"tip":"Πριν από αρσενικό ουσιαστικό: [[primero → primer]], [[tercero → tercer]]: [[el tercer piso]]."},{"h":"Ερωτηματικές λέξεις","t":[["Ισπανικά","Ελληνικά"],["¿Qué?","Τι;"],["¿Cómo?","Πώς;"],["¿Dónde? / ¿De dónde?","Πού; / Από πού;"],["¿Cuál? / ¿Cuáles?","Ποιο; / Ποια;"],["¿Cuánto/a? ¿Cuántos/as?","Πόσο; Πόσοι;"],["¿Quién? / ¿Quiénes?","Ποιος; / Ποιοι;"],["¿Cuándo?","Πότε;"],["¿Por qué?","Γιατί;"]],"tip":"Όλες γράφονται με τόνο και με ¿ στην αρχή της ερώτησης."}],"4":[{"h":"Κτητικά","p":["Μπαίνουν πριν από το ουσιαστικό και συμφωνούν με αυτό που έχουμε, όχι με τον κάτοχο."],"t":[["","ενικός","πληθυντικός"],["μου","mi","mis"],["σου","tu","tus"],["του / της / σας","su","sus"],["μας","nuestro/a","nuestros/as"],["σας (vosotros)","vuestro/a","vuestros/as"],["τους","su","sus"]],"ex":[["Mi hermano y mis hermanas.","Ο αδελφός μου και οι αδελφές μου."],["Nuestra casa es grande.","Το σπίτι μας είναι μεγάλο."]],"tip":"[[tu]] χωρίς τόνο = σου. [[tú]] με τόνο = εσύ."},{"h":"Δεικτικά","t":[["","αρσ.","θηλ.","αρσ. πληθ.","θηλ. πληθ."],["εδώ","este","esta","estos","estas"],["εκεί","ese","esa","esos","esas"],["εκεί πέρα","aquel","aquella","aquellos","aquellas"]],"ex":[["Este es mi padre.","Αυτός είναι ο πατέρας μου."],["Aquella casa es muy antigua.","Εκείνο το σπίτι είναι πολύ παλιό."]]},{"h":"Επίθετα και ένταση","p":["Το επίθετο συμφωνεί σε γένος και αριθμό: [[simpático, simpática, simpáticos, simpáticas]]. Όσα τελειώνουν σε -e ή σύμφωνο δεν αλλάζουν στο θηλυκό, εκτός από τα -or: [[trabajador → trabajadora]].","[[muy]] + επίθετο = πολύ. [[bastante]] = αρκετά. [[un poco]] = λίγο."],"ex":[["Mi hermana es muy simpática.","Η αδελφή μου είναι πολύ συμπαθητική."],["Es un poco tímido.","Είναι λίγο ντροπαλός."]]},{"h":"Ρήματα με αλλαγή στη ρίζα","p":["Η ρίζα αλλάζει όταν πέφτει πάνω της ο τόνος: σε όλα τα πρόσωπα εκτός από nosotros και vosotros."],"t":[["","querer (e→ie)","poder (o→ue)","pedir (e→i)"],["yo","quiero","puedo","pido"],["tú","quieres","puedes","pides"],["él / ella","quiere","puede","pide"],["nosotros","queremos","podemos","pedimos"],["vosotros","queréis","podéis","pedís"],["ellos","quieren","pueden","piden"]],"tip":"Μερικά έχουν ανώμαλο «εγώ»: [[tengo, vengo, digo, hago, salgo, conozco, sé]]."}],"5":[{"h":"Gustar = μου αρέσει","p":["Λειτουργεί όπως στα ελληνικά: αυτό που αρέσει ορίζει αν θα πούμε [[gusta]] ή [[gustan]]."],"t":[["","","ενικός ή απαρέμφατο","πληθυντικός"],["(a mí)","me","gusta","gustan"],["(a ti)","te","gusta","gustan"],["(a él / ella / usted)","le","gusta","gustan"],["(a nosotros)","nos","gusta","gustan"],["(a vosotros)","os","gusta","gustan"],["(a ellos / ustedes)","les","gusta","gustan"]],"ex":[["Me gusta el cine.","Μου αρέσει το σινεμά."],["Me gustan los conciertos.","Μου αρέσουν οι συναυλίες."],["¿Te gusta bailar?","Σου αρέσει να χορεύεις;"],["A Ana le gusta leer.","Στην Άννα αρέσει το διάβασμα."]]},{"h":"Συμφωνώ και διαφωνώ","t":[["Λέει ο άλλος","Συμφωνώ","Διαφωνώ"],["Me gusta el fútbol.","A mí también.","A mí no."],["No me gusta el café.","A mí tampoco.","A mí sí."]]},{"h":"Ir: πού πάω και πώς","p":["[[ir a]] + μέρος. Μέσο μεταφοράς με [[en]], αλλά [[a pie]] (με τα πόδια). [[ir a]] + απαρέμφατο = θα κάνω κάτι."],"t":[["","ir"],["yo","voy"],["tú","vas"],["él / ella","va"],["nosotros","vamos"],["vosotros","vais"],["ellos","van"]],"ex":[["Voy al cine en autobús.","Πάω σινεμά με το λεωφορείο."],["Mañana voy a estudiar.","Αύριο θα διαβάσω."]]},{"h":"Estar + gerundio: τώρα","p":["Για κάτι που γίνεται αυτή τη στιγμή. -ar → [[-ando]], -er/-ir → [[-iendo]]."],"ex":[["Estoy comiendo.","Τρώω (τώρα)."],["Está leyendo un libro.","Διαβάζει ένα βιβλίο."]],"tip":"Ανώμαλα: [[leer → leyendo]], [[dormir → durmiendo]], [[decir → diciendo]], [[ir → yendo]]."},{"h":"Ανώμαλα: hacer, salir, preferir, poder","t":[["","hacer","salir","preferir","poder"],["yo","hago","salgo","prefiero","puedo"],["tú","haces","sales","prefieres","puedes"],["él / ella","hace","sale","prefiere","puede"],["nosotros","hacemos","salimos","preferimos","podemos"]]}],"6":[{"h":"Χρώματα","p":["Συμφωνούν με το ουσιαστικό όπως τα επίθετα: [[rojo, roja, rojos, rojas]]. Όσα τελειώνουν σε -e ή σύμφωνο αλλάζουν μόνο στον πληθυντικό: [[verde → verdes]], [[azul → azules]]. Τα [[naranja]] και [[rosa]] μένουν ίδια στο γένος."],"ex":[["Una camisa blanca y unos zapatos negros.","Ένα άσπρο πουκάμισο και μαύρα παπούτσια."]]},{"h":"Περιγραφή: ser, tener, llevar","t":[["Ρήμα","Για τι","Παράδειγμα"],["ser","σώμα, χαρακτήρας","Es alto y delgado."],["tener","μάτια, μαλλιά","Tiene los ojos verdes."],["llevar","ρούχα, γυαλιά, γένια","Lleva gafas y una chaqueta."]],"tip":"[[el pelo]] είναι αρσενικό και ενικός: [[Tiene el pelo rubio.]]"},{"h":"Υποχρέωση και ανάγκη","p":["[[tener que]] + απαρέμφατο = πρέπει. [[deber]] + απαρέμφατο = οφείλω, καλό είναι να. [[necesitar]] + ουσιαστικό ή απαρέμφατο = χρειάζομαι."],"ex":[["Tengo que trabajar.","Πρέπει να δουλέψω."],["Debes descansar.","Πρέπει να ξεκουραστείς."],["Necesito un abrigo.","Χρειάζομαι ένα παλτό."]]},{"h":"Ο καιρός","t":[["Ισπανικά","Ελληνικά"],["Hace frío / calor","Κάνει κρύο / ζέστη"],["Hace sol / viento","Έχει ήλιο / Φυσάει"],["Llueve","Βρέχει"],["Nieva","Χιονίζει"],["Está nublado","Έχει συννεφιά"]],"p":["Εποχές: [[la primavera, el verano, el otoño, el invierno]]. Με μήνες και εποχές βάζουμε [[en]]: [[en mayo, en verano]]."]},{"h":"Αριθμοί 100–1000","p":["100 = [[cien]], αλλά 101–199 = [[ciento …]]: [[ciento cincuenta]]. Οι εκατοντάδες συμφωνούν στο γένος: [[doscientos euros, doscientas personas]].","200 [[doscientos]], 300 [[trescientos]], 400 [[cuatrocientos]], 500 [[quinientos]], 600 [[seiscientos]], 700 [[setecientos]], 800 [[ochocientos]], 900 [[novecientos]], 1000 [[mil]]."]}],"7":[{"h":"Es bueno + απαρέμφατο","p":["Γενικές συμβουλές: [[es bueno / es malo / es necesario / es importante]] + απαρέμφατο."],"ex":[["Es bueno beber agua.","Είναι καλό να πίνεις νερό."],["Es malo comer mucho azúcar.","Είναι κακό να τρως πολλή ζάχαρη."]]},{"h":"Ανώμαλα ρήματα της ρουτίνας","t":[["","acostarse (o→ue)","vestirse (e→i)","reírse","dar"],["yo","me acuesto","me visto","me río","doy"],["tú","te acuestas","te vistes","te ríes","das"],["él / ella","se acuesta","se viste","se ríe","da"],["nosotros","nos acostamos","nos vestimos","nos reímos","damos"],["vosotros","os acostáis","os vestís","os reís","dais"],["ellos","se acuestan","se visten","se ríen","dan"]]},{"h":"Ποσότητα: mucho, bastante, poco, nada","p":["Με ουσιαστικό συμφωνούν: [[mucho pan, mucha agua, muchos huevos, muchas verduras]]. Με ρήμα μένουν ίδια: [[Como mucho.]] Με επίθετο λέμε [[muy]]: [[muy sano]].","[[no … nada]] = καθόλου: [[No como nada de carne.]]"],"tip":"[[el agua]] παίρνει el, αλλά είναι θηλυκό: [[mucha agua]]."},{"h":"Στο εστιατόριο","ex":[["De primero, ensalada.","Για πρώτο πιάτο, σαλάτα."],["De segundo, pescado.","Για δεύτερο, ψάρι."],["De postre, fruta.","Για επιδόρπιο, φρούτα."],["La cuenta, por favor.","Τον λογαριασμό, παρακαλώ."]],"p":["Σύνδεσμοι: [[y]] = και, [[pero]] = αλλά, [[o]] = ή."]}],"8":[{"h":"Παρακείμενος: haber + μετοχή","p":["Για εμπειρίες και για ό,τι έγινε σε χρόνο που δεν έχει τελειώσει (σήμερα, αυτή την εβδομάδα). Μετοχή: -ar → [[-ado]], -er/-ir → [[-ido]]."],"t":[["","haber","+ μετοχή"],["yo","he","hablado"],["tú","has","comido"],["él / ella","ha","vivido"],["nosotros","hemos","viajado"],["vosotros","habéis","estado"],["ellos","han","tenido"]],"ex":[["He estado en México.","Έχω πάει στο Μεξικό."],["¿Has visto esta película?","Έχεις δει αυτή την ταινία;"]],"tip":"Τα [[he]] και η μετοχή δεν χωρίζονται ποτέ: [[Me he levantado]], [[No he comido]]."},{"h":"Ανώμαλες μετοχές","t":[["Ρήμα","Μετοχή"],["hacer","hecho"],["ver","visto"],["escribir","escrito"],["decir","dicho"],["poner","puesto"],["volver","vuelto"],["abrir","abierto"],["romper","roto"]]},{"h":"Λέξεις που πάνε με τον παρακείμενο","p":["[[hoy, esta mañana, esta semana, este año, alguna vez, nunca, ya, todavía no]]."],"ex":[["¿Has estado alguna vez en España?","Έχεις πάει ποτέ στην Ισπανία;"],["Nunca he comido paella.","Δεν έχω φάει ποτέ παέγια."],["Todavía no he terminado.","Δεν έχω τελειώσει ακόμα."]]},{"h":"Hace, desde, desde hace","t":[["","Ακολουθεί","Παράδειγμα"],["desde","χρονικό σημείο","Vivo aquí desde 2020."],["desde hace","διάστημα","Estudio español desde hace dos meses."],["hace … que","διάστημα","Hace dos meses que estudio español."]]}],"9":[{"h":"Doler = πονάει","p":["Κλίνεται όπως το gustar: [[me duele]] + ενικός, [[me duelen]] + πληθυντικός."],"ex":[["Me duele la cabeza.","Πονάει το κεφάλι μου."],["Me duelen los pies.","Πονάνε τα πόδια μου."],["¿Te duele la garganta?","Σε πονάει ο λαιμός σου;"],["A mi madre le duele la espalda.","Τη μητέρα μου την πονάει η πλάτη."]],"tip":"Στα μέρη του σώματος μπαίνει άρθρο, όχι κτητικό: [[Me duele la cabeza]], όχι «mi cabeza»."},{"h":"Tener και estar για την υγεία","t":[["tener + ουσιαστικό","estar + επίθετο"],["tener fiebre (πυρετό)","estar enfermo/a (άρρωστος)"],["tener tos (βήχα)","estar resfriado/a (κρυωμένος)"],["tener dolor de cabeza","estar cansado/a (κουρασμένος)"],["tener gripe (γρίπη)","estar mareado/a (ζαλισμένος)"]],"ex":[["¿Qué te pasa? – Me encuentro mal.","Τι έχεις; – Αισθάνομαι άσχημα."]]},{"h":"Συμβουλές","p":["[[deber / tener que / poder]] + απαρέμφατο."],"ex":[["Debes ir al médico.","Πρέπει να πας στον γιατρό."],["Tienes que descansar.","Πρέπει να ξεκουραστείς."],["Puedes tomar una infusión.","Μπορείς να πιεις ένα τσάι βοτάνων."]]},{"h":"Υποθέσεις και σύνδεσμοι","p":["[[a lo mejor]] + οριστική = ίσως. Σύνδεσμοι: [[y]] (και), [[pero]] (αλλά), [[porque]] (επειδή), [[por eso]] (γι' αυτό)."],"ex":[["A lo mejor tienes gripe.","Μπορεί να έχεις γρίπη."],["Estoy enfermo, por eso no voy a clase.","Είμαι άρρωστος, γι' αυτό δεν πάω στο μάθημα."]],"tip":"Λέξεις σε -ma είναι συχνά αρσενικές: [[el problema, el síntoma, el tema]]."}],"10":[{"h":"Συγκριτικά","t":[["","Τύπος","Παράδειγμα"],["περισσότερο","más … que","Madrid es más grande que Sevilla."],["λιγότερο","menos … que","Es menos caro que el otro."],["το ίδιο","tan … como","Es tan alto como su padre."]],"tip":"Ανώμαλα: [[bueno → mejor]], [[malo → peor]], [[grande (ηλικία) → mayor]], [[pequeño (ηλικία) → menor]]."},{"h":"Υπερθετικός","p":["[[el / la / los / las]] + [[más]] + επίθετο + [[de]]."],"ex":[["Es la montaña más alta de España.","Είναι το ψηλότερο βουνό της Ισπανίας."],["Es el mejor restaurante de la ciudad.","Είναι το καλύτερο εστιατόριο της πόλης."]]},{"h":"Αντωνυμίες αντικειμένου: lo, la, los, las","p":["Αντικαθιστούν κάτι που έχουμε ήδη πει και μπαίνουν πριν από το ρήμα."],"t":[["","ενικός","πληθυντικός"],["αρσενικό","lo","los"],["θηλυκό","la","las"]],"ex":[["¿Tienes el mapa? – Sí, lo tengo.","Έχεις τον χάρτη; – Ναι, τον έχω."],["¿Reciclas las botellas? – Sí, las reciclo.","Ανακυκλώνεις τα μπουκάλια; – Ναι, τα ανακυκλώνω."]]},{"h":"Κλίμα και τοπίο","p":["[[el clima es seco / húmedo / lluvioso / caluroso]]. Τοπίο: [[la montaña, el río, el lago, la playa, la isla, el desierto, el bosque]]."],"ex":[["En el norte llueve mucho.","Στον βορρά βρέχει πολύ."],["En verano hace mucho calor.","Το καλοκαίρι κάνει πολλή ζέστη."]]}],"11":[{"h":"Αόριστος ομαλών ρημάτων","p":["Για κάτι που έγινε και τελείωσε σε συγκεκριμένο χρόνο στο παρελθόν."],"t":[["","trabajar","comer","vivir"],["yo","trabajé","comí","viví"],["tú","trabajaste","comiste","viviste"],["él / ella","trabajó","comió","vivió"],["nosotros","trabajamos","comimos","vivimos"],["vosotros","trabajasteis","comisteis","vivisteis"],["ellos","trabajaron","comieron","vivieron"]],"tip":"Ο τόνος αλλάζει το νόημα: [[trabajo]] = δουλεύω, [[trabajó]] = δούλεψε."},{"h":"Ανώμαλοι: ir/ser, estar, tener, hacer","t":[["","ir / ser","estar","tener","hacer"],["yo","fui","estuve","tuve","hice"],["tú","fuiste","estuviste","tuviste","hiciste"],["él / ella","fue","estuvo","tuvo","hizo"],["nosotros","fuimos","estuvimos","tuvimos","hicimos"],["vosotros","fuisteis","estuvisteis","tuvisteis","hicisteis"],["ellos","fueron","estuvieron","tuvieron","hicieron"]],"tip":"Το [[ir]] και το [[ser]] έχουν τον ίδιο αόριστο: [[fui]] = πήγα ή ήμουν."},{"h":"Ορθογραφία στο «εγώ»","p":["-car → [[-qué]]: [[buscar → busqué]]. -gar → [[-gué]]: [[jugar → jugué]]. -zar → [[-cé]]: [[empezar → empecé]]."]},{"h":"Παρακείμενος ή αόριστος;","t":[["Παρακείμενος (he comido)","Αόριστος (comí)"],["hoy, esta semana, este año","ayer, anoche, la semana pasada"],["alguna vez, nunca, ya","el año pasado, en 2015, hace dos años"]],"ex":[["Hoy he comido paella.","Σήμερα έφαγα παέγια."],["Ayer comí paella.","Χθες έφαγα παέγια."],["Empecé a trabajar hace tres años.","Άρχισα να δουλεύω πριν από τρία χρόνια."]]}],"12":[{"h":"Ανώμαλοι αόριστοι","p":["Αλλάζει η ρίζα και οι καταλήξεις είναι χωρίς τόνο: [[-e, -iste, -o, -imos, -isteis, -ieron]]."],"t":[["Ρήμα","Ρίζα","yo","él / ella"],["poder","pud-","pude","pudo"],["poner","pus-","puse","puso"],["querer","quis-","quise","quiso"],["saber","sup-","supe","supo"],["venir","vin-","vine","vino"],["decir","dij-","dije","dijo"],["traer","traj-","traje","trajo"]],"tip":"Τα [[decir]] και [[traer]] χάνουν το i στο ellos: [[dijeron, trajeron]]."},{"h":"Dormir, pedir, dar, ver","p":["Στα [[dormir]] και [[pedir]] η ρίζα αλλάζει μόνο στο τρίτο πρόσωπο: [[durmió, durmieron]], [[pidió, pidieron]].","[[dar]]: di, diste, dio, dimos, disteis, dieron. [[ver]]: vi, viste, vio, vimos, visteis, vieron."]},{"h":"Κτητικά τονισμένα: δικός μου","t":[["","αρσ.","θηλ.","αρσ. πληθ.","θηλ. πληθ."],["δικός μου","mío","mía","míos","mías"],["δικός σου","tuyo","tuya","tuyos","tuyas"],["δικός του / της / τους","suyo","suya","suyos","suyas"],["δικός μας","nuestro","nuestra","nuestros","nuestras"]],"ex":[["¿Es tuya esta mochila? – Sí, es mía.","Είναι δικό σου αυτό το σακίδιο; – Ναι, είναι δικό μου."]]},{"h":"Έμμεσο αντικείμενο: me, te, le…","p":["[[me, te, le, nos, os, les]] = σε μένα, σε σένα, σε αυτόν… Όταν συναντηθούν [[le/les]] με [[lo/la/los/las]], το [[le]] γίνεται [[se]]."],"ex":[["Mi madre me regaló una brújula.","Η μητέρα μου μού χάρισε μια πυξίδα."],["¿Le das el mapa a Juan? – Sí, se lo doy.","Δίνεις τον χάρτη στον Χουάν; – Ναι, του τον δίνω."]]}],"13":[{"h":"Παρατατικός","p":["Για συνήθειες και περιγραφές στο παρελθόν: «έκανα, συνήθιζα να κάνω»."],"t":[["","hablar","comer","vivir"],["yo","hablaba","comía","vivía"],["tú","hablabas","comías","vivías"],["él / ella","hablaba","comía","vivía"],["nosotros","hablábamos","comíamos","vivíamos"],["vosotros","hablabais","comíais","vivíais"],["ellos","hablaban","comían","vivían"]]},{"h":"Τα τρία ανώμαλα","t":[["","ser","ir","ver"],["yo","era","iba","veía"],["tú","eras","ibas","veías"],["él / ella","era","iba","veía"],["nosotros","éramos","íbamos","veíamos"],["vosotros","erais","ibais","veíais"],["ellos","eran","iban","veían"]],"tip":"Το [[hay]] στον παρατατικό γίνεται [[había]]: [[Antes no había internet.]]"},{"h":"Πριν και τώρα","p":["Λέξεις που ζητούν παρατατικό: [[antes, de niño/a, de joven, cuando era pequeño/a, en aquella época, entonces]]."],"ex":[["De niño jugaba en la calle.","Όταν ήμουν παιδί, έπαιζα στον δρόμο."],["Antes vivíamos en un pueblo, ahora vivimos en la ciudad.","Πριν ζούσαμε σε χωριό, τώρα ζούμε στην πόλη."]]},{"h":"Ποσότητες στα ψώνια","t":[["Ισπανικά","Ελληνικά"],["un kilo de","ένα κιλό"],["medio kilo de","μισό κιλό"],["un cuarto de kilo de","ένα τέταρτο του κιλού"],["un litro de","ένα λίτρο"],["una docena de","μια ντουζίνα"],["una barra de pan","μια φρατζόλα ψωμί"]],"ex":[["Quiero medio kilo de tomates.","Θέλω μισό κιλό ντομάτες."]]}],"14":[{"h":"Προστακτική (tú)","p":["Για οδηγίες και συμβουλές σε έναν φίλο. Είναι ίδια με το τρίτο ενικό του ενεστώτα."],"t":[["Ρήμα","Προστακτική"],["hablar","habla"],["beber","bebe"],["escribir","escribe"],["cerrar (e→ie)","cierra"],["dormir (o→ue)","duerme"]],"ex":[["Bebe mucha agua.","Πίνε πολύ νερό."],["Descansa un poco.","Ξεκουράσου λίγο."]]},{"h":"Τα 8 ανώμαλα","t":[["Ρήμα","Προστακτική","Ελληνικά"],["tener","ten","έχε"],["venir","ven","έλα"],["poner","pon","βάλε"],["salir","sal","βγες"],["hacer","haz","κάνε"],["decir","di","πες"],["ir","ve","πήγαινε"],["ser","sé","να είσαι"]]},{"h":"Με αντωνυμίες","p":["Η αντωνυμία κολλάει στο τέλος και συχνά χρειάζεται τόνος: [[levántate]] (σήκω), [[siéntate]] (κάθισε), [[dime]] (πες μου), [[hazlo]] (κάν' το)."]},{"h":"Estar + κατάσταση, quedar","p":["[[estar]] + [[cansado, nervioso, contento, enfermo, mareado]]: πώς νιώθω τώρα. Το επίθετο συμφωνεί: [[Ella está cansada.]]","[[quedar]] = κανονίζω να βρεθώ με κάποιον."],"ex":[["¿Quedamos a las seis?","Βρισκόμαστε στις έξι;"],["¿Dónde quedamos?","Πού θα βρεθούμε;"]]}]}};
+/* ---------- small helpers ---------- */
+const $ = (s, r=document) => r.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const rnd = n => Math.floor(Math.random()*n);
+const shuffle = a => { a = a.slice(); for (let i=a.length-1;i>0;i--){ const j=rnd(i+1); [a[i],a[j]]=[a[j],a[i]]; } return a; };
+const cap = s => s ? s[0].toUpperCase()+s.slice(1) : s;
+const clean = s => String(s).toLowerCase().replace(/[¿?¡!.,;:"'«»()…]/g,' ').replace(/\s+/g,' ').trim();
+const noAcc = s => s.normalize('NFD').replace(/[̀-ͯ]/g,'');
+function check(input, answers){
+  const a = clean(input); if (!a) return 'wrong';
+  for (const x of answers) if (clean(x) === a) return 'ok';
+  for (const x of answers) if (noAcc(clean(x)) === noAcc(a)) return 'accent';
+  return 'wrong';
+}
+
+/* ---------- vocabulary answer variants: "el/la abuelo/a" → abuelo, abuela, el abuelo ... ---------- */
+function variants(es){
+  if (/^el\/la /.test(es)){
+    const r = es.slice(6), m = r.replace(/o\/a\b/g,'o').replace(/\/-a\b/g,''), f = r.replace(/o\/a\b/g,'a').replace(/\/-a\b/g,'a');
+    return [...new Set([es, ...variants('el '+m), ...variants('la '+f)])];
+  }
+  const out = new Set([es]);
+  const parts = es.split(/\s+/);
+  let combos = [[]];
+  for (const p of parts){
+    let opts;
+    if (p === 'el/la') opts = ['el','la',''];
+    else if (/^[^/]+\/-a$/.test(p)) { const b=p.split('/')[0]; opts=[b, b+'a']; }
+    else if (/^[^/]+o\/a$/.test(p)) { const b=p.slice(0,-2); opts=[b, b.slice(0,-1)+'a']; }
+    else if (/^[^/]+\/[^/]+$/.test(p)) opts = p.split('/');
+    else opts = [p];
+    const n=[]; for (const c of combos) for (const o of opts) n.push(o ? c.concat(o) : c); combos = n;
+  }
+  for (const c of combos){ const s=c.join(' ').replace(/,$/,''); out.add(s); out.add(s.replace(/^(el|la|los|las|un|una) /,'')); }
+  es.split(/,\s*/).forEach(x => { out.add(x); out.add(x.replace(/^(el|la|los|las) /,'')); });
+  return [...out].filter(Boolean);
+}
+
+/* ---------- approximate Greek-letter pronunciation (Spain) ---------- */
+const VOW = {a:'α',e:'ε',i:'ι',o:'ο',u:'ου','á':'α','é':'ε','í':'ι','ó':'ο','ú':'ου','ü':'ου'};
+const ACC = {'α':'ά','ε':'έ','ι':'ί','ο':'ό','ου':'ού'};
+const PRON_EX = {'méxico':'μέχικο','mexicano':'μεχικάνο','mexicana':'μεχικάνα','mexicanos':'μεχικάνος'};
+function pronWord(w){
+  w = w.toLowerCase(); if (PRON_EX[w]) return PRON_EX[w];
+  const T = []; // tokens {g, v:bool, strong, written}
+  const isV = c => 'aeiouáéíóúü'.includes(c);
+  for (let i=0;i<w.length;i++){
+    const c=w[i], n=w[i+1]||'', p=w[i-1]||'';
+    if (isV(c)) { T.push({g:VOW[c], v:true, strong:'aeoáéó'.includes(c), written:'áéíóú'.includes(c)}); continue; }
+    if (c==='y'){ if (i===w.length-1 || !isV(n)) T.push({g:'ι',v:true,strong:false}); else T.push({g:'γι'}); continue; }
+    if (c==='c'){ if (n==='h'){T.push({g:'τσ'});i++;continue;} T.push({g:'eéiíé'.includes(n)?'θ':'κ'}); continue; }
+    if (c==='q'){ T.push({g:'κ'}); if (n==='u') i++; continue; }
+    if (c==='g'){ if (n==='u' && 'eéií'.includes(w[i+2]||'')){ T.push({g:'γκ'}); i++; continue; }
+                 if ('eéií'.includes(n)) { T.push({g:'χ'}); continue; }
+                 T.push({g:(i===0||p==='n')?'γκ':'γ'}); continue; }
+    if (c==='l' && n==='l'){ T.push({g:'γι'}); i++; continue; }
+    if (c==='r'){ if (n==='r'){T.push({g:'ρρ'});i++;continue;} T.push({g:(i===0||'nls'.includes(p))?'ρρ':'ρ'}); continue; }
+    if (c==='d'){ T.push({g:(i===0||'nl'.includes(p))?'ντ':'δ'}); continue; }
+    const M = {b:'μπ',v:'μπ',f:'φ',h:'',j:'χ',k:'κ',l:'λ',m:'μ',n:'ν','ñ':'νι',p:'π',s:'σ',t:'τ',x:'ξ',z:'θ',w:'ου'};
+    T.push({g: M[c] ?? ''});
+  }
+  // nuclei
+  const nuc = []; let k=0;
+  while (k<T.length){
+    if (!T[k].v){k++;continue;}
+    let grp=[k]; k++;
+    while (k<T.length && T[k].v){
+      const prev=T[grp[grp.length-1]], cur=T[k];
+      if ((prev.strong && cur.strong) || prev.written&&!prev.strong&&cur.strong || cur.written&&!cur.strong) break;
+      grp.push(k); k++;
+    }
+    nuc.push(grp);
+  }
+  if (!nuc.length) return T.map(t=>t.g).join('');
+  let si = nuc.findIndex(g => g.some(i=>T[i].written));
+  if (si<0){ const last=w[w.length-1]; si = (nuc.length===1)?0:('aeiouns'.includes(last)? nuc.length-2 : nuc.length-1); }
+  const g = nuc[si]; let vi = g.find(i=>T[i].written);
+  if (vi===undefined){ const st=g.filter(i=>T[i].strong); vi = st.length? st[0] : g[g.length-1]; }
+  const mono = nuc.length===1;
+  // write diaeresis for a/e/o + ι that would read as Greek digraph
+  for (let i=1;i<T.length;i++) if (T[i].g==='ι' && T[i].v && T[i-1].v && ['α','ε','ο'].includes(T[i-1].g) && i!==vi && i-1!==vi) T[i].g='ϊ';
+  if (!mono || g.length>1){ const pv=T[vi-1]; T[vi].g = (T[vi].g==='ι' && pv && pv.v && ['α','ε','ο'].includes(pv.g)) ? 'ΐ' : (ACC[T[vi].g] || T[vi].g); }
+  let s = T.map(t=>t.g).join('');
+  return s.replace(/σ$/,'ς');
+}
+const pron = s => String(s).toLowerCase().replace(/^el\/la /,'el ').replace(/o\/a\b/g,'o').replace(/\/-a\b/g,'').replace(/[¿?¡!.,;:()…]/g,'').split(/[\s/]+/).filter(Boolean).map(w => w==='y'?'ι':pronWord(w)).join(' ');
+
+/* ---------- speech ---------- */
+let VOICE = null;
+const canSpeak = 'speechSynthesis' in window;
+function pickVoice(){ try{ const vs=speechSynthesis.getVoices(); VOICE = vs.find(v=>/^es[-_]ES/i.test(v.lang)) || vs.find(v=>/^es/i.test(v.lang)) || null; }catch(e){} }
+if (canSpeak){ pickVoice(); try{ speechSynthesis.onvoiceschanged = pickVoice; }catch(e){} }
+function speak(t){ if(!canSpeak) return; try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t.replace(/___/g,'…')); u.lang='es-ES'; if(VOICE) u.voice=VOICE; u.rate=.9; speechSynthesis.speak(u);}catch(e){} }
+const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
+const sayBtn = t => canSpeak ? `<button class="say" data-say="${esc(t)}">${SPK}Άκου</button>` : '';
+
+/* ---------- numbers and time ---------- */
+const N0 = 'cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte veintiuno veintidós veintitrés veinticuatro veinticinco veintiséis veintisiete veintiocho veintinueve'.split(' ');
+const TENS = {3:'treinta',4:'cuarenta',5:'cincuenta',6:'sesenta',7:'setenta',8:'ochenta',9:'noventa'};
+const HUN = {1:'ciento',2:'doscientos',3:'trescientos',4:'cuatrocientos',5:'quinientos',6:'seiscientos',7:'setecientos',8:'ochocientos',9:'novecientos'};
+function num(n){
+  if (n<30) return N0[n];
+  if (n<100){ const t=Math.floor(n/10), u=n%10; return TENS[t] + (u? ' y '+N0[u] : ''); }
+  if (n===100) return 'cien';
+  if (n<1000){ const h=Math.floor(n/100), r=n%100; return HUN[h] + (r? ' '+num(r):''); }
+  return 'mil';
+}
+const HW = ['', 'una','dos','tres','cuatro','cinco','seis','siete','ocho','nueve','diez','once','doce'];
+const base = h => h===1 ? 'es la una' : 'son las '+HW[h];
+function timeAnswers(h,m){
+  const nx = h%12+1, out=[];
+  if (m===0){ out.push(base(h)+' en punto', base(h)); }
+  else if (m<=30){ const w = m===15?'cuarto':m===30?'media':num(m); out.push(base(h)+' y '+w); if(m===15||m===30) out.push(base(h)+' y '+num(m)); }
+  else { const r=60-m, w = r===15?'cuarto':num(r); out.push(base(nx)+' menos '+w); if(r===15) out.push(base(nx)+' menos quince'); }
+  return out;
+}
+const hm = (h,m) => h+':'+String(m).padStart(2,'0');
+
+/* ================= data handles ================= */
+const UNITS = Object.keys(DATA.units).map(Number);
+const V = DATA.vocab, F = DATA.fill, P = DATA.phr, VB = DATA.verbs, TH = DATA.theory;
+const PERS = ['yo','tú','él / ella / usted','nosotros/as','vosotros/as','ellos / ustedes'];
+const TYPES = [{k:'v',n:'Λεξιλόγιο'},{k:'c',n:'Κλίση ρημάτων'},{k:'f',n:'Συμπλήρωση κενών'},{k:'p',n:'Προτάσεις'},{k:'n',n:'Ώρα και αριθμοί'},{k:'g',n:'Άρθρα el / la'}];
+const TLABEL = {v:'Λεξιλόγιο', c:'Ρήματα', f:'Γραμματική', n:'Αριθμοί', t:'Ώρα', p:'Προτάσεις', g:'Άρθρα', m:'Ταίριασμα'};
+const uniq = a => { const s=new Set(), o=[]; for (const x of a){ const k=clean(x); if(!s.has(k)){s.add(k);o.push(x);} } return o; };
+const isArt = s => /^(el|la|los|las|el\/la) /.test(s);
+const isVerb = s => /^[a-záéíóúñ]+(ar|er|ir|arse|erse|irse)( |$)/.test(s) && !isArt(s);
+const sayText = es => es.replace(/^el\/la /,'el ').replace(/o\/a\b/g,'o').replace(/\/-a\b/g,'').replace(/\/\S+/g,'');
+const chunk = (a, n) => { const o=[]; for (let i=0;i<a.length;i+=n) o.push(a.slice(i,i+n)); if (o.length>1 && o[o.length-1].length < Math.ceil(n/2)) { const l=o.pop(); o[o.length-1]=o[o.length-1].concat(l); } return o; };
+const range = n => Array.from({length:n}, (_,i)=>i);
+const ICON = {
+  path:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="19" r="2"/><circle cx="18" cy="5" r="2"/><path d="M8 19h6a4 4 0 0 0 0-8h-4a4 4 0 0 1 0-8h6" transform="translate(0 2)"/></svg>',
+  free:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M4 12h16M4 18h7"/><circle cx="17" cy="6" r="2"/><circle cx="14" cy="18" r="2"/></svg>',
+  rev:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15.5-6.3L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15.5 6.3L3 16"/><path d="M3 21v-5h5"/></svg>',
+  guide:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 21a2 2 0 0 0 2 2h13v-4"/><path d="M9 8h6M9 12h4"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1 4-3 5-3 9a3 3 0 0 0 6 0c0-1-.3-1.800-.6-2.500C17 10 19 12.500 19 15.500A7 7 0 0 1 5 15.500C5 10 10 8 12 2z"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="m12 2 3 6.500 7 .800-5.200 4.800 1.500 7L12 17.500 5.700 21.100l1.500-7L2 9.300l7-.800z"/></svg>',
+  back:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.500" stroke-linecap="round" stroke-linejoin="round"><path d="m15 5-7 7 7 7"/></svg>'
+};
+const md = s => esc(s).replace(/\[\[(.+?)\]\]/g, '<b class="es">$1</b>');
+
+/* ================= state & storage ================= */
+const LS = 'practica-es-v2', LS1 = 'practica-es-v1';
+const TODAY = () => Math.floor((Date.now() - new Date().getTimezoneOffset()*6e4) / 864e5);
+let ST = {prog:{}, srs:{}, done:{}, xp:0, days:{}, up:0};
+let SET = {units:[1,2,3], types:['v','c','f','p','n','g'], mode:'mix', count:10, goal:50, audio:true, cur:1};
+function adopt(r){
+  const st = {prog:r.prog||{}, srs:r.srs||{}, done:r.done||{}, xp:r.xp||0, days:r.days||{}, up:r.up||0};
+  if (r.mist) for (const id in r.mist){ const k = baseId(id); if (!st.srs[k]) st.srs[k] = {b:0, d:TODAY()}; }
+  return st;
+}
+const baseId = id => id.replace(/^(v\|\d+\|\d+)\|(eg|ge)$/, '$1');
+try {
+  let s = JSON.parse(localStorage.getItem(LS) || 'null');
+  if (!s){ const o = JSON.parse(localStorage.getItem(LS1) || 'null'); if (o) s = {st:o.st, set:o.set}; }
+  if (s){ if (s.st) ST = adopt(s.st); if (s.set) SET = Object.assign(SET, s.set); if (!SET.types.includes('g') && !s.set.v2) SET.types.push('g'); SET.v2 = 1; }
+} catch(e){}
+function saveLocal(){ try{ localStorage.setItem(LS, JSON.stringify({st:ST, set:SET})); }catch(e){} }
+let DOC = null, writing = false, dirty = false;
+async function syncInit(){
+  try{
+    if (!window.claude || !claude.use) return;
+    const [db, user] = await Promise.all([claude.use('db'), claude.use('user')]);
+    if (!db || !user) return;
+    const id = await user.id(); if (!id) return;
+    DOC = db.doc('data/users/'+id+'/progress');
+    const snap = await DOC.get();
+    if (snap.exists){ const r = snap.data(); if (r && (r.up||0) > (ST.up||0)){ ST = adopt(r); saveLocal(); } }
+  }catch(e){ DOC = null; }
+}
+async function syncPush(){
+  if (!DOC) return; if (writing){ dirty = true; return; }
+  writing = true;
+  try{ await DOC.set({prog:ST.prog, srs:ST.srs, done:ST.done, xp:ST.xp, days:ST.days, up:ST.up}); }catch(e){ if (e && e.code==='invalid_argument') DOC = null; }
+  writing = false; if (dirty){ dirty = false; syncPush(); }
+}
+document.addEventListener('visibilitychange', ()=>{ if (document.visibilityState==='hidden') syncPush(); });
+
+const GAP = [1,2,4,8,16,30];
+function srsMark(id, ok){
+  if (/^(n|t|m)\|/.test(id)){ if (!ok) ST.srs[id] = {b:0, d:TODAY()}; else delete ST.srs[id]; return; }
+  const e = ST.srs[id] || {b:0, d:TODAY()};
+  if (ok){ e.d = TODAY() + GAP[Math.min(e.b, 5)]; e.b = Math.min(5, e.b+1); } else { e.b = 0; e.d = TODAY(); }
+  ST.srs[id] = e;
+}
+let MISSED = new Set();
+function addXp(n){ ST.xp += n; const d = String(TODAY()); ST.days[d] = (ST.days[d]||0) + n; }
+function record(q, ok, first){
+  const u = String(q.unit), p = ST.prog[u] || (ST.prog[u] = {a:0, c:0});
+  p.a++; if (ok) p.c++;
+  const mark = (id, good) => { if (!good) MISSED.add(id); if (good && MISSED.has(id)) return; srsMark(id, good); };
+  if (q.pairs) q.pairs.forEach(pr => mark(pr.id, !pr.err)); else mark(baseId(q.id), ok);
+  if (ok) addXp(first ? 10 : 5);
+  ST.up = Date.now(); saveLocal();
+}
+function streak(){ let d = TODAY(), n = 0; if (!ST.days[d]) d--; while (ST.days[d]){ n++; d--; } return n; }
+const todayXp = () => ST.days[String(TODAY())] || 0;
+const dueIds = () => Object.keys(ST.srs).filter(id => ST.srs[id].d <= TODAY());
+const weakIds = () => Object.keys(ST.srs).filter(id => ST.srs[id].b === 0);
+const learned = u => (V[u]||[]).reduce((n,_,i) => n + ((ST.srs[`v|${u}|${i}`]||{}).b >= 2 ? 1 : 0), 0);
+
+/* ================= question builders ================= */
+const senses = gr => gr.split(/,\s*|\s·\s/).map(x => clean(x)).filter(x => x.length > 2 && !x.startsWith('-'));
+const VKEY = 'practica-pack-v1'; let PACKERR = '';
+function applyPack(p){
+  for (const u of UNITS){
+    V[u] = ((p.vocab || {})[u] || []).filter(x => Array.isArray(x) && x.length === 2 && typeof x[0] === 'string' && typeof x[1] === 'string' && x[0] && x[1]);
+    const t = (p.titles || {})[u]; if (t && typeof t.es === 'string' && t.es){ DATA.units[u].es = t.es; DATA.units[u].gr = String(t.gr || ''); }
+  }
+}
+for (const u of UNITS) V[u] = V[u] || [];
+try { const p = JSON.parse(localStorage.getItem(VKEY) || 'null'); if (p) applyPack(p); } catch(e){}
+const hasVocab = () => UNITS.some(u => V[u].length);
+const SYN = {};
+function buildSyn(){ for (const k in SYN) delete SYN[k]; for (const u of UNITS) for (const [es, gr] of V[u]) for (const k of senses(gr)) (SYN[k] = SYN[k] || []).push(es); }
+buildSyn();
+const synOf = (es, gr) => [...new Set(senses(gr).flatMap(k => SYN[k] || []).filter(e => clean(e) !== clean(es)))];
+function fillSentence(it){ let s = it.s.replace('___', it.a[0]).replace(/\s*\([^)]*\)/g,'').trim(); return s[0] === it.a[0][0] && it.s.trim().startsWith('___') ? cap(s) : s; }
+const PROPER = /^(Ana|Juan|Pedro|María|Carmen|Luis|Luisa|Madrid|Grecia|España|México|Sevilla|Londres|Tesalónica|Italia|Atenas|Creta|Teide|Rastro|Pirineos)$/;
+function bankable(s){ if (/[–-]/.test(s)) return false; const n = s.replace(/[¿?¡!.,]/g,'').trim().split(/\s+/).length; return n >= 3 && n <= 9; }
+function tilesFor(target, pool){
+  const words = target.replace(/[¿?¡!.,]/g,'').trim().split(/\s+/).map((w,i) => (i===0 && !PROPER.test(w)) ? w.toLowerCase() : w);
+  const have = new Set(words.map(w=>w.toLowerCase()));
+  const extra = [];
+  for (const s of shuffle(pool)){ for (const w of s.replace(/[¿?¡!.,–()]/g,'').split(/\s+/)){ const l=w.toLowerCase(); if (l && !have.has(l) && l.length>1){ have.add(l); extra.push(PROPER.test(w)?w:l); break; } } if (extra.length>=3) break; }
+  return shuffle(words.concat(extra));
+}
+function qVocab(u, i, fmt){
+  const [es, gr] = V[u][i];
+  const pool = V[u].length >= 6 ? V[u] : UNITS.flatMap(x => V[x]);
+  const syn = synOf(es, gr), mine = new Set(senses(gr));
+  const geAns = uniq(variants(es).concat(syn.flatMap(variants))), taken = new Set(geAns.map(clean));
+  const diff = ([e, g]) => !taken.has(clean(e)) && !senses(g).some(k => mine.has(k));
+  const same = pool.filter(x => diff(x) && isArt(x[0]) === isArt(es) && isVerb(x[0]) === isVerb(es));
+  const others = same.length >= 3 ? same : pool.filter(diff);
+  const b = {type:'v', unit:+u, id:`v|${u}|${i}`, say:sayText(es), es, gr, syn};
+  if (fmt === 'eg') return Object.assign(b, {ui:'mc', label:'Τι σημαίνει;', prompt:esc(es), pron:pron(es), sayNow:true, answers:[gr], show:gr, options:shuffle(uniq([gr, ...shuffle(others).map(x=>x[1])]).slice(0,4))});
+  if (fmt === 'listen') return Object.assign(b, {ui:'type', audio:sayText(es), label:'Γράψε αυτό που ακούς', prompt:'', answers:variants(es), show:es, tr:gr});
+  if (fmt === 'ge-type') return Object.assign(b, {ui:'type', label:'Πώς λέγεται στα ισπανικά;', prompt:esc(gr), answers:geAns, show:es, sub:isArt(es)?'Με ή χωρίς άρθρο':''});
+  return Object.assign(b, {ui:'mc', label:'Πώς λέγεται στα ισπανικά;', prompt:esc(gr), answers:geAns, show:es, options:shuffle(uniq([es, ...shuffle(others).map(x=>x[0])]).slice(0,4))});
+}
+function qGender(u, i){
+  const [es, gr] = V[u][i]; const m = es.match(/^(el|la) (.+)$/); const art = m[1], noun = m[2];
+  let why = '';
+  if (/(ción|sión|dad|tad)$/.test(noun)) why = 'λέξεις σε -ción, -dad είναι θηλυκές';
+  else if (/a$/.test(noun)) why = art==='la' ? 'οι λέξεις σε -a είναι συνήθως θηλυκές' : 'εξαίρεση: τελειώνει σε -a αλλά παίρνει el';
+  else if (/o$/.test(noun)) why = art==='el' ? 'οι λέξεις σε -o είναι συνήθως αρσενικές' : 'εξαίρεση: τελειώνει σε -o αλλά είναι θηλυκή';
+  else why = 'δεν φαίνεται από την κατάληξη: μάθε τη μαζί με το άρθρο';
+  return {type:'g', unit:+u, id:`g|${u}|${i}`, ui:'mc', label:'el ή la;', prompt:`<span class="blank"></span> ${esc(noun)}`, sub:esc(gr), answers:[art], show:es, say:es, options:['el','la'], ex:why};
+}
+function qVerb(u, i, p, typed){
+  const vb = VB[u][i], impv = vb.t === 'impv', person = impv ? 0 : p, form = vb.f[person];
+  const options = impv ? uniq([form, vb.v, ...shuffle(VB[u].filter(x=>x.v!==vb.v)).map(x=>x.f[0])]).slice(0,4) : uniq([form, ...shuffle(vb.f)]).slice(0,4);
+  const ans = [form], bare = form.replace(/^(me|te|se|nos|os) /,''); if (bare !== form) ans.push(bare);
+  return {type:'c', unit:+u, id:`c|${u}|${i}|${person}`, ui:typed?'type':'mc', label:DATA.tense[vb.t], prompt:esc(vb.v), sub:`${impv?'tú':PERS[person]} · ${esc(vb.m)}`, answers:ans, show:form, say:form, options:shuffle(options), verb:vb};
+}
+function qFill(u, i, fmt){
+  const it = F[u][i], full = fillSentence(it);
+  const b = {type:'f', unit:+u, id:`f|${u}|${i}`, tr:it.t, ex:it.x, say:full};
+  if (fmt === 'bank' && bankable(full)){
+    const pool = F[u].filter(x=>x!==it).map(fillSentence);
+    return Object.assign(b, {ui:'bank', label:'Σχημάτισε την πρόταση στα ισπανικά', prompt:esc(it.t), small:true, answers:it.a.map(a => fillSentence(Object.assign({}, it, {a:[a]}))), show:full, tiles:tilesFor(full, pool), tr:''});
+  }
+  return Object.assign(b, {ui:fmt==='type'?'type':'mc', label:'Συμπλήρωσε το κενό', prompt:esc(it.s).replace('___','<span class="blank"></span>'), small:true, answers:it.a, show:it.a[0], full, options:shuffle(it.o)});
+}
+function qPhrase(u, i, fmt){
+  const it = P[u][i];
+  const all = UNITS.flatMap(x => (P[x]||[]).map(y => y.a[0])).filter(x => x !== it.a[0]);
+  const b = {type:'p', unit:+u, id:`p|${u}|${i}`, prompt:esc(it.g), small:true, answers:it.a, show:it.a[0], say:it.a[0]};
+  if (fmt === 'bank' && bankable(it.a[0])) return Object.assign(b, {ui:'bank', label:'Σχημάτισε την πρόταση στα ισπανικά', tiles:tilesFor(it.a[0], all)});
+  if (fmt === 'mc') return Object.assign(b, {ui:'mc', label:'Διάλεξε τη σωστή μετάφραση', options:shuffle([it.a[0], ...shuffle(all).slice(0,3)])});
+  if (fmt === 'listen') return Object.assign(b, {ui:'type', audio:it.a[0], label:'Γράψε αυτό που ακούς', prompt:'', tr:it.g});
+  return Object.assign(b, {ui:'type', label:'Μετάφρασε στα ισπανικά'});
+}
+function qNum(u, n, fmt){
+  const w = num(n);
+  const near = uniq([w, num(n+1+rnd(3)), num(Math.max(0, n-1-rnd(3))), num(n%10===0 ? n+10 : n+10), num(rnd(30))]).slice(0,4);
+  const b = {type:'n', unit:+u, id:`n|${u}|${n}`, answers:[w], show:w, say:w};
+  if (fmt === 'listen') return Object.assign(b, {ui:'type', audio:w, label:'Γράψε με ψηφία τον αριθμό που ακούς', prompt:'', answers:[String(n)], show:String(n)+' = '+w, numeric:true});
+  return Object.assign(b, {ui:fmt==='type'?'type':'mc', label:'Γράψε τον αριθμό με λέξεις', prompt:String(n), big:true, options:shuffle(near)});
+}
+function qTime(h, m, typed){
+  const a = timeAnswers(h, m), wrong = [];
+  for (const [hh,mm] of [[h%12+1,m],[h,(m+30)%60],[h===1?12:h-1,m]]) wrong.push(timeAnswers(hh,mm)[0]);
+  if (m > 30) wrong.push(base(h)+' menos '+(60-m===15?'cuarto':num(60-m)));
+  if (m > 0 && m < 30) wrong.push(base(h%12+1)+' menos '+(m===15?'cuarto':num(m)));
+  return {type:'t', unit:2, id:`t|${h}|${m}`, ui:typed?'type':'mc', label:'¿Qué hora es?', prompt:hm(h,m), big:true, answers:a, show:cap(a[0])+'.', say:cap(a[0]), options:shuffle(uniq([cap(a[0]), ...shuffle(wrong).map(cap)]).slice(0,4))};
+}
+function qMatch(u, idxs){
+  const seenGr = new Set();
+  idxs = idxs.filter(i => { const k = clean(V[u][i][1]); if (seenGr.has(k)) return false; seenGr.add(k); return true; });
+  const pairs = idxs.map(i => ({id:`v|${u}|${i}`, es:V[u][i][0], gr:V[u][i][1], err:false}));
+  return {type:'m', unit:+u, id:`m|${u}|${idxs.join(',')}`, ui:'match', label:'Ταίριαξε τα ζευγάρια', pairs, left:shuffle(range(pairs.length)), right:shuffle(range(pairs.length)), answers:[], show:''};
+}
+const genderable = (u,i) => /^(el|la) \S+$/.test(V[u][i][0]);
+const audioOn = () => canSpeak && SET.audio;
+function build(id, mode){
+  const p = id.split('|'), r = Math.random();
+  const typed = mode==='type' ? true : mode==='mc' ? false : r < .5;
+  switch (p[0]){
+    case 'v': { let f; if (mode==='mc') f = r<.5?'eg':'ge-mc'; else if (mode==='type') f = (audioOn() && r<.2)?'listen':'ge-type'; else f = r<.3?'eg': r<.5?'ge-mc': (r<.85||!audioOn())?'ge-type':'listen'; return qVocab(p[1], +p[2], f); }
+    case 'g': return qGender(p[1], +p[2]);
+    case 'c': return qVerb(p[1], +p[2], +p[3], typed);
+    case 'f': return qFill(p[1], +p[2], mode==='type'?'type': mode==='mc'?(r<.6?'mc':'bank') : (r<.35?'mc': r<.7?'type':'bank'));
+    case 'p': return qPhrase(p[1], +p[2], mode==='type'?'type': mode==='mc'?'bank' : (r<.45?'bank': (r<.9||!audioOn())?'type':'listen'));
+    case 'n': return qNum(p[1], +p[2], (mode==='mix' && audioOn() && r>.8) ? 'listen' : typed?'type':'mc');
+    case 't': return qTime(+p[1], +p[2], typed);
+    case 'm': return qMatch(p[1], p[2].split(',').map(Number));
+  }
+}
+const safe = f => { try{ return f(); }catch(e){ return null; } };
+
+/* ================= lessons (the route) ================= */
+const LCACHE = {};
+function lessonsOf(u){
+  if (LCACHE[u]) return LCACHE[u];
+  const q = {
+    V: chunk(range((V[u]||[]).length), 6).map((ix,k) => ({k:'V', ix, name:'Λέξεις '+(k+1), sub:ix.slice(0,3).map(i=>V[u][i][0]).join(' · ')})),
+    F: chunk(range((F[u]||[]).length), 6).map((ix,k) => ({k:'F', ix, name:'Γραμματική '+(k+1), sub:[...new Set(ix.map(i=>F[u][i].x))].slice(0,2).join(' · ')})),
+    C: chunk(range((VB[u]||[]).length), (VB[u]||[])[0] && VB[u][0].t==='impv' ? 5 : 3).map((ix,k) => ({k:'C', ix, name:'Ρήματα '+(k+1), sub:ix.map(i=>VB[u][i].v).join(' · ')})),
+    P: chunk(range((P[u]||[]).length), 5).map((ix,k,a) => ({k:'P', ix, name:'Προτάσεις'+(a.length>1?' '+(k+1):''), sub:'Σχημάτισε και γράψε ολόκληρες προτάσεις'})),
+    N: u===2 ? [{k:'N', lo:0, hi:30, name:'Αριθμοί 0–30', sub:'cero, uno, dos…'}, {k:'T', name:'Η ώρα', sub:'¿Qué hora es?'}] : u===3 ? [{k:'N', lo:31, hi:100, name:'Αριθμοί 31–100', sub:'treinta y uno… cien'}] : u===6 ? [{k:'N', lo:101, hi:1000, name:'Αριθμοί 100–1000', sub:'ciento uno… mil'}] : []
+  };
+  const order = ['V','F','V','C','V','N','V','P'], out = [], cnt = {};
+  while (Object.values(q).some(a => a.length)) for (const k of order) if (q[k].length){ const l = q[k].shift(); cnt[l.k] = (cnt[l.k]||0)+1; l.id = `${u}.${l.k}${cnt[l.k]}`; l.u = u; out.push(l); }
+  out.push({k:'X', id:`${u}.X1`, u, name:'Τεστ κεφαλαίου', sub:'Μικτές ερωτήσεις από όλο το κεφάλαιο'});
+  return LCACHE[u] = out;
+}
+function lessonQs(L){
+  const u = L.u, m = SET.mode, alt = i => m==='type' ? true : m==='mc' ? false : i%2===1, qs = [];
+  if (L.k === 'V'){
+    shuffle(L.ix).forEach(i => qs.push(qVocab(u, i, 'eg')));
+    qs.push(qMatch(u, shuffle(L.ix).slice(0,5)));
+    shuffle(L.ix).forEach((i,k) => qs.push(qVocab(u, i, alt(k) ? 'ge-type' : 'ge-mc')));
+    if (audioOn()) shuffle(L.ix).slice(0,2).forEach(i => qs.push(qVocab(u, i, 'listen')));
+    shuffle(L.ix.filter(i => genderable(u,i))).slice(0,2).forEach(i => qs.push(qGender(u, i)));
+  } else if (L.k === 'C'){
+    L.ix.forEach(i => { const impv = VB[u][i].t==='impv'; (impv ? [0,0] : shuffle(range(6)).slice(0,4)).forEach((p,k) => qs.push(qVerb(u, i, p, alt(k)))); });
+    return shuffle(qs);
+  } else if (L.k === 'F'){
+    L.ix.forEach((i,k) => qs.push(qFill(u, i, alt(k) ? 'type' : 'mc')));
+    const b = shuffle(L.ix).filter(i => bankable(fillSentence(F[u][i]))).slice(0,3).map(i => qFill(u, i, 'bank'));
+    return shuffle(qs).concat(b);
+  } else if (L.k === 'P'){
+    L.ix.forEach(i => qs.push(qPhrase(u, i, 'bank')));
+    L.ix.forEach(i => qs.push(qPhrase(u, i, m==='mc' ? 'mc' : 'type')));
+    if (audioOn()) shuffle(L.ix).slice(0,2).forEach(i => qs.push(qPhrase(u, i, 'listen')));
+  } else if (L.k === 'N'){
+    const seen = new Set(); while (seen.size < 10) seen.add(L.lo + rnd(L.hi - L.lo + 1));
+    [...seen].forEach((n,k) => qs.push(qNum(u, n, (audioOn() && k%4===3) ? 'listen' : alt(k) ? 'type' : 'mc')));
+  } else if (L.k === 'T'){
+    const seen = new Set(['1|0','3|15','6|30','8|45']); while (seen.size < 10) seen.add((1+rnd(12))+'|'+(5*rnd(12)));
+    [...seen].forEach((s,k) => { const [h,mm] = s.split('|').map(Number); qs.push(qTime(h, mm, alt(k))); });
+  } else {
+    const pools = poolFor([u], ['v','c','f','p','n','g']);
+    return pickMixed(pools, 16).map(id => safe(() => build(id, m))).filter(Boolean);
+  }
+  return qs;
+}
+function poolFor(units, types){
+  const pools = {};
+  const add = (k, id) => (pools[k] = pools[k] || []).push(id);
+  for (const u of units){
+    if (types.includes('v')) (V[u]||[]).forEach((_,i) => add('v', `v|${u}|${i}`));
+    if (types.includes('g')) (V[u]||[]).forEach((_,i) => { if (genderable(u,i)) add('g', `g|${u}|${i}`); });
+    if (types.includes('c')) (VB[u]||[]).forEach((vb,i) => add('c', `c|${u}|${i}|${vb.t==='impv'?0:rnd(6)}`));
+    if (types.includes('f')) (F[u]||[]).forEach((_,i) => add('f', `f|${u}|${i}`));
+    if (types.includes('p')) (P[u]||[]).forEach((_,i) => add('p', `p|${u}|${i}`));
+    if (types.includes('n')){
+      if (u===2){ for (let k=0;k<8;k++) add('n', `n|2|${rnd(31)}`); for (let k=0;k<12;k++) add('n', `t|${1+rnd(12)}|${5*rnd(12)}`); }
+      if (u===3) for (let k=0;k<12;k++) add('n', `n|3|${31+rnd(70)}`);
+      if (u===6) for (let k=0;k<12;k++) add('n', `n|6|${101+rnd(900)}`);
+    }
+  }
+  return pools;
+}
+function pickMixed(pools, n){
+  const keys = Object.keys(pools).filter(k => pools[k].length), ids = []; let r = 0;
+  for (const k of keys) pools[k] = shuffle(pools[k]);
+  const w = {v:3, f:3, c:2, p:2, n:1, g:1}, order = keys.flatMap(k => Array(w[k]||1).fill(k));
+  while (ids.length < n && keys.some(k => pools[k].length)){ const k = order[r++ % order.length]; if (pools[k].length) ids.push(pools[k].pop()); }
+  return shuffle(ids);
+}
+
+/* ================= session engine ================= */
+let TAB = 'path', VIEW = 'tab', S = null, ANS = null, FC = null, UNIT = 1, GUIDE = 1, BANK = [], MSEL = null, MFLASH = null;
+const app = $('#app');
+function startSession(qs, meta){
+  qs = qs.filter(Boolean); if (!qs.length) return;
+  S = Object.assign({qs, i:0, res:[], xp0:ST.xp, retried:new Set()}, meta); MISSED = new Set(); ANS = null; BANK = []; MSEL = null;
+  VIEW = meta.intro ? 'intro' : 'quiz'; render(); if (VIEW==='quiz') autoSay();
+}
+function autoSay(){ const q = S && S.qs[S.i]; if (q && q.audio && !ANS) setTimeout(() => speak(q.audio), 250); }
+function finish(ok, input, note){
+  const q = S.qs[S.i], first = !q.retry;
+  ANS = {input, res: ok === true ? 'ok' : ok === 'accent' ? 'accent' : 'wrong', note};
+  const good = ANS.res !== 'wrong';
+  if (first) S.res.push({q, ok:good});
+  record(q, good, first);
+  if (!good && S.kind === 'lesson' && !S.retried.has(q.id) && q.ui !== 'match'){ S.retried.add(q.id); S.qs.push(Object.assign({}, q, {retry:true, options:q.options && shuffle(q.options), tiles:q.tiles && shuffle(q.tiles)})); }
+  render();
+  const fb = $('.fb'); if (fb) fb.scrollIntoView({block:'nearest', behavior:'smooth'});
+}
+function answer(input){
+  if (ANS) return; const q = S.qs[S.i];
+  if (q.ui === 'type'){ const r = q.numeric ? (input.trim() === q.answers[0] ? 'ok' : 'wrong') : check(input, q.answers); finish(r === 'ok' ? true : r, input); }
+  else if (q.ui === 'bank'){ const s = BANK.map(i => q.tiles[i]).join(' '); finish(q.answers.some(a => clean(a) === clean(s)), s); }
+  else finish(q.answers.some(a => clean(a) === clean(input)), input);
+}
+function next(){
+  if (S.i + 1 < S.qs.length){ S.i++; ANS = null; BANK = []; MSEL = null; render(); autoSay(); return; }
+  endSession();
+}
+function endSession(){
+  const n = S.res.length, ok = S.res.filter(r => r.ok).length, acc = n ? ok/n : 0;
+  S.stars = acc >= .9 ? 3 : acc >= .7 ? 2 : 1;
+  if (S.kind === 'lesson'){ if (!ST.done[S.lid]) addXp(20); ST.done[S.lid] = Math.max(ST.done[S.lid]||0, S.stars); ST.up = Date.now(); saveLocal(); }
+  VIEW = 'res'; render(); syncPush();
+}
+function openLesson(L){
+  const qs = lessonQs(L);
+  startSession(qs, {kind:'lesson', lid:L.id, lesson:L, title:L.name, intro: (L.k==='V' || L.k==='C' || L.k==='F') && !ST.done[L.id] ? L : null});
+}
+function nextLesson(){
+  for (const u of [SET.cur, ...UNITS.filter(x => x > SET.cur), ...UNITS.filter(x => x < SET.cur)]){ const l = lessonsOf(u).find(l => !ST.done[l.id]); if (l) return l; }
+  return null;
+}
+
+/* ================= diff for typed answers ================= */
+function lcs(a, b){
+  const n=a.length, m=b.length, T=Array.from({length:n+1}, ()=>new Uint16Array(m+1));
+  for (let i=n-1;i>=0;i--) for (let j=m-1;j>=0;j--) T[i][j] = a[i]===b[j] ? T[i+1][j+1]+1 : Math.max(T[i+1][j], T[i][j+1]);
+  const ka=new Array(n).fill(false), kb=new Array(m).fill(false); let i=0, j=0;
+  while (i<n && j<m){ if (a[i]===b[j]){ ka[i]=kb[j]=true; i++; j++; } else if (T[i+1][j] >= T[i][j+1]) i++; else j++; }
+  return {ka, kb, len:T[0][0]};
+}
+function diffHtml(user, answers){
+  const u = user.trim(); if (!u) return null;
+  let best = null;
+  for (const a of answers.slice(0,8)){ const t = a.replace(/[¿?¡!.]/g,''); const r = lcs(u.toLowerCase(), t.toLowerCase()); const score = r.len*2 - u.length - t.length; if (!best || score > best.score) best = {t, r, score}; }
+  const mark = (s, keep, cls) => { let h='', open=false; for (let k=0;k<s.length;k++){ const bad = !keep[k] && s[k] !== ' '; if (bad && !open){ h += `<mark class="${cls}">`; open=true; } if (!bad && open){ h += '</mark>'; open=false; } h += esc(s[k]); } return h + (open?'</mark>':''); };
+  return {you: mark(u, best.r.ka, 'dx'), ok: mark(best.t, best.r.kb, 'dn'), target: best.t};
+}
+
+/* ================= views ================= */
+const head = (title, sub, back) => `<div class="top">${back?`<button class="x" id="back" aria-label="Πίσω">${ICON.back}</button>`:''}<h1>${title}${sub?`<small>${sub}</small>`:''}</h1></div>`;
+function nav(){
+  const t = [['path','Μάθημα'],['free','Εξάσκηση'],['rev','Επανάληψη'],['guide','Θεωρία']];
+  const due = dueIds().length;
+  return `<nav class="nav"><div class="in">${t.map(([k,n]) => `<button data-tab="${k}" aria-current="${TAB===k}">${ICON[k]}<span>${n}</span>${k==='rev'&&due?`<i>${due>99?'99+':due}</i>`:''}</button>`).join('')}</div></nav>`;
+}
+function unitDone(u){ const L = lessonsOf(u); return [L.filter(l => ST.done[l.id]).length, L.length]; }
+function pathView(){
+  const st = streak(), tx = todayXp(), pct = Math.min(100, Math.round(100*tx/SET.goal)), nl = nextLesson();
+  return `<div class="wrap">${head('Práctica', 'ΙΣΠΑΝΙΚΑ A1–A2 · 14 ΚΕΦΑΛΑΙΑ')}
+  <div class="stats">
+    <div class="stat"><span class="ic sun">${ICON.flame}</span><b>${st}</b><span>${st===1?'μέρα σερί':'μέρες σερί'}</span></div>
+    <div class="stat"><span class="ic acc">${ICON.bolt}</span><b>${ST.xp}</b><span>πόντοι</span></div>
+    <div class="stat goal"><div class="ring" style="--p:${pct}"><b>${pct}%</b></div><span>στόχος ημέρας<br>${tx}/${SET.goal}</span></div>
+  </div>
+  ${nl ? `<button class="cont" id="cont"><span class="k">Συνέχισε · Κεφάλαιο ${nl.u}</span><span class="n">${esc(nl.name)}</span><span class="s">${esc(nl.sub||'')}</span></button>` : ''}
+  ${hasVocab() ? '' : `<label class="pack"><b>Πρόσθεσε το λεξιλόγιό σου</b><span>Διάλεξε το αρχείο <u>practica-lexico.json</u> για να ανοίξουν τα μαθήματα «Λέξεις», το ταίριασμα και οι κάρτες. Γίνεται μία φορά και μένει στο κινητό σου.</span><input type="file" id="pack" accept=".json,application/json"><em>Επιλογή αρχείου</em>${PACKERR ? `<i>${esc(PACKERR)}</i>` : ''}</label>`}
+  <h2>Κεφάλαια</h2>
+  <div class="units">${UNITS.map(u => { const d = DATA.units[u], [a,b] = unitDone(u);
+    return `<button class="unit" data-open="${u}"><span class="in"><span class="num ${a===b?'full':''}">${a===b?ICON.check:u}</span>
+      <span class="t"><span class="es">${esc(d.es)}</span><span class="gr">${esc(d.gr)} · ${esc(d.g)}</span><span class="bar"><i style="width:${Math.round(100*a/b)}%"></i></span></span>
+      <span class="pct">${a}/${b}</span></span></button>`; }).join('')}</div>
+  <p class="note">Η πρόοδός σου αποθηκεύεται σε αυτή τη συσκευή. Δουλεύει και χωρίς ίντερνετ.</p>
+  ${hasVocab() ? `<label class="packlink">Αλλαγή αρχείου λεξιλογίου<input type="file" id="pack" accept=".json,application/json"></label>` : ''}
+  </div>${nav()}`;
+}
+function unitView(){
+  const u = UNIT, d = DATA.units[u], L = lessonsOf(u), nx = L.find(l => !ST.done[l.id]);
+  return `<div class="wrap">${head('Κεφάλαιο '+u, esc(d.es)+' · '+esc(d.gr), true)}
+  <button class="guidebtn" data-guide="${u}">${ICON.guide}<span><b>Θεωρία κεφαλαίου</b><small>${esc(d.g)}</small></span></button>
+  <div class="route">${L.map(l => { const s = ST.done[l.id]||0, cur = nx && nx.id===l.id;
+    return `<button class="les ${s?'done':''} ${cur?'cur':''}" data-les="${l.id}"><span class="dot">${s?ICON.check:(l.k==='X'?ICON.star:'')}</span>
+      <span class="lt"><b>${esc(l.name)}</b><small>${esc(l.sub||'')}</small></span>
+      <span class="stars">${s?[1,2,3].map(k=>`<i class="${k<=s?'on':''}">${ICON.star}</i>`).join(''):(cur?'<em>Ξεκίνα</em>':'')}</span></button>`; }).join('')}</div>
+  </div>${nav()}`;
+}
+function introView(){
+  const L = S.intro, u = L.u; let body = '';
+  if (L.k === 'V') body = `<p class="sub">Νέες λέξεις σε αυτό το μάθημα. Πάτα μια λέξη για να την ακούσεις.</p><div class="words">${L.ix.map(i => { const [es,gr] = V[u][i];
+      return `<button class="word" data-say="${esc(sayText(es))}"><span><b class="es">${esc(es)}</b><i>≈ ${esc(pron(es))}</i></span><span class="g">${esc(gr)}</span></button>`; }).join('')}</div>`;
+  else if (L.k === 'C') body = `<p class="sub">Δες πρώτα πώς κλίνονται. Μετά θα τα εξασκήσεις.</p>${L.ix.map(i => verbTable(VB[u][i])).join('')}`;
+  else body = `<p class="sub">Σε αυτό το μάθημα θα εξασκήσεις:</p><ul class="rules">${[...new Set(L.ix.map(i => F[u][i].x))].map(x => `<li>${esc(x)}</li>`).join('')}</ul>
+    <button class="guidebtn" data-guide="${u}">${ICON.guide}<span><b>Διάβασε τη θεωρία πρώτα</b><small>${esc(DATA.units[u].g)}</small></span></button>`;
+  return `<div class="wrap">${head(esc(L.name), 'Κεφάλαιο '+u+' · '+esc(DATA.units[u].es), true)}${body}</div>
+  <div class="dock"><div class="in"><button class="btn" id="begin">Ξεκίνα το μάθημα</button></div></div>`;
+}
+function verbTable(vb){
+  const rows = vb.t === 'impv' ? `<tr><td>tú</td><td class="es">${esc(vb.f[0])}</td></tr>` : vb.f.map((f,p) => `<tr><td>${PERS[p]}</td><td class="es">${esc(f)}</td></tr>`).join('');
+  return `<div class="vt"><div class="vh"><b class="es">${esc(vb.v)}</b><span>${esc(vb.m)} · ${esc(DATA.tense[vb.t])}</span>${canSpeak?`<button class="say sm" data-say="${esc(vb.t==='impv'?vb.f[0]:vb.f.join(', '))}">${SPK}</button>`:''}</div><table>${rows}</table></div>`;
+}
+function quizView(){
+  const q = S.qs[S.i], n = S.qs.length, a = ANS; let body = '';
+  if (q.ui === 'type'){
+    body = `<input class="inp" id="inp" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" lang="es" ${q.numeric?'inputmode="numeric"':''} enterkeyhint="go" placeholder="${q.numeric?'Γράψε τον αριθμό':'Γράψε στα ισπανικά'}" ${a?'disabled':''} value="${a?esc(a.input):''}">
+      ${a||q.numeric?'':`<div class="keys">${'á é í ó ú ñ ü ¿ ¡'.split(' ').map(k=>`<button class="key" data-k="${k}">${k}</button>`).join('')}</div>`}
+      ${a?'':`<button class="skip" id="dunno">Δεν το ξέρω</button>`}`;
+  } else if (q.ui === 'bank'){
+    body = `<div class="built ${a?(a.res==='wrong'?'bad':'ok'):''}">${BANK.map((t,k) => `<button class="tile" data-un="${k}" ${a?'disabled':''}>${esc(q.tiles[t])}</button>`).join('') || '<span class="ph">Πάτα τις λέξεις με τη σωστή σειρά</span>'}</div>
+      <div class="tiles">${q.tiles.map((w,t) => `<button class="tile ${BANK.includes(t)?'used':''}" data-tile="${t}" ${a||BANK.includes(t)?'disabled':''}>${esc(w)}</button>`).join('')}</div>`;
+  } else if (q.ui === 'match'){
+    const done = q.pairs.filter(p => p.ok).length;
+    const cell = (side, k) => { const p = q.pairs[k]; const sel = MSEL && MSEL.side===side && MSEL.k===k; const fl = MFLASH && MFLASH.includes(side+k);
+      return `<button class="mt ${p.ok?'ok':''} ${sel?'sel':''} ${fl?'bad':''}" data-m="${side}${k}" ${p.ok?'disabled':''}>${esc(side==='L'?p.es:p.gr)}</button>`; };
+    body = `<div class="match"><div>${q.left.map(k => cell('L',k)).join('')}</div><div>${q.right.map(k => cell('R',k)).join('')}</div></div><div class="sub" style="margin-top:8px">${done}/${q.pairs.length} ζευγάρια</div>`;
+  } else {
+    body = `<div class="opts ${q.options.length===2?'two':''}">${q.options.map(o => { let c=''; if (a){ if (q.answers.some(x=>clean(x)===clean(o))) c='ok'; else if (clean(o)===clean(a.input)) c='bad'; }
+      return `<button class="opt ${c}" data-o="${esc(o)}" ${a?'disabled':''}>${esc(o)}</button>`; }).join('')}</div>`;
+  }
+  let fb = '';
+  if (a){
+    const ok = a.res !== 'wrong', exact = clean(a.input) === clean(q.show) || (q.type==='v' && a.res==='ok');
+    const d = (!ok && q.ui === 'type' && !q.numeric) ? diffHtml(a.input, q.answers) : null;
+    const others = q.type==='p' || (q.type==='f' && q.ui==='type') ? uniq(q.answers).filter(x => clean(x) !== clean(d ? d.target : q.show)).slice(0,3) : [];
+    fb = `<div class="fb ${ok?'ok':'bad'}" role="status"><b class="h">${q.ui==='match' ? (a.note||'Τέλεια!') : ok ? (q.retry?'Σωστό αυτή τη φορά!':'Σωστό!') : 'Όχι ακριβώς.'}</b>
+      ${d ? `<div class="cmp"><span>Έγραψες</span><div class="you">${d.you}</div><span>Σωστό</span><div class="ans">${d.ok}</div></div>`
+          : (q.ui==='match' || (ok && exact && !q.audio)) ? '' : `<div class="lbl2">${ok?'Γράφεται:':'Σωστή απάντηση:'}</div><div class="ans">${esc(q.show)}</div>`}
+      ${a.res==='accent' ? `<div class="acc">Πρόσεξε τους τόνους: <b>${esc(q.show)}</b></div>` : ''}
+      ${q.full && q.ui!=='bank' ? `<div class="tr es2">${esc(q.full)}</div>` : ''}
+      ${q.tr ? `<div class="tr">${esc(q.tr)}</div>` : ''}${q.ex ? `<div class="ex">Κανόνας: ${esc(q.ex)}</div>` : ''}
+      ${others.length ? `<div class="ex">Σωστό είναι και: ${others.map(esc).join(' · ')}</div>` : ''}
+      ${q.type==='v' && q.syn && q.syn.length && !q.audio && !q.sayNow ? `<div class="ex">Λέγεται και: <b>${q.syn.map(esc).join(' · ')}</b></div>` : ''}
+      ${(q.type==='v'||q.type==='g') && !q.sayNow ? `<div class="ex">≈ ${esc(pron(q.es||q.show))}</div>` : ''}
+      ${q.type==='c' ? `<details class="more"><summary>Όλη η κλίση</summary>${verbTable(q.verb)}</details>` : ''}
+      ${q.say ? sayBtn(q.say) : ''}</div>`;
+  }
+  const canCheck = q.ui === 'type' || q.ui === 'bank';
+  return `<div class="wrap quiz">
+    <div class="top"><div class="qtop"><button class="x" id="quit" aria-label="Έξοδος">✕</button><div class="prog"><i style="width:${100*(S.i+(a?1:0))/n}%"></i></div><span class="cnt">${S.i+1}/${n}</span></div></div>
+    <div class="card">
+      <span class="lbl">${esc(TLABEL[q.type])}<em>Κεφ. ${q.unit}</em>${q.retry?'<em class="re">ξανά</em>':''}</span>
+      <div class="sub" style="margin-top:6px">${esc(q.label)}</div>
+      ${q.audio ? `<div class="audio"><button class="play" data-say="${esc(q.audio)}" aria-label="Άκου">${SPK}</button><button class="say" data-slow="${esc(q.audio)}">Πιο αργά</button></div>` : (q.prompt ? `<div class="prompt ${q.big?'big':''} ${q.small?'sm':''}">${q.prompt}</div>` : '')}
+      ${q.sub ? `<div class="sub">${q.sub}</div>` : ''}${q.pron ? `<div class="pron">≈ ${esc(q.pron)}</div>` : ''}
+      ${q.sayNow ? sayBtn(q.say) : ''}
+      ${body}
+      ${q.audio && !a ? `<button class="skip" id="noaudio">Δεν μπορώ να ακούσω τώρα</button>` : ''}
+    </div>${fb}
+  </div>
+  <div class="dock"><div class="in">${a ? `<button class="btn ${a.res==='wrong'?'bad':'ok'}" id="next">${S.i+1<n?'Συνέχεια':'Τέλος'}</button>` : canCheck ? `<button class="btn" id="chk" ${q.ui==='bank'&&!BANK.length?'disabled':''}>Έλεγχος</button>` : ''}</div></div>`;
+}
+function resultView(){
+  const ok = S.res.filter(r => r.ok).length, n = S.res.length, wrong = S.res.filter(r => !r.ok), gained = ST.xp - S.xp0;
+  const msg = ok/n >= .9 ? '¡Excelente!' : ok/n >= .7 ? '¡Muy bien!' : ok/n >= .5 ? '¡Bien! Συνέχισε έτσι.' : 'Θέλει λίγη ακόμα εξάσκηση. Δοκίμασε ξανά.';
+  const nl = S.kind === 'lesson' ? nextLesson() : null;
+  return `<div class="wrap">${head(S.kind==='lesson' ? 'Μάθημα ολοκληρώθηκε' : 'Αποτέλεσμα', esc(S.title||''))}
+    <div class="card center">${S.kind==='lesson' ? `<div class="bigstars">${[1,2,3].map(k=>`<i class="${k<=S.stars?'on':''}">${ICON.star}</i>`).join('')}</div>` : ''}
+      <div class="score">${ok}/${n}</div><div class="sub">${msg}</div>
+      <div class="gain"><span><span class="ic acc">${ICON.bolt}</span>+${gained} πόντοι</span><span><span class="ic sun">${ICON.flame}</span>${streak()} ${streak()===1?'μέρα':'μέρες'} σερί</span></div></div>
+    ${wrong.length ? `<h2>Τι να ξαναδείς</h2><div class="wrong">${wrong.map(r => `<div>${r.q.audio ? 'Ακρόαση' : r.q.ui==='match' ? 'Ταίριασμα: '+r.q.pairs.filter(p=>p.err).map(p=>esc(p.es)).join(', ') : r.q.prompt.replace(/<span class="blank"><\/span>/g,'___')}<span>${esc(r.q.show)}</span></div>`).join('')}</div>` : ''}
+  </div>
+  <div class="dock"><div class="in">
+    ${nl ? `<button class="btn" id="nextles">Επόμενο: ${esc(nl.name)}</button>` : S.kind==='free' ? `<button class="btn" id="more">Νέος γύρος</button>` : ''}
+    <div class="row">${wrong.length ? `<button class="btn sec" id="again">Ξανά τα λάθη</button>` : ''}<button class="btn sec" id="home">Τέλος</button></div>
+  </div></div>`;
+}
+function freeView(){
+  const pre = [['Όλα',UNITS],['1–3',[1,2,3]],['4–7',[4,5,6,7]],['8–11',[8,9,10,11]],['12–14',[12,13,14]]];
+  const eq = (a,b) => a.length===b.length && a.every(x => b.includes(x)), can = SET.units.length && SET.types.length;
+  return `<div class="wrap">${head('Εξάσκηση', 'Διάλεξε κεφάλαια και είδος ασκήσεων')}
+  <h2 style="margin-top:6px">Κεφάλαια</h2>
+  <div class="chips">${pre.map(([n,l]) => `<button class="chip" data-pre="${l.join(',')}" aria-pressed="${eq(SET.units,l)}">${n}</button>`).join('')}<button class="chip" data-pre="" aria-pressed="false">Καθαρισμός</button></div>
+  <div class="ugrid">${UNITS.map(u => `<button class="ub" data-u="${u}" aria-pressed="${SET.units.includes(u)}" title="${esc(DATA.units[u].es)}">${u}</button>`).join('')}</div>
+  <p class="note">${SET.units.length ? SET.units.map(u => u+'. '+esc(DATA.units[u].es)).slice(0,3).join(' · ')+(SET.units.length>3?' …':'') : 'Δεν έχεις διαλέξει κεφάλαιο.'}</p>
+  <h2>Τι να εξασκήσω</h2>
+  <div class="toggles">${TYPES.map(t => `<button class="tog" data-ty="${t.k}" aria-pressed="${SET.types.includes(t.k)}">${t.n}</button>`).join('')}</div>
+  <h2>Τρόπος απάντησης</h2>
+  <div class="seg">${[['mix','Μικτό'],['type','Γράφω'],['mc','Διαλέγω']].map(([k,n]) => `<button data-mode="${k}" aria-pressed="${SET.mode===k}">${n}</button>`).join('')}</div>
+  <h2>Ερωτήσεις ανά γύρο</h2>
+  <div class="seg">${[10,20,30].map(n => `<button data-cnt="${n}" aria-pressed="${SET.count===n}">${n}</button>`).join('')}</div>
+  <h2>Ρυθμίσεις</h2>
+  <div class="toggles"><button class="tog" data-audio="1" aria-pressed="${SET.audio}">Ασκήσεις ακρόασης</button>
+  <button class="tog" data-goal="1" aria-pressed="true">Στόχος: ${SET.goal} πόντοι</button></div>
+  </div>
+  <div class="dock up"><div class="in"><button class="btn" id="go" ${can?'':'disabled'}>${can?'Ξεκίνα γύρο':'Διάλεξε κεφάλαιο και είδος'}</button></div></div>${nav()}`;
+}
+function revView(){
+  const due = dueIds().length, weak = weakIds().length, t = TODAY();
+  const days = range(7).map(k => t-6+k), mx = Math.max(SET.goal, ...days.map(d => ST.days[d]||0)), dn = ['Κυ','Δε','Τρ','Τε','Πε','Πα','Σα'];
+  return `<div class="wrap">${head('Επανάληψη', 'Ό,τι μαθαίνεις ξαναέρχεται πριν το ξεχάσεις')}
+  <button class="cont" id="due" ${due?'':'disabled'}><span class="k">Για σήμερα</span><span class="n">${due ? due+' '+(due===1?'ερώτηση':'ερωτήσεις')+' προς επανάληψη' : 'Δεν έχεις τίποτα για σήμερα'}</span><span class="s">${due?'Ξεκίνα την επανάληψη':'Κάνε ένα μάθημα και θα εμφανιστούν εδώ'}</span></button>
+  <div class="row" style="margin-top:8px"><button class="btn sec" id="weak" ${weak?'':'disabled'}>Τα λάθη μου${weak?`<span class="n">${weak}</span>`:''}</button><button class="btn sec" id="fc">Κάρτες λέξεων</button></div>
+  <h2>Η εβδομάδα σου</h2>
+  <div class="week">${days.map(d => { const x = ST.days[d]||0; return `<div><i style="height:${Math.max(4, Math.round(64*x/mx))}px" class="${x>=SET.goal?'hit':x?'some':''}"></i><span>${dn[new Date(d*864e5).getUTCDay()]}</span></div>`; }).join('')}</div>
+  <h2>Ανά κεφάλαιο</h2>
+  <div class="tbl">${UNITS.map(u => { const p = ST.prog[u], [a,b] = unitDone(u), lw = learned(u), tw = (V[u]||[]).length;
+    return `<div class="trow"><b>${u}</b><span>${esc(DATA.units[u].es)}</span><em>${a}/${b} μαθ.</em><em>${lw}/${tw} λέξεις</em><em>${p&&p.a?Math.round(100*p.c/p.a)+'%':'–'}</em></div>`; }).join('')}</div>
+  <p class="note">«Λέξεις» = όσες έχεις απαντήσει σωστά τουλάχιστον δύο φορές. Το ποσοστό είναι οι σωστές απαντήσεις σου.</p>
+  </div>${nav()}`;
+}
+function sectionHtml(s){
+  return `<section class="th"><h3>${md(s.h)}</h3>${(s.p||[]).map(p => `<p>${md(p)}</p>`).join('')}
+    ${s.t ? `<div class="tw"><table><thead><tr>${s.t[0].map(c => `<th>${esc(c)}</th>`).join('')}</tr></thead><tbody>${s.t.slice(1).map(r => `<tr>${r.map((c,k) => `<td${k && !/[α-ωά-ώ]/i.test(c)?' class="es"':''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>` : ''}
+    ${s.ex ? `<div class="exs">${s.ex.map(([e,g]) => `<button class="exr" data-say="${esc(e)}"><b class="es">${esc(e)}</b><span>${esc(g)}</span></button>`).join('')}</div>` : ''}
+    ${s.tip ? `<div class="tip">${md(s.tip)}</div>` : ''}</section>`;
+}
+function guideView(){
+  return `<div class="wrap">${head('Θεωρία', 'Σύντομοι κανόνες με παραδείγματα')}
+  <div class="units" style="margin-top:6px">${UNITS.map(u => `<button class="unit" data-guide="${u}"><span class="in"><span class="num">${u}</span><span class="t"><span class="es">${esc(DATA.units[u].es)}</span><span class="gr">${esc(DATA.units[u].g)}</span></span><span class="pct">${(TH[u]||[]).length} θέματα</span></span></button>`).join('')}</div>
+  </div>${nav()}`;
+}
+function guideUnitView(){
+  const u = GUIDE, d = DATA.units[u];
+  return `<div class="wrap">${head('Θεωρία · Κεφ. '+u, esc(d.es)+' · '+esc(d.gr), true)}
+  ${(TH[u]||[]).map(sectionHtml).join('')}
+  ${(VB[u]||[]).length ? `<section class="th"><h3>Ρήματα του κεφαλαίου</h3>${VB[u].map(vb => `<details class="more"><summary><b class="es">${esc(vb.v)}</b> · ${esc(vb.m)}</summary>${verbTable(vb)}</details>`).join('')}</section>` : ''}
+  <p class="note">Πάτα ένα παράδειγμα για να το ακούσεις.</p>
+  </div>
+  <div class="dock"><div class="in"><button class="btn" data-open="${u}">Πήγαινε στα μαθήματα του κεφαλαίου</button></div></div>`;
+}
+function flashView(){
+  const [u,i] = FC.cards[FC.i], [es,gr] = V[u][i];
+  return `<div class="wrap quiz">
+    <div class="top"><div class="qtop"><button class="x" id="quit" aria-label="Έξοδος">✕</button><div class="prog"><i style="width:${100*(FC.i+1)/FC.cards.length}%"></i></div><span class="cnt">${FC.i+1}/${FC.cards.length}</span></div></div>
+    <div class="flash"><div class="fc ${FC.flip?'flip':''}" id="card" role="button" tabindex="0" aria-label="Γύρνα την κάρτα">
+      <div class="face"><span class="lbl"><em>Κεφ. ${u}</em></span><div class="w">${esc(es)}</div><div class="pron">≈ ${esc(pron(es))}</div><span class="hint">Πάτα για μετάφραση</span></div>
+      <div class="face back"><div class="w" style="font-size:1.6rem">${esc(gr)}</div><div class="sub">${esc(es)}</div></div></div></div>
+    <div style="text-align:center">${sayBtn(sayText(es))}</div>
+  </div>
+  <div class="dock"><div class="in"><div class="row"><button class="btn sec" id="nok">Δεν το ήξερα</button><button class="btn" id="yok">Το ήξερα</button></div></div></div>`;
+}
+function render(keep){
+  const y = window.scrollY;
+  app.innerHTML = VIEW==='quiz' ? quizView() : VIEW==='intro' ? introView() : VIEW==='res' ? resultView() : VIEW==='fc' ? flashView() : VIEW==='unit' ? unitView() : VIEW==='guideUnit' ? guideUnitView()
+    : TAB==='free' ? freeView() : TAB==='rev' ? revView() : TAB==='guide' ? guideView() : pathView();
+  if (VIEW==='quiz' && !ANS){ const i = $('#inp'); if (i && !S.qs[S.i].audio) i.focus({preventScroll:true}); }
+  window.scrollTo(0, keep ? y : 0);
+}
+
+/* ================= actions ================= */
+function goTab(){ VIEW = 'tab'; render(); }
+function matchTap(side, k){
+  const q = S.qs[S.i]; if (ANS) return;
+  if (!MSEL || MSEL.side === side){ MSEL = {side, k}; render(true); return; }
+  const l = side==='L' ? k : MSEL.k, r = side==='R' ? k : MSEL.k;
+  if (l === r){ q.pairs[l].ok = true; MSEL = null; speak(sayText(q.pairs[l].es));
+    if (q.pairs.every(p => p.ok)){ const e = q.pairs.filter(p => p.err).length; finish(e <= 1, '', e ? `Τα βρήκες, με ${e} ${e===1?'λάθος':'λάθη'}.` : 'Τέλεια, όλα σωστά!'); return; } render(true); }
+  else { q.pairs[l].err = true; MFLASH = ['L'+l, 'R'+r]; MSEL = null; render(true); setTimeout(() => { MFLASH = null; if (VIEW==='quiz' && !ANS) render(true); }, 450); }
+}
+app.addEventListener('click', e => {
+  const t = e.target.closest('button, #card'); if (!t) return; const d = t.dataset;
+  if (d.slow){ try{ speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(d.slow); u.lang='es-ES'; if (VOICE) u.voice = VOICE; u.rate = .55; speechSynthesis.speak(u); }catch(_){} return; }
+  if (d.say){ speak(d.say); return; }
+  if (d.tab){ TAB = d.tab; goTab(); return; }
+  if (d.guide){ GUIDE = +d.guide; VIEW = 'guideUnit'; S = null; render(); return; }
+  if (d.open){ UNIT = +d.open; SET.cur = UNIT; saveLocal(); TAB = 'path'; VIEW = 'unit'; render(); return; }
+  if (t.id === 'back'){ if (VIEW==='intro'){ UNIT = S.intro.u; VIEW = 'unit'; S = null; } else if (VIEW==='guideUnit'){ VIEW = 'tab'; TAB = TAB==='path' ? 'path' : 'guide'; if (TAB==='path'){ VIEW='unit'; UNIT = GUIDE; } } else VIEW = 'tab'; render(); return; }
+  if (VIEW === 'tab' || VIEW === 'unit'){
+    if (t.id === 'cont'){ const l = nextLesson(); if (l){ UNIT = l.u; openLesson(l); } return; }
+    if (d.les){ const l = lessonsOf(UNIT).find(x => x.id === d.les); if (l) openLesson(l); return; }
+    if (t.id === 'go'){ saveLocal(); startSession(pickMixed(poolFor(SET.units, SET.types), SET.count).map(id => safe(() => build(id, SET.mode))), {kind:'free', title:'Ελεύθερη εξάσκηση'}); return; }
+    if (t.id === 'due' || t.id === 'weak'){ const ids = shuffle(t.id==='due' ? dueIds() : weakIds()).slice(0, 15); startSession(ids.map(id => safe(() => build(id, SET.mode))), {kind:'rev', title:t.id==='due'?'Επανάληψη':'Τα λάθη μου'}); return; }
+    if (t.id === 'fc'){ const us = SET.units.length ? SET.units : [SET.cur]; FC = {cards:shuffle(us.flatMap(u => (V[u]||[]).map((_,i) => [u,i]))).slice(0,40), i:0, flip:false}; if (FC.cards.length){ VIEW = 'fc'; render(); } return; }
+    if (d.u){ const u = +d.u; SET.units = SET.units.includes(u) ? SET.units.filter(x => x!==u) : SET.units.concat(u).sort((a,b) => a-b); }
+    else if (d.pre !== undefined) SET.units = d.pre ? d.pre.split(',').map(Number) : [];
+    else if (d.ty) SET.types = SET.types.includes(d.ty) ? SET.types.filter(x => x!==d.ty) : SET.types.concat(d.ty);
+    else if (d.mode) SET.mode = d.mode;
+    else if (d.cnt) SET.count = +d.cnt;
+    else if (d.audio) SET.audio = !SET.audio;
+    else if (d.goal) SET.goal = SET.goal===30 ? 50 : SET.goal===50 ? 100 : 30;
+    else return;
+    saveLocal(); render(true); return;
+  }
+  if (VIEW === 'intro'){ if (t.id === 'begin'){ VIEW = 'quiz'; render(); autoSay(); } return; }
+  if (VIEW === 'quiz'){
+    const q = S.qs[S.i];
+    if (t.id === 'quit'){ const k = S.kind; VIEW = k==='lesson' ? 'unit' : 'tab'; S = null; syncPush(); render(); return; }
+    if (t.id === 'next'){ next(); return; }
+    if (ANS) return;
+    if (d.o !== undefined){ answer(d.o); return; }
+    if (d.tile !== undefined){ BANK.push(+d.tile); render(true); return; }
+    if (d.un !== undefined){ BANK.splice(+d.un, 1); render(true); return; }
+    if (d.m){ matchTap(d.m[0], +d.m.slice(1)); return; }
+    if (d.k){ const i = $('#inp'), s = i.selectionStart ?? i.value.length, en = i.selectionEnd ?? s; i.value = i.value.slice(0,s)+d.k+i.value.slice(en); i.focus(); i.setSelectionRange(s+d.k.length, s+d.k.length); return; }
+    if (t.id === 'chk'){ if (q.ui==='bank'){ answer(''); return; } const v = $('#inp').value; if (clean(v) || (q.numeric && v.trim())) answer(v); else $('#inp').focus(); return; }
+    if (t.id === 'dunno'){ finish(false, ''); return; }
+    if (t.id === 'noaudio'){ SET.audio = false; saveLocal(); S.qs = S.qs.filter((x,k) => k < S.i || !x.audio);
+      if (S.i < S.qs.length){ ANS = null; BANK = []; MSEL = null; render(); }
+      else if (S.res.length){ S.i = S.qs.length - 1; endSession(); }
+      else { VIEW = S.kind==='lesson' ? 'unit' : 'tab'; S = null; render(); }
+      return; }
+    return;
+  }
+  if (VIEW === 'res'){
+    if (t.id === 'again'){ const qs = S.res.filter(r => !r.ok).map(r => safe(() => build(r.q.id, SET.mode))); startSession(shuffle(qs), {kind:'rev', title:'Ξανά τα λάθη'}); return; }
+    if (t.id === 'nextles'){ const l = nextLesson(); if (l){ UNIT = l.u; openLesson(l); } return; }
+    if (t.id === 'more'){ startSession(pickMixed(poolFor(SET.units, SET.types), SET.count).map(id => safe(() => build(id, SET.mode))), {kind:'free', title:'Ελεύθερη εξάσκηση'}); return; }
+    if (t.id === 'home'){ const k = S.kind; VIEW = k==='lesson' ? 'unit' : 'tab'; S = null; render(); return; }
+  }
+  if (VIEW === 'fc'){
+    if (t.id === 'quit'){ VIEW = 'tab'; syncPush(); render(); return; }
+    if (t.id === 'card'){ FC.flip = !FC.flip; $('#card').classList.toggle('flip', FC.flip); return; }
+    if (t.id === 'nok' || t.id === 'yok'){ const [u,i] = FC.cards[FC.i]; srsMark(`v|${u}|${i}`, t.id==='yok'); if (t.id==='yok') addXp(2); ST.up = Date.now(); saveLocal();
+      if (FC.i+1 < FC.cards.length){ FC.i++; FC.flip = false; render(); } else { VIEW = 'tab'; syncPush(); render(); } }
+  }
+});
+app.addEventListener('change', e => {
+  if (e.target.id !== 'pack') return; const f = e.target.files && e.target.files[0]; if (!f) return;
+  const r = new FileReader();
+  r.onload = () => {
+    try { const p = JSON.parse(r.result); if (!p || p.type !== 'practica-pack' || !p.vocab) throw 0; applyPack(p); if (!hasVocab()) throw 0;
+      try { localStorage.setItem(VKEY, JSON.stringify(p)); } catch(_){}
+      buildSyn(); for (const k in LCACHE) delete LCACHE[k]; PACKERR = '';
+    } catch(_){ PACKERR = 'Αυτό δεν είναι το σωστό αρχείο. Διάλεξε το practica-lexico.json.'; }
+    render(true);
+  };
+  r.readAsText(f);
+});
+app.addEventListener('keydown', e => { if (e.key==='Enter' && VIEW==='quiz' && e.target.id==='inp' && !ANS){ e.preventDefault(); const v = e.target.value; if (clean(v) || v.trim()) answer(v); } });
+document.addEventListener('keydown', e => { if (e.key==='Enter' && VIEW==='quiz' && ANS && e.target.tagName!=='BUTTON'){ e.preventDefault(); next(); } });
+
+render();
+syncInit().then(() => { if (VIEW==='tab') render(true); });
+
+</script>
+
+<script>if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));</script>
+</body></html>
