@@ -359,6 +359,11 @@ mark.dx{color:var(--bad-ink)}mark.dn{color:var(--ok-ink)}
 .pk b{font-size:1.05rem;font-weight:800}.pk small{font-size:.86rem;color:var(--muted)}
 .pk[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
 @media (prefers-reduced-motion: reduce){.btn,.cont,.daily,.opt,.unit,.bigstars i.on{transition:none;animation:none}}
+/* v6: listening everywhere */
+.opt.heard{display:flex;justify-content:space-between;align-items:center;gap:10px}.opt .spk{flex:none;font-size:1.15rem;opacity:.65;display:grid}
+.guidebtn.alt{border-color:var(--accent);background:var(--accent-soft);margin-top:8px}.guidebtn.alt svg{color:var(--accent)}
+.th b.es,.th td.es,.vt td.es,.fb b.es,.ex b.es{cursor:pointer;text-decoration:underline dotted;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.wrong div{position:relative;padding-right:54px}.wrong .say{position:absolute;right:8px;top:50%;transform:translateY(-50%);margin:0}
 .pack{display:flex;flex-direction:column;gap:6px;margin-top:10px;border:1.5px dashed var(--sun);background:var(--sun-soft);border-radius:var(--r);padding:14px 16px;cursor:pointer}
 .pack span{font-size:.9rem}.pack input,.packlink input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .pack em{font-style:normal;align-self:flex-start;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 14px;font-weight:600;margin-top:4px}
@@ -465,7 +470,7 @@ function pickVoice(){ try{ const vs=speechSynthesis.getVoices(); VOICE = vs.find
 if (canSpeak){ pickVoice(); try{ speechSynthesis.onvoiceschanged = pickVoice; }catch(e){} }
 function speak(t){ if(!canSpeak) return; try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t.replace(/___/g,'…')); u.lang='es-ES'; if(VOICE) u.voice=VOICE; u.rate=.9; speechSynthesis.speak(u);}catch(e){} }
 const SPK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg>';
-const sayBtn = t => canSpeak ? `<button class="say" data-say="${esc(t)}">${SPK}Άκου</button>` : '';
+const sayBtn = t => canSpeak ? `<button class="say" data-say="${esc(t)}">${SPK}Άκου</button><button class="say" data-slow="${esc(t)}">Αργά</button>` : '';
 
 /* ---------- numbers and time ---------- */
 const N0 = 'cero uno dos tres cuatro cinco seis siete ocho nueve diez once doce trece catorce quince dieciséis diecisiete dieciocho diecinueve veinte veintiuno veintidós veintitrés veinticuatro veinticinco veintiséis veintisiete veintiocho veintinueve'.split(' ');
@@ -1059,7 +1064,23 @@ function pathView(){
   ${hasVocab() && !zero ? `<label class="packlink">${Object.keys(CX).length ? 'Αλλαγή αρχείου λεξιλογίου' : 'Νέο: φόρτωσε το καινούργιο αρχείο practica-lexico.json για να δεις τις λέξεις μέσα σε προτάσεις'}<input type="file" id="pack" accept=".json,application/json"></label>` : ''}
   </div>${nav()}`;
 }
-let WSEL = {course:'zero', pace:'slow'};
+let WSEL = {course:'zero', pace:'slow'}, WSLOW = false;
+function preSay(q, a){   // a listen button before answering, when the question itself is in Spanish and hearing it gives nothing away
+  if (a || q.audio || !canSpeak || q.ui === 'match' || !/^(f|c|g|v)$/.test(q.type) || !q.prompt || /[α-ωά-ώ]/i.test(q.prompt)) return '';
+  const el = document.createElement('div'); el.innerHTML = q.prompt.replace(/<span class="blank"><\/span>/g, '…').replace(/<br>/g, ' ');
+  const t = el.textContent.replace(/–/g, ' ').trim();
+  return t.replace(/…/g, '').trim().length > 1 ? sayBtn(t) : '';
+}
+function wordsView(){
+  const u = UNIT, vs = V[u] || [], ps = P[u] || [], vb = VB[u] || [], at = WSLOW ? 'data-slow' : 'data-say';
+  return `<div class="wrap">${head('Λέξεις και φράσεις', uLong(u)+' · '+esc(DATA.units[u].es), true)}
+  <p class="sub">Πάτα μια λέξη ή φράση για να ακούσεις πώς προφέρεται.</p>
+  ${canSpeak ? `<div class="toggles" style="margin-top:10px"><button class="tog" id="wslow" aria-pressed="${WSLOW}">Αργή εκφώνηση</button></div>` : `<p class="note">Σε αυτή την προβολή η συσκευή δεν δίνει ήχο. Η προφορά φαίνεται με ελληνικά γράμματα κάτω από κάθε λέξη.</p>`}
+  ${vs.length ? `<h2>Λέξεις</h2><div class="words">${vs.map(([es, gr]) => `<button class="word" ${at}="${esc(sayText(es))}"><span><b class="es">${esc(es)}</b><i>≈ ${esc(pron(es))}</i></span><span class="g">${esc(gr)}</span></button>`).join('')}</div>` : ''}
+  ${ps.length ? `<h2>Φράσεις</h2><div class="words">${ps.map(p => `<button class="word" ${at}="${esc(p.a[0])}"><span><b class="es">${esc(p.a[0])}</b><i>≈ ${esc(pron(p.a[0]))}</i></span><span class="g">${esc(p.g)}</span></button>`).join('')}</div>` : ''}
+  ${vb.length ? `<h2>Ρήματα</h2><p class="sub">Πάτα ένα πρόσωπο για να το ακούσεις.</p>${vb.map(verbTable).join('')}` : ''}
+  </div>`;
+}
 function welcomeView(){
   const pick = (attr, val, cur, t, s) => `<button class="pk" data-${attr}="${val}" aria-pressed="${cur===val}"><b>${t}</b><small>${s}</small></button>`;
   return `<div class="wrap wel"><div class="welh">${mascot('wow', 'lg')}<h1>¡Hola!</h1><p class="sub">Καλώς ήρθες στο Práctica. Πες μου δύο πράγματα για να ξεκινήσουμε.</p></div>
@@ -1076,6 +1097,7 @@ function unitView(){
   const u = UNIT, d = DATA.units[u], L = lessonsOf(u), nx = L.find(l => !ST.done[l.id]);
   return `<div class="wrap">${head(uLong(u), esc(d.es)+' · '+esc(d.gr), true)}
   <button class="guidebtn" data-guide="${u}">${ICON.guide}<span><b>Θεωρία</b><small>${esc(d.g)}</small></span></button>
+  <button class="guidebtn alt" id="words">${SPK}<span><b>Λέξεις και φράσεις</b><small>Δες τες όλες και άκου την προφορά</small></span></button>
   <div class="route" style="--h:${hue(u)}">${L.map(l => { const s = ST.done[l.id]||0, cur = nx && nx.id===l.id;
     return `<button class="les ${s?'done':''} ${cur?'cur':''}" data-les="${l.id}"><span class="dot">${s?ICON.check:(l.k==='X'?ICON.star:`<b>${LK[l.k]||''}</b>`)}</span>
       <span class="lt"><b>${esc(l.name)}</b><small>${esc(l.sub||'')}</small></span>
@@ -1119,7 +1141,8 @@ function quizView(){
     body = `<div class="match"><div>${q.left.map(k => cell('L',k)).join('')}</div><div>${q.right.map(k => cell('R',k)).join('')}</div></div><div class="sub" style="margin-top:8px">${done}/${q.pairs.length} ζευγάρια</div>`;
   } else {
     body = `<div class="opts ${q.options.length===2?'two':''}">${q.options.map(o => { let c=''; if (a){ if (q.answers.some(x=>clean(x)===clean(o))) c='ok'; else if (clean(o)===clean(a.input)) c='bad'; }
-      return `<button class="opt ${c}" data-o="${esc(o)}" ${a?'disabled':''}>${esc(o)}</button>`; }).join('')}</div>`;
+      const hear = a && canSpeak && q.type !== 'r' && /[a-zñ]/i.test(o) && !/[α-ωά-ώ]/i.test(o);
+      return hear ? `<button class="opt ${c} heard" data-say="${esc(o)}"><span>${esc(o)}</span><span class="spk">${SPK}</span></button>` : `<button class="opt ${c}" data-o="${esc(o)}" ${a?'disabled':''}>${esc(o)}</button>`; }).join('')}</div>`;
   }
   let fb = '';
   if (a){
@@ -1151,7 +1174,7 @@ function quizView(){
       <div class="sub" style="margin-top:6px">${esc(q.label)}</div>
       ${q.audio ? `<div class="audio"><button class="play" data-say="${esc(q.audio)}" aria-label="Άκου">${SPK}</button><button class="say" data-slow="${esc(q.audio)}">Πιο αργά</button></div>` : (q.prompt ? `<div class="prompt ${q.big?'big':''} ${q.small?'sm':''}">${q.prompt}</div>` : '')}
       ${q.sub ? `<div class="sub">${q.sub}</div>` : ''}${q.pron ? `<div class="pron">≈ ${esc(q.pron)}</div>` : ''}
-      ${q.sayNow ? sayBtn(q.say) : ''}
+      ${q.sayNow ? sayBtn(q.say) : preSay(q, a)}
       ${q.dlg ? `<details class="more"><summary>Δες ξανά τον διάλογο</summary>${dlgHtml(q.unit, false)}</details>` : ''}
       ${body}
       ${q.audio && !a ? `<button class="skip" id="noaudio">Δεν μπορώ να ακούσω τώρα</button>` : ''}
@@ -1169,7 +1192,7 @@ function resultView(){
     <div class="card center">${mascot(ok/n >= .7 ? 'wow' : ok/n >= .5 ? 'hi' : 'sad', 'md')}${S.kind==='lesson' ? `<div class="bigstars">${[1,2,3].map(k=>`<i class="${k<=S.stars?'on':''}">${ICON.star}</i>`).join('')}</div>` : ''}
       <div class="score">${ok}/${n}</div><div class="sub">${msg}</div>
       <div class="gain"><span><span class="ic acc">${ICON.bolt}</span>+${gained} πόντοι</span><span><span class="ic sun">${ICON.flame}</span>${streak()} ${streak()===1?'μέρα':'μέρες'} σερί</span></div></div>
-    ${wrong.length ? `<h2>Τι να ξαναδείς</h2><div class="wrong">${wrong.map(r => `<div>${r.q.audio ? 'Ακρόαση' : r.q.ui==='match' ? 'Ταίριασμα: '+r.q.pairs.filter(p=>p.err).map(p=>esc(p.es)).join(', ') : r.q.prompt.replace(/<span class="blank"><\/span>/g,'___')}<span>${esc(r.q.show)}</span></div>`).join('')}</div>` : ''}
+    ${wrong.length ? `<h2>Τι να ξαναδείς</h2><div class="wrong">${wrong.map(r => `<div>${r.q.audio ? 'Ακρόαση' : r.q.ui==='match' ? 'Ταίριασμα: '+r.q.pairs.filter(p=>p.err).map(p=>esc(p.es)).join(', ') : r.q.prompt.replace(/<span class="blank"><\/span>/g,'___')}<span>${esc(r.q.show)}</span>${r.q.say && canSpeak ? `<button class="say sm" data-say="${esc(r.q.say)}" aria-label="Άκου">${SPK}</button>` : ''}</div>`).join('')}</div>` : ''}
     ${top ? `<div class="insight"><span>Τα περισσότερα λάθη σου εδώ ήταν σε: <b>${esc(SKN[top])}</b></span><button class="btn sec" data-skill="${top}">Εξάσκηση 5 λεπτών σε αυτό</button></div>` : ''}
   </div>
   <div class="dock"><div class="in">
@@ -1196,6 +1219,8 @@ function freeView(){
   <div class="seg">${[['slow','Βήμα βήμα'],['normal','Κανονικός']].map(([k,n]) => `<button data-pace="${k}" aria-pressed="${(SET.pace||'normal')===k}">${n}</button>`).join('')}</div>
   <p class="note">${slow() ? 'Μικρότερα μαθήματα, στην αρχή μόνο επιλογές και ακρόαση. Το γράψιμο έρχεται όταν μια λέξη την ξέρεις ήδη καλά.' : 'Περισσότερες λέξεις ανά μάθημα και γράψιμο από νωρίς.'}</p>
   <h2>Ρυθμίσεις</h2>
+  ${!canSpeak ? `<p class="note" style="margin:0 0 8px">Σε αυτή την προβολή η συσκευή δεν δίνει ήχο. Άνοιξε την εγκατεστημένη εφαρμογή ή τον Chrome για να ακούς την προφορά.</p>`
+    : (() => { let vs = []; try { vs = speechSynthesis.getVoices(); } catch(_){} return vs.length && !VOICE ? `<p class="note" style="margin:0 0 8px">Δεν βρέθηκε ισπανική φωνή στη συσκευή. Στις ρυθμίσεις του κινητού, στη «Μετατροπή κειμένου σε ομιλία», κατέβασε τα Ισπανικά.</p>` : ''; })()}
   <div class="toggles"><button class="tog" data-audio="1" aria-pressed="${SET.audio}">Ασκήσεις ακρόασης</button>
   <button class="tog" data-goal="1" aria-pressed="true">Στόχος: ${SET.goal} πόντοι</button>
   ${SR ? `<button class="tog" data-speak="1" aria-pressed="${!!SET.speak}">Προφορά με μικρόφωνο (δοκιμαστικό)</button>` : ''}</div>
@@ -1282,7 +1307,7 @@ function listen(target){
 function sayAll(lines){ if (!canSpeak) return; try { speechSynthesis.cancel(); for (const t of lines){ const u = new SpeechSynthesisUtterance(t); u.lang = 'es-ES'; if (VOICE) u.voice = VOICE; u.rate = .9; speechSynthesis.speak(u); } } catch(_){} }
 function render(keep){
   const y = window.scrollY;
-  app.innerHTML = VIEW==='welcome' ? welcomeView() : VIEW==='backup' ? backupView() : VIEW==='quiz' ? quizView() : VIEW==='intro' ? introView() : VIEW==='res' ? resultView() : VIEW==='fc' ? flashView() : VIEW==='unit' ? unitView() : VIEW==='guideUnit' ? guideUnitView()
+  app.innerHTML = VIEW==='welcome' ? welcomeView() : VIEW==='words' ? wordsView() : VIEW==='backup' ? backupView() : VIEW==='quiz' ? quizView() : VIEW==='intro' ? introView() : VIEW==='res' ? resultView() : VIEW==='fc' ? flashView() : VIEW==='unit' ? unitView() : VIEW==='guideUnit' ? guideUnitView()
     : TAB==='free' ? freeView() : TAB==='rev' ? revView() : TAB==='guide' ? guideView() : pathView();
   if (VIEW==='quiz' && !ANS){ const i = $('#inp') || $('#tin0'); if (i && !S.qs[S.i].audio) i.focus({preventScroll:true}); }
   window.scrollTo(0, keep ? y : 0);
@@ -1299,7 +1324,11 @@ function matchTap(side, k){
   else { q.pairs[l].err = true; MFLASH = ['L'+l, 'R'+r]; MSEL = null; render(true); setTimeout(() => { MFLASH = null; if (VIEW==='quiz' && !ANS) render(true); }, 450); }
 }
 app.addEventListener('click', e => {
+  const se = e.target.closest('.es, .es2'); if (se && !e.target.closest('button, #card')){ speak(se.textContent.replace(/\s*[\/·]\s*/g, ', ')); return; }   // any Spanish text can be tapped to hear it
   const t = e.target.closest('button, #card'); if (!t) return; const d = t.dataset;
+  if (t.id === 'words'){ VIEW = 'words'; WSLOW = false; render(); return; }
+  if (t.id === 'wslow'){ WSLOW = !WSLOW; render(true); return; }
+  if (t.id === 'back' && VIEW === 'words'){ VIEW = 'unit'; render(); return; }
   if (d.slow){ try{ speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(d.slow); u.lang='es-ES'; if (VOICE) u.voice = VOICE; u.rate = .55; speechSynthesis.speak(u); }catch(_){} return; }
   if (d.say){ speak(d.say); return; }
   if (d.mic){ listen(d.mic); return; }
@@ -1357,9 +1386,9 @@ app.addEventListener('click', e => {
     if (t.id === 'next'){ next(); return; }
     if (ANS) return;
     if (d.o !== undefined){ answer(d.o); return; }
-    if (d.tile !== undefined){ BANK.push(+d.tile); render(true); return; }
+    if (d.tile !== undefined){ if (audioOn()) speak(q.tiles[+d.tile]); BANK.push(+d.tile); render(true); return; }
     if (d.un !== undefined){ BANK.splice(+d.un, 1); render(true); return; }
-    if (d.m){ matchTap(d.m[0], +d.m.slice(1)); return; }
+    if (d.m){ if (audioOn() && !/[α-ωά-ώ]/i.test(t.textContent)) speak(t.textContent); matchTap(d.m[0], +d.m.slice(1)); return; }
     if (d.k){ const i = (LASTINP && $('#'+LASTINP)) || $('#inp') || $('#tin0'), s = i.selectionStart ?? i.value.length, en = i.selectionEnd ?? s; i.value = i.value.slice(0,s)+d.k+i.value.slice(en); i.focus(); i.setSelectionRange(s+d.k.length, s+d.k.length); return; }
     if (t.id === 'chk' && q.ui === 'table'){ const vals = q.rows.map((_, p) => $('#tin'+p).value); if (vals.some(v => clean(v))) answerTable(vals); else $('#tin0').focus(); return; }
     if (t.id === 'dunno' && q.ui === 'table'){ answerTable([]); return; }
