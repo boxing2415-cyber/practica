@@ -364,6 +364,8 @@ mark.dx{color:var(--bad-ink)}mark.dn{color:var(--ok-ink)}
 .guidebtn.alt{border-color:var(--accent);background:var(--accent-soft);margin-top:8px}.guidebtn.alt svg{color:var(--accent)}
 .th b.es,.th td.es,.vt td.es,.fb b.es,.ex b.es{cursor:pointer;text-decoration:underline dotted;text-decoration-thickness:1.5px;text-underline-offset:4px}
 .wrong div{position:relative;padding-right:54px}.wrong .say{position:absolute;right:8px;top:50%;transform:translateY(-50%);margin:0}
+.nosnd{display:flex;gap:8px;align-items:flex-start;font-size:.84rem;color:var(--muted);margin-top:10px}.nosnd svg{flex:none;width:1.1em;height:1.1em;margin-top:2px}
+.nosnd.box{background:var(--sun-soft);color:var(--ink);border-radius:14px;padding:10px 12px;margin:0 0 10px}
 .pack{display:flex;flex-direction:column;gap:6px;margin-top:10px;border:1.5px dashed var(--sun);background:var(--sun-soft);border-radius:var(--r);padding:14px 16px;cursor:pointer}
 .pack span{font-size:.9rem}.pack input,.packlink input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .pack em{font-style:normal;align-self:flex-start;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 14px;font-weight:600;margin-top:4px}
@@ -1044,6 +1046,7 @@ function unitDone(u){ const L = lessonsOf(u); return [L.filter(l => ST.done[l.id
 function pathView(){
   const st = streak(), tx = todayXp(), pct = Math.min(100, Math.round(100*tx/SET.goal)), nl = nextLesson(), zero = SET.course === 'zero';
   return `<div class="wrap"><div class="hero">${mascot(pct >= 100 ? 'wow' : 'hi', 'sm')}<div class="ht"><h1>Práctica</h1><small>${zero ? 'Ισπανικά από το μηδέν' : 'Ισπανικά A1–A2 · 14 κεφάλαια'}</small></div></div>
+  ${canSpeak ? '' : `<div class="nosnd box">${SPK}<span>Σε αυτή την προβολή το κινητό δεν δίνει ήχο. Για να ακούς την προφορά, άνοιξε την εγκατεστημένη εφαρμογή ή τη σελίδα της στον Chrome.</span></div>`}
   <div class="seg course">${[['zero','Από το μηδέν'],['book','Το βιβλίο μου']].map(([k,n]) => `<button data-course="${k}" aria-pressed="${SET.course===k}">${n}</button>`).join('')}</div>
   <div class="stats">
     <div class="stat s1"><span class="ic sun">${ICON.flame}</span><b>${st}</b><span>${st===1?'μέρα σερί':'μέρες σερί'}</span></div>
@@ -1164,6 +1167,7 @@ function quizView(){
       ${q.type==='v' && q.exs && !q.ctx ? `<div class="ex">Σε πρόταση: <b class="es">${esc(q.exs)}</b></div>` : ''}
       ${q.type==='c' && q.verb && q.ui!=='table' ? `<details class="more"><summary>Όλη η κλίση</summary>${verbTable(q.verb)}</details>` : ''}
       ${q.say ? sayBtn(q.say) + micBtn(q.say) : ''}
+      ${q.say && !canSpeak ? `<div class="nosnd">${SPK}<span>Χωρίς ήχο εδώ. Άνοιξε την εγκατεστημένη εφαρμογή ή τον Chrome για να ακούσεις την προφορά.</span></div>` : ''}
       ${vid ? `<div class="mem"><button class="star ${ST.star[vid]?'on':''}" data-star="${vid}" aria-pressed="${!!ST.star[vid]}" aria-label="Αστέρι">${ICON.star}</button><input class="notei" data-note="${vid}" maxlength="120" autocomplete="off" placeholder="Δική σου σημείωση για να τη θυμάσαι" value="${esc(ST.note[vid]||'')}"></div>` : ''}</div>`;
   }
   const canCheck = q.ui === 'type' || q.ui === 'bank' || q.ui === 'table';
