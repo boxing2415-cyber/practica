@@ -1,14 +1,14 @@
 {
  "name": "Práctica de español",
  "short_name": "Práctica",
- "description": "Εξάσκηση στα ισπανικά A1–A2",
+ "description": "Ισπανικά από το μηδέν μέχρι το A2: μαθήματα, επανάληψη, διάλογοι",
  "lang": "el",
  "start_url": "./",
  "scope": "./",
  "display": "standalone",
  "orientation": "portrait",
- "background_color": "#F4F6FB",
- "theme_color": "#1E5DBF",
+ "background_color": "#FFF8EC",
+ "theme_color": "#5B4BE8",
  "icons": [
   {
    "src": "icon-192.png",
