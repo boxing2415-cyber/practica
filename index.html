@@ -421,6 +421,7 @@ mark.dx{color:var(--bad-ink)}mark.dn{color:var(--ok-ink)}
 .pack em{font-style:normal;align-self:flex-start;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 14px;font-weight:600;margin-top:4px}
 .pack i{font-style:normal;color:var(--bad);font-size:.88rem}
 .pack:focus-within,.packlink:focus-within{outline:3px solid var(--accent);outline-offset:2px}
+.packalt{margin-top:10px}.packalt small{display:block;font-size:.84rem;color:var(--muted);margin-top:8px}
 .packlink{display:inline-block;margin-top:10px;font-size:.85rem;color:var(--muted);text-decoration:underline;cursor:pointer}
 </style>
 
@@ -731,7 +732,13 @@ function diag(q, input, res){
 
 /* ================= question builders ================= */
 const senses = gr => gr.split(/,\s*|\s·\s/).map(x => clean(x)).filter(x => x.length > 2 && !x.startsWith('-'));
-const VKEY = 'practica-pack-v1'; let PACKERR = '';
+const VKEY = 'practica-pack-v1'; let PACKERR = '', PASTEBOX = false;
+function loadPack(text){
+  try { const p = JSON.parse(String(text).trim()); if (!p || p.type !== 'practica-pack' || !p.vocab) throw 0; applyPack(p); if (!hasVocab()) throw 0;
+    try { localStorage.setItem(VKEY, JSON.stringify(p)); } catch(_){}
+    buildSyn(); for (const k in LCACHE) delete LCACHE[k]; PACKERR = ''; PASTEBOX = false; return true;
+  } catch(_){ PACKERR = 'Αυτό δεν είναι το σωστό λεξιλόγιο. Δοκίμασε ξανά με ολόκληρο το κείμενο ή με το αρχείο practica-lexico.json.'; return false; }
+}
 function applyPack(p){
   for (const u of BU){
     V[u] = ((p.vocab || {})[u] || []).filter(x => Array.isArray(x) && x.length === 2 && typeof x[0] === 'string' && typeof x[1] === 'string' && x[0] && x[1]);
@@ -1107,7 +1114,9 @@ function pathView(){
   ${!nl && zero ? `<button class="cont" data-course="book"><span class="k">Μπράβο! Τελείωσες όλα τα βήματα</span><span class="n">Συνέχισε με τα κεφάλαια</span><span class="s">Πάτα για να περάσεις στο «Το βιβλίο μου» (A1–A2)</span></button>` : ''}
   ${(() => { const dn = ST.daily === TODAY(), due = Math.min(8, dueIds().length), w = weakSkills()[0];
     return `<button class="daily ${dn?'done':''}" id="daily"><span class="dic">${dn ? ICON.check : ICON.rev}</span><span class="dt"><b>Σημερινά 10 λεπτά</b><small>${dn ? 'Έγινε για σήμερα. Μπορείς να το ξανακάνεις.' : (due ? due+' για επανάληψη + ' : '')+'νέα από: '+uShort(SET.cur)+(w ? ' + '+esc(SKN[w.k]) : '')}</small></span></button>`; })()}
-  ${hasVocab() || zero ? '' : `<label class="pack"><b>Πρόσθεσε το λεξιλόγιό σου</b><span>Διάλεξε το αρχείο <u>practica-lexico.json</u> για να ανοίξουν τα μαθήματα «Λέξεις», το ταίριασμα και οι κάρτες. Γίνεται μία φορά και μένει στο κινητό σου.</span><input type="file" id="pack" accept=".json,application/json"><em>Επιλογή αρχείου</em>${PACKERR ? `<i>${esc(PACKERR)}</i>` : ''}</label>`}
+  ${hasVocab() || zero ? '' : `<label class="pack"><b>Πρόσθεσε το λεξιλόγιό σου</b><span>Διάλεξε το αρχείο <u>practica-lexico.json</u> για να ανοίξουν τα μαθήματα «Λέξεις», το ταίριασμα και οι κάρτες. Γίνεται μία φορά και μένει στο κινητό σου.</span><input type="file" id="pack" accept=".json,application/json"><em>Επιλογή αρχείου</em>${PACKERR ? `<i>${esc(PACKERR)}</i>` : ''}</label>
+  <div class="packalt"><button class="btn sec" id="packpaste">Επικόλληση λεξιλογίου</button><small>Αν δεν μπορείς να κατεβάσεις το αρχείο: στη σελίδα της εφαρμογής μέσα στο Claude πήγαινε «Εξάσκηση» → «Αντίγραφο προόδου» → «Αντιγραφή λεξιλογίου» και μετά πάτα εδώ.</small>
+  ${PASTEBOX ? `<textarea class="code" id="packtxt" rows="4" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Κράτα πατημένο εδώ και διάλεξε «Επικόλληση»"></textarea><button class="btn" id="packgo" style="margin-top:8px">Φόρτωση</button>` : ''}</div>`}
   <h2>${zero ? 'Βήματα' : 'Κεφάλαια'}</h2>
   <div class="units">${CU().map(u => { const d = DATA.units[u], [a,b] = unitDone(u);
     return `<button class="unit" data-open="${u}" style="--h:${hue(u)}"><span class="in"><span class="num ${a===b?'full':''}">${a===b?ICON.check:uNo(u)}</span>
@@ -1336,6 +1345,18 @@ function flashView(){
   </div>
   <div class="dock"><div class="in"><div class="row"><button class="btn sec" id="nok">Δεν το ήξερα</button><button class="btn" id="yok">Το ήξερα</button></div></div></div>`;
 }
+function packText(){
+  const p = {type:'practica-pack', v:2, titles:{}, vocab:{}, ctx:{}};
+  for (const u of BU){ p.titles[u] = {es:DATA.units[u].es, gr:DATA.units[u].gr}; p.vocab[u] = V[u] || []; if (CX[u]) p.ctx[u] = CX[u]; }
+  return JSON.stringify(p);
+}
+function copyBox(id, msgId, okText){
+  const o = $('#'+id), say = t => { const m = $('#'+msgId); if (m) m.textContent = t; }, hold = 'Κράτα πατημένο πάνω στο κείμενο, διάλεξε «Επιλογή όλων» και μετά «Αντιγραφή».';
+  try { o.focus(); o.select(); o.setSelectionRange(0, o.value.length);
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(o.value).then(() => say(okText), () => { try { document.execCommand('copy') ? say(okText) : say(hold); } catch(_){ say(hold); } });
+    else document.execCommand('copy') ? say(okText) : say(hold);
+  } catch(_){ say(hold); }
+}
 function backupView(){
   let code = ''; try { code = btoa(unescape(encodeURIComponent(JSON.stringify({k:'practica-backup', st:ST, set:SET})))); } catch(e){}
   return `<div class="wrap">${head('Αντίγραφο προόδου', 'Για να μη χαθεί ή για να τη μεταφέρεις σε άλλη συσκευή', true)}
@@ -1348,6 +1369,11 @@ function backupView(){
   <textarea class="code" id="bkin" rows="4" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Επικόλληση κωδικού"></textarea>
   <button class="btn sec" id="bkload" style="margin-top:8px">Επαναφορά από τον κωδικό</button>
   <p class="note" id="bkmsg" role="status">${esc(BKMSG)}</p>
+  ${BU.some(u => (V[u]||[]).length) ? `<h2>3. Λεξιλόγιο του βιβλίου</h2>
+  <p class="sub">Για την εγκατεστημένη εφαρμογή στον Chrome, αν δεν μπορείς να κατεβάσεις το αρχείο: πάτα «Αντιγραφή λεξιλογίου» και μετά, στην εγκατεστημένη εφαρμογή, πάτα «Επικόλληση λεξιλογίου».</p>
+  <textarea class="code" id="pkout" readonly rows="3">${esc(packText())}</textarea>
+  <button class="btn" id="pkcopy" style="margin-top:8px">Αντιγραφή λεξιλογίου</button>
+  <p class="note" id="pkmsg" role="status"></p>` : ''}
   </div>`;
 }
 const SR = window.SpeechRecognition || window.webkitSpeechRecognition || null;
@@ -1425,6 +1451,7 @@ app.addEventListener('click', e => {
     saveLocal(); render(true); return;
   }
   if (VIEW === 'backup'){
+    if (t.id === 'pkcopy'){ copyBox('pkout', 'pkmsg', 'Το λεξιλόγιο αντιγράφηκε. Άνοιξε την εγκατεστημένη εφαρμογή στον Chrome και πάτα «Επικόλληση λεξιλογίου».'); return; }
     if (t.id === 'bkcopy'){ const o = $('#bkout'), done = () => { $('#bkmsg').textContent = 'Ο κωδικός αντιγράφηκε. Επικόλλησέ τον κάπου για να τον κρατήσεις.'; };
       try { o.focus(); o.select(); if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(o.value).then(done, () => { try { document.execCommand('copy'); done(); } catch(_){ $('#bkmsg').textContent = 'Κράτα πατημένο πάνω στον κωδικό και διάλεξε «Αντιγραφή».'; } }); else { document.execCommand('copy'); done(); } } catch(_){ $('#bkmsg').textContent = 'Κράτα πατημένο πάνω στον κωδικό και διάλεξε «Αντιγραφή».'; }
       return; }
@@ -1479,14 +1506,14 @@ app.addEventListener('keydown', e => { if (e.key !== 'Enter' || VIEW !== 'quiz' 
 app.addEventListener('change', e => {
   if (e.target.id !== 'pack') return; const f = e.target.files && e.target.files[0]; if (!f) return;
   const r = new FileReader();
-  r.onload = () => {
-    try { const p = JSON.parse(r.result); if (!p || p.type !== 'practica-pack' || !p.vocab) throw 0; applyPack(p); if (!hasVocab()) throw 0;
-      try { localStorage.setItem(VKEY, JSON.stringify(p)); } catch(_){}
-      buildSyn(); for (const k in LCACHE) delete LCACHE[k]; PACKERR = '';
-    } catch(_){ PACKERR = 'Αυτό δεν είναι το σωστό αρχείο. Διάλεξε το practica-lexico.json.'; }
-    render(true);
-  };
+  r.onload = () => { loadPack(r.result); render(true); };
   r.readAsText(f);
+});
+app.addEventListener('click', e => {
+  const b = e.target.closest('#packpaste, #packgo'); if (!b) return;
+  if (b.id === 'packgo'){ loadPack($('#packtxt').value); render(true); return; }
+  const open = () => { PASTEBOX = true; PACKERR = ''; render(true); const x = $('#packtxt'); if (x) x.focus(); };
+  if (navigator.clipboard && navigator.clipboard.readText) navigator.clipboard.readText().then(t => { if (t && t.includes('practica-pack') && loadPack(t)) render(true); else open(); }, open); else open();
 });
 app.addEventListener('keydown', e => { if (e.key==='Enter' && VIEW==='quiz' && e.target.id==='inp' && !ANS){ e.preventDefault(); e.stopPropagation(); const v = e.target.value; if (clean(v) || v.trim()) answer(v); } });
 document.addEventListener('keydown', e => { if (e.key==='Enter' && VIEW==='quiz' && ANS && e.target.tagName!=='BUTTON' && !(e.target.dataset && e.target.dataset.note)){ e.preventDefault(); next(); } });
