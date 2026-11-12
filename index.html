@@ -3,8 +3,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Práctica de español</title>
 <meta name="description" content="Εξάσκηση στα ισπανικά A1–A2: λέξεις, ρήματα, γραμματική, ακρόαση και επανάληψη.">
-<meta name="theme-color" content="#FFF8EC" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#17132B" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#FFF7E8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1C1412" media="(prefers-color-scheme: dark)">
 <meta name="robots" content="noindex">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png" type="image/png">
@@ -382,6 +382,40 @@ mark.dx{color:var(--bad-ink)}mark.dn{color:var(--ok-ink)}
 .terr .no i{color:var(--bad-ink);font-style:normal}.terr .yes i{color:var(--ok-ink);font-style:normal}
 .terr small{display:block;margin-top:6px;font-size:.88rem;color:var(--ink)}
 .dock .in:has(#quick){display:flex;flex-direction:row;gap:8px}.dock .in:has(#quick) .btn{flex:1;font-size:.95rem;padding:13px 8px}
+/* v8: Spain. Flag red and gold, azulejo blue for Spanish words, a tile band, a bull called Toro */
+:root{--bg:#FFF7E8; --surface:#FFFFFF; --ink:#2B1B14; --muted:#77625A; --line:#EAD9BF;
+  --accent:#C4202B; --accent-d:#94121C; --accent-ink:#FFFFFF; --accent-soft:#FCE6E2; --es:#1F5FA8;
+  --sun:#F2B705; --sun-d:#C28F00; --sun-soft:#FFF1C2; --sun-ink:#8A5A00; --on:#FFFFFF;
+  --ok:#168A58; --ok-d:#0F6B43; --ok-soft:#DDF6E9; --ok-ink:#0F6B43; --bad:#B3261E; --bad-d:#7F1712; --bad-soft:#FBE3E0; --bad-ink:#8C1D18; color-scheme:light}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#1C1412; --surface:#2A1F1B; --ink:#FFF3E6; --muted:#C9B5A6; --line:#4A3830;
+  --accent:#FF6B5E; --accent-d:#C4453B; --accent-ink:#2B0E0A; --accent-soft:#4A211C; --es:#9CC4FF;
+  --sun:#FFC72C; --sun-d:#B98A0A; --sun-soft:#3D3010; --sun-ink:#FFC72C; --on:#1C1412;
+  --ok:#3FCF8E; --ok-d:#279E69; --ok-soft:#143524; --ok-ink:#5BE0A3; --bad:#FF8A7A; --bad-d:#C4574A; --bad-soft:#40201C; --bad-ink:#FFA99C; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1C1412; --surface:#2A1F1B; --ink:#FFF3E6; --muted:#C9B5A6; --line:#4A3830;
+  --accent:#FF6B5E; --accent-d:#C4453B; --accent-ink:#2B0E0A; --accent-soft:#4A211C; --es:#9CC4FF;
+  --sun:#FFC72C; --sun-d:#B98A0A; --sun-soft:#3D3010; --sun-ink:#FFC72C; --on:#1C1412;
+  --ok:#3FCF8E; --ok-d:#279E69; --ok-soft:#143524; --ok-ink:#5BE0A3; --bad:#FF8A7A; --bad-d:#C4574A; --bad-soft:#40201C; --bad-ink:#FFA99C; color-scheme:dark}
+.es,.es2,.word b,.dl b.es,.exr b,.vt td.es,.th td.es{color:var(--es)}
+.azu{height:14px;border-radius:7px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28'%3E%3Crect width='28' height='28' fill='%23FFF7E8'/%3E%3Cpath d='M14 2 26 14 14 26 2 14z' fill='%231F5FA8'/%3E%3Cpath d='M14 7 21 14 14 21 7 14z' fill='%23FFF7E8'/%3E%3Ccircle cx='14' cy='14' r='3.500' fill='%23F2B705'/%3E%3Ccircle cx='0' cy='0' r='5' fill='%23C4202B'/%3E%3Ccircle cx='28' cy='0' r='5' fill='%23C4202B'/%3E%3Ccircle cx='0' cy='28' r='5' fill='%23C4202B'/%3E%3Ccircle cx='28' cy='28' r='5' fill='%23C4202B'/%3E%3C/svg%3E") center/14px 14px;margin:0 0 12px;opacity:.95}
+.wel .azu{margin-top:14px}
+.hero h1::after{content:"";display:block;width:54px;height:6px;border-radius:3px;margin-top:5px;background:linear-gradient(90deg,#C4202B 0 25%,#F2B705 25% 75%,#C4202B 75%)}
+.btn{background:var(--sun);color:#2B1B14;box-shadow:0 4px 0 var(--sun-d)}
+.btn:active:not(:disabled){box-shadow:0 1px 0 var(--sun-d)}
+.btn.sec{background:var(--surface);color:var(--ink);box-shadow:0 4px 0 var(--line)}
+.btn.ok{background:var(--ok);color:var(--on);box-shadow:0 4px 0 var(--ok-d)}.btn.bad{background:var(--bad);color:var(--on);box-shadow:0 4px 0 var(--bad-d)}
+.btn:disabled{background:var(--line);color:var(--muted);box-shadow:0 4px 0 var(--line)}
+.cont{background:var(--accent);color:var(--accent-ink);box-shadow:0 5px 0 var(--accent-d);background-image:radial-gradient(circle at 92% 18%,rgba(242,183,5,.9) 0 9px,transparent 10px),radial-gradient(circle at 80% 78%,rgba(255,255,255,.16) 0 7px,transparent 8px),radial-gradient(circle at 97% 62%,rgba(255,255,255,.16) 0 5px,transparent 6px)}
+.daily{background:var(--sun);color:#2B1B14}.daily small{color:#4A3A12}
+.stat.s2{background:var(--accent-soft)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.nav button[aria-current="true"]{color:var(--accent)}.nav button[aria-current="true"] svg{background:var(--accent-soft)}
+.th .ti{background:var(--sun-soft)}.tw2>div{border-left-color:var(--es)}
+.guidebtn.alt{border-color:var(--es);background:var(--surface)}.guidebtn.alt svg{color:var(--es)}
+.pk[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-soft)}
+.blank{border-bottom-color:var(--accent)}
+.lbl em{background:var(--sun-soft)}
+.play{background:var(--accent);color:var(--accent-ink)}
+.ring{--c:var(--accent)}
 .pack{display:flex;flex-direction:column;gap:6px;margin-top:10px;border:1.5px dashed var(--sun);background:var(--sun-soft);border-radius:var(--r);padding:14px 16px;cursor:pointer}
 .pack span{font-size:.9rem}.pack input,.packlink input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
 .pack em{font-style:normal;align-self:flex-start;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 14px;font-weight:600;margin-top:4px}
@@ -519,10 +553,10 @@ const CX = DATA.ctx || (DATA.ctx = {}), DG = DATA.dlg || {}, PQ = DATA.pronq || 
 const ZU = UNITS.filter(u => u > 20), BU = UNITS.filter(u => u < 20);
 const isZ = u => +u > 20, uNo = u => isZ(u) ? u - 20 : +u, uShort = u => (isZ(u) ? 'Βήμα ' : 'Κεφ. ') + uNo(u), uLong = u => (isZ(u) ? 'Βήμα ' : 'Κεφάλαιο ') + uNo(u);
 const CU = () => SET.course === 'zero' ? ZU : BU, slow = () => SET.pace === 'slow';
-const HUES = ['#E8590C','#0C9488','#6D4AE8','#D6336C','#1C7ED6','#2F9E44','#C77700','#C92A2A'], hue = u => HUES[(uNo(u) - 1) % HUES.length];
+const HUES = ['#C4202B','#A87400','#1F5FA8','#C2571A','#5E7A1F','#8E2A4B','#0C7C78','#D9480F'], hue = u => HUES[(uNo(u) - 1) % HUES.length];
 const LK = {V:'Aa', C:'yo', F:'_ _', P:'¿?', N:'12', T:'3h', D:'–¡!', R:'ñ'};
 const qaOk = u => isZ(u) ? u >= 22 : u <= 4;
-const mascot = (m, cls) => `<svg class="mas ${cls||''}" viewBox="0 0 120 120" aria-hidden="true"><ellipse cx="60" cy="112" rx="28" ry="5" fill="#000" opacity=".12"/><circle cx="60" cy="66" r="42" fill="#FF8A3D"/><path d="M27 48a38 38 0 0 1 30-22" fill="none" stroke="#FFC08A" stroke-width="6" stroke-linecap="round"/><path d="M60 27v-10" stroke="#7A4A21" stroke-width="4" stroke-linecap="round"/><path d="M61 22c2-11 11-16 21-14-1 10-10 16-21 14z" fill="#3DAA55"/><circle cx="45" cy="62" r="6.500" fill="#2B1B10"/><circle cx="75" cy="62" r="6.500" fill="#2B1B10"/><circle cx="47" cy="60" r="2.200" fill="#fff"/><circle cx="77" cy="60" r="2.200" fill="#fff"/><circle cx="34" cy="76" r="6" fill="#FF4E4E" opacity=".4"/><circle cx="86" cy="76" r="6" fill="#FF4E4E" opacity=".4"/>${m === 'sad' ? '<path d="M49 86q11-7 22 0" fill="none" stroke="#2B1B10" stroke-width="4" stroke-linecap="round"/>' : m === 'wow' ? '<path d="M44 76q16 22 32 0z" fill="#2B1B10"/><path d="M52 86q8 5 16 0" fill="#FF6B6B"/>' : '<path d="M46 78q14 13 28 0" fill="none" stroke="#2B1B10" stroke-width="4.500" stroke-linecap="round"/>'}</svg>`;
+const mascot = (m, cls) => `<svg class="mas ${cls||''}" viewBox="0 0 120 120" aria-hidden="true"><ellipse cx="60" cy="113" rx="27" ry="4.500" fill="#000" opacity=".12"/><path d="M30 40C14 38 8 24 13 10c5 12 14 17 25 19z" fill="#F6E7C6" stroke="#D9BF8A" stroke-width="2" stroke-linejoin="round"/><path d="M90 40c16-2 22-16 17-30-5 12-14 17-25 19z" fill="#F6E7C6" stroke="#D9BF8A" stroke-width="2" stroke-linejoin="round"/><ellipse cx="20" cy="54" rx="11" ry="7" transform="rotate(-20 20 54)" fill="#3A2620"/><ellipse cx="100" cy="54" rx="11" ry="7" transform="rotate(20 100 54)" fill="#3A2620"/><ellipse cx="21" cy="55" rx="5.500" ry="3" transform="rotate(-20 21 55)" fill="#E79A8B"/><ellipse cx="99" cy="55" rx="5.500" ry="3" transform="rotate(20 99 55)" fill="#E79A8B"/><path d="M60 26c24 0 38 16 38 38 0 16-8 30-20 38H42C30 94 22 80 22 64c0-22 14-38 38-38z" fill="#4A332B"/><path d="M48 28c4-8 20-8 24 0-3 7-8 10-12 10s-9-3-12-10z" fill="#3A2620"/><ellipse cx="60" cy="90" rx="25" ry="18" fill="#F0CFA6"/><ellipse cx="51" cy="84" rx="3.500" ry="2.600" fill="#3A2620"/><ellipse cx="69" cy="84" rx="3.500" ry="2.600" fill="#3A2620"/><circle cx="44" cy="60" r="8" fill="#fff"/><circle cx="76" cy="60" r="8" fill="#fff"/><circle cx="45.500" cy="61" r="4.600" fill="#2B1B14"/><circle cx="74.500" cy="61" r="4.600" fill="#2B1B14"/><circle cx="47" cy="59" r="1.600" fill="#fff"/><circle cx="76" cy="59" r="1.600" fill="#fff"/><g fill="#D4202B"><circle cx="92" cy="36" r="5"/><circle cx="99" cy="40" r="5"/><circle cx="97" cy="32" r="5"/><circle cx="90" cy="43" r="4.500"/></g><circle cx="95" cy="38" r="2.500" fill="#F2B705"/>${m === 'sad' ? '<path d="M51 97q9-6 18 0" fill="none" stroke="#3A2620" stroke-width="3.500" stroke-linecap="round"/>' : m === 'wow' ? '<path d="M49 92q11 14 22 0z" fill="#3A2620"/><path d="M54 98q6 4 12 0" fill="#FF6B6B"/>' : '<path d="M50 93q10 9 20 0" fill="none" stroke="#3A2620" stroke-width="3.500" stroke-linecap="round"/>'}</svg>`;
 const PERS = ['yo','tú','él / ella / usted','nosotros/as','vosotros/as','ellos / ustedes'];
 const TYPES = [{k:'v',n:'Λεξιλόγιο'},{k:'c',n:'Κλίση ρημάτων'},{k:'f',n:'Συμπλήρωση κενών'},{k:'p',n:'Προτάσεις'},{k:'n',n:'Ώρα και αριθμοί'},{k:'g',n:'Άρθρα el / la'},{k:'d',n:'Διάλογοι'}];
 const TLABEL = {v:'Λεξιλόγιο', c:'Ρήματα', f:'Γραμματική', n:'Αριθμοί', t:'Ώρα', p:'Προτάσεις', g:'Άρθρα', m:'Ταίριασμα', d:'Διάλογος', r:'Προφορά'};
@@ -1061,7 +1095,7 @@ function nav(){
 function unitDone(u){ const L = lessonsOf(u); return [L.filter(l => ST.done[l.id]).length, L.length]; }
 function pathView(){
   const st = streak(), tx = todayXp(), pct = Math.min(100, Math.round(100*tx/SET.goal)), nl = nextLesson(), zero = SET.course === 'zero';
-  return `<div class="wrap"><div class="hero">${mascot(pct >= 100 ? 'wow' : 'hi', 'sm')}<div class="ht"><h1>Práctica</h1><small>${zero ? 'Ισπανικά από το μηδέν' : 'Ισπανικά A1–A2 · 14 κεφάλαια'}</small></div></div>
+  return `<div class="wrap"><div class="hero">${mascot(pct >= 100 ? 'wow' : 'hi', 'sm')}<div class="ht"><h1>Práctica</h1><small>${zero ? 'Ισπανικά από το μηδέν' : 'Ισπανικά A1–A2 · 14 κεφάλαια'}</small></div></div><div class="azu" aria-hidden="true"></div>
   ${canSpeak ? '' : `<div class="nosnd box">${SPK}<span>Σε αυτή την προβολή το κινητό δεν δίνει ήχο. Για να ακούς την προφορά, άνοιξε την εγκατεστημένη εφαρμογή ή τη σελίδα της στον Chrome.</span></div>`}
   <div class="seg course">${[['zero','Από το μηδέν'],['book','Το βιβλίο μου']].map(([k,n]) => `<button data-course="${k}" aria-pressed="${SET.course===k}">${n}</button>`).join('')}</div>
   <div class="stats">
@@ -1102,7 +1136,7 @@ function wordsView(){
 }
 function welcomeView(){
   const pick = (attr, val, cur, t, s) => `<button class="pk" data-${attr}="${val}" aria-pressed="${cur===val}"><b>${t}</b><small>${s}</small></button>`;
-  return `<div class="wrap wel"><div class="welh">${mascot('wow', 'lg')}<h1>¡Hola!</h1><p class="sub">Καλώς ήρθες στο Práctica. Πες μου δύο πράγματα για να ξεκινήσουμε.</p></div>
+  return `<div class="wrap wel"><div class="azu" aria-hidden="true"></div><div class="welh">${mascot('wow', 'lg')}<h1>¡Hola!</h1><p class="sub">Καλώς ήρθες στο Práctica. Πες μου δύο πράγματα για να ξεκινήσουμε.</p></div>
   <h2>Από πού ξεκινάς;</h2>
   <div class="pick">${pick('wc', 'zero', WSEL.course, 'Από το μηδέν', 'Δεν ξέρω καθόλου ισπανικά. Οκτώ βήματα με τα απολύτως βασικά: προφορά, χαιρετισμοί, οικογένεια, φαγητό, πόλη.')}
     ${pick('wc', 'book', WSEL.course, 'Με το βιβλίο του μαθήματος', 'Κάνω ήδη μαθήματα. Δεκατέσσερα κεφάλαια επιπέδου A1–A2.')}</div>
